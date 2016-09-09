@@ -18,7 +18,7 @@ h2 {
   font-size: 18pt;
 }
 
-p {
+p, li {
   color: rgb(64, 64, 64);
   font-size: 11pt;
   font-family: Georgia, Garamond, serif;
@@ -35,4 +35,9 @@ a {
 blockquote {
   font-style: italic;
   background-color: rgb(255, 255, 200);
+}
+
+body {
+  background-image: url(http://courses.cs.washington.edu/courses/cse190m/09sp/homework/1/silverware.jpg);
+  background-attachment: fixed;
 }
