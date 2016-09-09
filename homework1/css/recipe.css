@@ -1,6 +1,7 @@
 h1 {
   color: #A4A400;
   background-color: #F0F0F0;
+  letter-spacing: 0.2em;
   text-align: center;
   text-decoration: underline;
   font-family: "Century Gothic", Futura, Verdana, sans-serif;
@@ -11,6 +12,7 @@ h1 {
 h2 {
   color: #A4A400;
   background-color: #F0F0F0;
+  letter-spacing: 0.2em;
   text-align: left;
   text-decoration: underline;
   font-family: "Century Gothic", Futura, Verdana, sans-serif;
