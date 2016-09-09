@@ -3,7 +3,7 @@ h1 {
   background-color: #F0F0F0;
   text-align: center;
   text-decoration: underline;
-  font-family: Century Gothic, Futura, Verdana, sans-serif;
+  font-family: "Century Gothic", Futura, Verdana, sans-serif;
   font-weight: bold;
   font-size: 22pt;
 }
@@ -13,7 +13,7 @@ h2 {
   background-color: #F0F0F0;
   text-align: left;
   text-decoration: underline;
-  font-family: Century Gothic, Futura, Verdana, sans-serif;
+  font-family: "Century Gothic", Futura, Verdana, sans-serif;
   font-weight: normal;
   font-size: 18pt;
 }
