@@ -1,0 +1,38 @@
+h1 {
+  color: #A4A400;
+  background-color: #F0F0F0;
+  text-align: center;
+  text-decoration: underline;
+  font-family: Century Gothic, Futura, Verdana, sans-serif;
+  font-weight: bold;
+  font-size: 22pt;
+}
+
+h2 {
+  color: #A4A400;
+  background-color: #F0F0F0;
+  text-align: left;
+  text-decoration: underline;
+  font-family: Century Gothic, Futura, Verdana, sans-serif;
+  font-weight: normal;
+  font-size: 18pt;
+}
+
+p {
+  color: rgb(64, 64, 64);
+  font-size: 11pt;
+  font-family: Georgia, Garamond, serif;
+}
+
+a {
+  color: rgb(164, 164, 0);
+}
+
+.step {
+  font-weight: bold;
+}
+
+blockquote {
+  font-style: italic;
+  background-color: rgb(255, 255, 200);
+}
