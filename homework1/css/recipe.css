@@ -41,3 +41,7 @@ body {
   background-image: url(http://courses.cs.washington.edu/courses/cse190m/09sp/homework/1/silverware.jpg);
   background-attachment: fixed;
 }
+
+ul {
+  list-style-image: url(http://courses.cs.washington.edu/courses/cse190m/09sp/homework/1/pie_icon.gif);
+}
