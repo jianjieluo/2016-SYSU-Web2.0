@@ -1,0 +1,25 @@
+body {
+  background-image: url(http://courses.cs.washington.edu/courses/cse190m/09sp/homework/1/silverware.jpg);
+  background-attachment: fixed;
+}
+
+a {
+  color: rgb(164, 164, 0);
+  text-align: center;
+}
+
+h1 {
+  color: #A4A400;
+  background-color: #F0F0F0;
+  letter-spacing: 0.5em;
+  text-align: center;
+  font-family: "Century Gothic", Futura, Verdana, sans-serif;
+  font-weight: bold;
+  font-size: 25pt;
+}
+
+address {
+  font-size: 12pt;
+  font-family: Georgia, Garamond, serif;
+  text-align: justify;
+}
