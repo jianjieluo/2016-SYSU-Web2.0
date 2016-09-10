@@ -1,3 +1,7 @@
+/*罗剑杰 15331229， 主要实现了index.css
+  为了使两者的页面风格类似，沿用了一部分recipe.css的风格内容
+  其他的按照作业要求来完成*/
+
 body {
   background-image: url(http://courses.cs.washington.edu/courses/cse190m/09sp/homework/1/silverware.jpg);
   background-attachment: fixed;
@@ -22,4 +26,9 @@ address {
   font-size: 12pt;
   font-family: Georgia, Garamond, serif;
   text-align: justify;
+}
+
+img {
+  max-width:450px;
+  max-height:300px
 }
