@@ -41,19 +41,15 @@ address {
     text-align: justify;
 }
 
-img {
+img.discription {
     width: 210px;
-    height: 150px;
+    height: 170px;
     float:left;
 }
 
-.discription {
-  /*border: 5px;*/
-  /*border-style: solid;*/
+div.discription {
+  width: 210px;
+  height: 170px;
   overflow: hidden;
-  margin: 2.0em;
-  /*margin-top: auto;*/
-  /*margin-bottom: auto;*/
-  /*vertical-align: middle;*/
-  /*padding-top: 10px;*/
+  margin-left: 0.5em;
 }
