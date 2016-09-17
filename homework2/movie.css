@@ -30,11 +30,13 @@ body {
 
 .content .poster {
   float: right;
-  margin-bottom: 0;
+  margin: 0;
 }
 
 .content .left-review {
   width: 550px;
+  /*float: left;*/
+  /*margin: auto;*/
 }
 
 .content .left-review .overall {
@@ -104,5 +106,29 @@ body {
   font-size: 8pt;
   font-family: Arial, sans-serif;
   float:right;
-  margin-top: 0;
+  /*padding: 10px;*/
+  margin: 0;
+}
+
+.content .GO-section .each-info {
+  font-weight: bold;
+  margin-top: 1em;
+}
+
+.content .bar {
+  width: 550px;
+  background-color: #A2B964;
+  /*vertical-align: -10px;*/
+  float:left;
+  /*padding-top: 5px;*/
+  /*padding-bottom: 5px;*/
+  /*margin: 0px;*/
+}
+
+.content .bar p {
+  text-align: center;
+}
+
+.links {
+  position: fixed;
 }
