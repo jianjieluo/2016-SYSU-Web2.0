@@ -4,21 +4,21 @@ body {
   font-family: Verdana, Tahoma, sans-serif;
 }
 
-#banner {
+.banner {
   text-align: center;
   background: url(http://my.ss.sysu.edu.cn/wiki/download/attachments/7045968/bannerbackground.png?version=1&modificationDate=1268896312000);
   background-repeat: repeat-x;
   height: 50px;
 }
 
-#heading {
+.heading {
   font-size: 24pt;
   font-weight: bold;
   font-family: Tahoma, Verdana, sans-serif;
   text-align: center;
 }
 
-#content {
+.content {
   width: 800px;
   margin-left: auto;
   margin-right: auto;
@@ -28,11 +28,15 @@ body {
   overflow: hidden;
 }
 
-#content #poster {
+.content .poster {
   float: right;
 }
 
-#content #overall {
+.content .left-review {
+  width: 550px;
+}
+
+.content .left-review .overall {
   width: 550px;
   height: 83px;
   float: left;
@@ -41,26 +45,26 @@ body {
   overflow: hidden;
 }
 
-#content #overall #rating {
+.content .left-review .overall .rating {
   font-size: 48pt;
   color: red;
   font-weight: bold;
   vertical-align: 10pt;
 }
 
-#content #overall #statics {
+.content .overall .statics {
   font-size: 8pt;
   color: white;
   vertical-align: 10pt;
 }
 
-#content .column {
+.content .left-review .column {
   float: left;
-  margin: 2%;
+  margin: 1.5%;
   width: 47%;
 }
 
-#content .critic {
+.content .critic {
   font-size: 8pt;
   font-weight: bold;
   background-color: #E1D697;
@@ -69,8 +73,14 @@ body {
   border-width: 2px;
   padding: 8px;
   word-wrap: normal;
+  overflow: hidden;
 }
 
-#content q {
-  padding-left: 5px;
+.content .critic img {
+  float:left;
+}
+
+.content q {
+  position: relative;
+  left: 5px;
 }
