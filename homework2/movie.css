@@ -30,6 +30,7 @@ body {
 
 .content .poster {
   float: right;
+  margin-bottom: 0;
 }
 
 .content .left-review {
@@ -76,7 +77,7 @@ body {
   overflow: hidden;
 }
 
-.content .each img {
+.content .each-cirtic img {
   float:left;
 }
 
@@ -93,6 +94,15 @@ body {
   font-style: italic;
 }
 
-.content .each {
+.content .each-cirtic {
   margin: 3em;
+}
+
+.content .GO-section {
+  width: 250px;
+  background-color: #A2B964;
+  font-size: 8pt;
+  font-family: Arial, sans-serif;
+  float:right;
+  margin-top: 0;
 }
