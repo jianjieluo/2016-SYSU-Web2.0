@@ -60,7 +60,7 @@ body {
 
 .content .left-review .column {
   float: left;
-  margin: 1.5%;
+  margin: 1%;
   width: 47%;
 }
 
@@ -76,11 +76,23 @@ body {
   overflow: hidden;
 }
 
-.content .critic img {
+.content .each img {
   float:left;
 }
 
-.content q {
+.content q, .content .reviewer p {
   position: relative;
   left: 5px;
+}
+
+.content .reviewer {
+  overflow: hidden;
+}
+
+.content .reviewer p {
+  font-style: italic;
+}
+
+.content .each {
+  margin: 3em;
 }
