@@ -1,12 +1,14 @@
 body {
-  background: url(http://my.ss.sysu.edu.cn/wiki/download/attachments/7045968/background.png?version=1&modificationDate=1268896312000);
+  /*background: url(http://my.ss.sysu.edu.cn/wiki/download/attachments/7045968/background.png?version=1&modificationDate=1268896312000);*/
+  background: url(./images/background.png);
   font-size: 8px;
   font-family: Verdana, Tahoma, sans-serif;
 }
 
 .banner {
   text-align: center;
-  background: url(http://my.ss.sysu.edu.cn/wiki/download/attachments/7045968/bannerbackground.png?version=1&modificationDate=1268896312000);
+  /*background: url(http://my.ss.sysu.edu.cn/wiki/download/attachments/7045968/bannerbackground.png?version=1&modificationDate=1268896312000);*/
+  background: url(./images/bannerbackground.png);
   background-repeat: repeat-x;
   height: 50px;
 }
@@ -43,7 +45,8 @@ body {
   width: 550px;
   height: 83px;
   float: left;
-  background: url(http://my.ss.sysu.edu.cn/wiki/download/attachments/7045968/rottenbackground.png?version=1&modificationDate=1268896385000);
+  /*background: url(http://my.ss.sysu.edu.cn/wiki/download/attachments/7045968/rottenbackground.png?version=1&modificationDate=1268896385000);*/
+  background: url(./images/rottenbackground.png);
   background-repeat: repeat-x;
   overflow: hidden;
 }
@@ -118,11 +121,7 @@ body {
 .content .bar {
   width: 550px;
   background-color: #A2B964;
-  /*vertical-align: -10px;*/
   float:left;
-  /*padding-top: 5px;*/
-  /*padding-bottom: 5px;*/
-  /*margin: 0px;*/
 }
 
 .content .bar p {
