@@ -44,12 +44,9 @@ body {
 }
 
 .content .left-review .overall {
-  width: 550px;
   height: 83px;
-  float: left;
   background: url(./images/rottenbackground.png);
   background-repeat: repeat-x;
-  overflow: hidden;
 }
 
 .rating {
@@ -74,21 +71,17 @@ body {
 .content .critic {
   font-size: 8pt;
   font-weight: bold;
-  background-color: #E1D697;
-  border-color: gray;
-  border-style: solid;
-  border-width: 2px;
-  padding: 8px;
-  word-wrap: normal;
-  overflow: hidden;
-  margin: 0;
+  border:2px solid gray;
+	background-color: #E1D697;
+	padding:8px;
+	overflow:hidden;
 }
 
 .content .each img {
   float:left;
 }
 
-.content q {
+.content q, .content span {
   position: relative;
   left: 5px;
 }
@@ -96,7 +89,7 @@ body {
 .content .reviewer {
   overflow: hidden;
   font-style: italic;
-  margin: 0;
+  margin-top: 10px;
 }
 
 .content .each {
