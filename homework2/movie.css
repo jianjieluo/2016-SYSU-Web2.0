@@ -1,3 +1,7 @@
+/*罗剑杰 15331229， 主要实现了movie.css
+  主要对各种模块进行分类，然后按照作业要求来完成*/
+
+
 body {
   background: url(./images/background.png);
   font-size: 8px;
@@ -63,7 +67,7 @@ body {
 
 .content .left-review .column {
   float: left;
-  margin: 1%;
+  margin-left: 2%;
   width: 47%;
 }
 
@@ -90,9 +94,6 @@ body {
 
 .content .reviewer {
   overflow: hidden;
-}
-
-.content .reviewer p {
   font-style: italic;
 }
 
@@ -110,11 +111,8 @@ body {
   padding: 10px;
 }
 
-.content .GO-section .each-info dt {
+.content .GO-section dt {
   font-weight: bold;
-}
-
-.content .GO-section .each-info {
   margin-top: 1em;
 }
 
