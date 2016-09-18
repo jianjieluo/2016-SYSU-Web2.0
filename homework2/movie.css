@@ -37,15 +37,12 @@ body {
 
 .content .left-review {
   width: 550px;
-  /*float: left;*/
-  /*margin: auto;*/
 }
 
 .content .left-review .overall {
   width: 550px;
   height: 83px;
   float: left;
-  /*background: url(http://my.ss.sysu.edu.cn/wiki/download/attachments/7045968/rottenbackground.png?version=1&modificationDate=1268896385000);*/
   background: url(./images/rottenbackground.png);
   background-repeat: repeat-x;
   overflow: hidden;
@@ -113,8 +110,11 @@ body {
   padding: 10px;
 }
 
-.content .GO-section .each-info {
+.content .GO-section .each-info dt {
   font-weight: bold;
+}
+
+.content .GO-section .each-info {
   margin-top: 1em;
 }
 
@@ -123,6 +123,7 @@ body {
   background-color: #A2B964;
   clear: both;
   text-align: center;
+  padding: 5px;
 }
 
 .links {
