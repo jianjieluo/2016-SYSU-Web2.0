@@ -79,14 +79,10 @@ body {
 
 .content .each img {
   float:left;
+  margin-right: 5px;
 }
 
-.content q, .content span {
-  position: relative;
-  left: 5px;
-}
-
-.content .reviewer {
+.content .reviewer span{
   overflow: hidden;
   font-style: italic;
   margin-top: 10px;
