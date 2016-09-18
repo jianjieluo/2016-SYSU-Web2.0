@@ -52,14 +52,14 @@ body {
   overflow: hidden;
 }
 
-.content .left-review .overall .rating {
+.rating {
   font-size: 48pt;
   color: red;
   font-weight: bold;
   vertical-align: 10pt;
 }
 
-.content .overall .statics {
+.statics {
   font-size: 8pt;
   color: white;
   vertical-align: 10pt;
@@ -81,13 +81,14 @@ body {
   padding: 8px;
   word-wrap: normal;
   overflow: hidden;
+  margin: 0;
 }
 
-.content .each-cirtic img {
+.content .each img {
   float:left;
 }
 
-.content q, .content .reviewer p {
+.content q {
   position: relative;
   left: 5px;
 }
@@ -95,10 +96,12 @@ body {
 .content .reviewer {
   overflow: hidden;
   font-style: italic;
+  margin: 0;
 }
 
-.content .each-cirtic {
-  margin: 3em;
+.content .each {
+  margin-top: 3em;
+  margin-bottom: 3em;
 }
 
 .content .GO-section {
