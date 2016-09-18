@@ -1,13 +1,13 @@
 body {
-  /*background: url(http://my.ss.sysu.edu.cn/wiki/download/attachments/7045968/background.png?version=1&modificationDate=1268896312000);*/
   background: url(./images/background.png);
   font-size: 8px;
   font-family: Verdana, Tahoma, sans-serif;
+  margin: 0;
+  padding: 0;
 }
 
 .banner {
   text-align: center;
-  /*background: url(http://my.ss.sysu.edu.cn/wiki/download/attachments/7045968/bannerbackground.png?version=1&modificationDate=1268896312000);*/
   background: url(./images/bannerbackground.png);
   background-repeat: repeat-x;
   height: 50px;
@@ -111,7 +111,6 @@ body {
   font-family: Arial, sans-serif;
   float:right;
   padding: 10px;
-  margin: 0;
 }
 
 .content .GO-section .each-info {
