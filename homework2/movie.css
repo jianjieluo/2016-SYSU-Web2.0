@@ -120,18 +120,15 @@ body {
 }
 
 .content .bar {
-  position: relative;
-  top: 30pt;
-  width: 550px;
+  margin: auto;
   background-color: #A2B964;
-  float:left;
-}
-
-.content .bar p {
+  clear: both;
   text-align: center;
 }
 
 .links {
-  position: absolute;
-  float: right;
+  position: fixed;
+  right: 0;
+  bottom: 0;
+  border: none;
 }
