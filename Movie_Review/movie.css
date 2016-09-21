@@ -88,6 +88,10 @@ body {
   margin-top: 10px;
 }
 
+.content .reviewer {
+  font-size: 8pt;
+}
+
 .content .each {
   margin-top: 3em;
   margin-bottom: 3em;
