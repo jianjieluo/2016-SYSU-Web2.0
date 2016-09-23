@@ -1,45 +1,24 @@
+div[id="bottom-positioner"] {
+	position: absolute;
+	top: 70%;
+	left: 50%;
+}
 
-
-/*The major bule buttom*/
-div[class="apb"] {
+div[id="info-bar"] {
+	position:inherit;
+	/*visibility: hidden;*/
+	visibility: visible;
 	background-color: gray;
 
 	box-sizing: border-box;
-	height: 40px;
-	width: 40px;
+	width: 100px;
+	height: 100px;
 	border-radius: 100px;
+	/*opacity: 0;*/
 
-	transition: background-color 0.5s, background-image 0.5s, height 0.5s, width 0.5s;
-
+	transition: width 0.5s, height 0.5s, opacity 0.5s, visibility 0.01s;
 }
 
-div[class="apb"]:hover {
-	background-color: rgba(48, 63, 159, 1);
-
-  box-sizing: border-box;
-	height: 80px;
-	width: 80px;
-	border-radius: 100px;
-}
-
-div[class="apb"] > div[class="icon"] {
-	content: url(./assets/images/atplus_white.png);
-	box-sizing: border-box;
-	height: 80%;
-	width: 80%;
-
-	padding-left: 15%;
-	padding-top: 10%;
-
-	transition: height 0.5s, width 0.5s, padding 0.5s;
-}
-
-div[class="apb"]:hover > div[class="icon"] {
-	content: url(./assets/images/atplus_green.png);
-	box-sizing: border-box;
-	height: 80%;
-	width: 80%;
-
-	padding-left: 15%;
-	padding-top: 10%;
+div[class="info"] li {
+	position: inherit;
 }
