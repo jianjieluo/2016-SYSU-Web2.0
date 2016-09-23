@@ -1,0 +1,45 @@
+
+
+/*The major bule buttom*/
+div[class="apb"] {
+	background-color: gray;
+
+	box-sizing: border-box;
+	height: 40px;
+	width: 40px;
+	border-radius: 100px;
+
+	transition: background-color 0.5s, background-image 0.5s, height 0.5s, width 0.5s;
+
+}
+
+div[class="apb"]:hover {
+	background-color: rgba(48, 63, 159, 1);
+
+  box-sizing: border-box;
+	height: 80px;
+	width: 80px;
+	border-radius: 100px;
+}
+
+div[class="apb"] > div[class="icon"] {
+	content: url(./assets/images/atplus_white.png);
+	box-sizing: border-box;
+	height: 80%;
+	width: 80%;
+
+	padding-left: 15%;
+	padding-top: 10%;
+
+	transition: height 0.5s, width 0.5s, padding 0.5s;
+}
+
+div[class="apb"]:hover > div[class="icon"] {
+	content: url(./assets/images/atplus_green.png);
+	box-sizing: border-box;
+	height: 80%;
+	width: 80%;
+
+	padding-left: 15%;
+	padding-top: 10%;
+}
