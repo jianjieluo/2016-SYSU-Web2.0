@@ -83,26 +83,38 @@ li {
 	width: 50px;
 }
 
+/*div[id="button"]:hover .info li, .info img{
+	width: 35px;
+	height: 35px;
+}*/
+
+div[id="button"]:hover span {
+	padding-left: 10px;
+	vertical-align: 5px;
+}
+
 div[id="button"]:hover .user {
 	position: absolute;
 	left: 50px;
 	top: 10px;
 }
 
-div[id="button"]:hover span {
-	padding-left: 5px;
-	vertical-align: 5px;
-}
-
 div[id="button"]:hover .user span {
 	font-weight: bold;
 	color: white;
+	font-size: 20px;
 }
 
 div[id="button"]:hover .comment {
 	position: absolute;
-	left: 50px;
-	top: 50px;
+	left: 40px;
+	top: 40px;
+}
+
+div[id="button"]:hover .comment span {
+	font-weight: bolder;
+	color: white;
+	font-size: 30px;
 }
 
 div[id="button"]:hover .posted {
@@ -131,8 +143,8 @@ div[id="button"]:hover .button {
 	background-color: gray;
 	background-position: center;
 	background-repeat: no-repeat;
-	width:35px;
-	height: 35px;
+	width:40px;
+	height: 40px;
 	border-radius: 100px;
 	opacity: 1;
 }
@@ -150,6 +162,24 @@ div[id="button"]:hover .button {
 #button:hover .message {
 	transform: translate(-70px, 60px);
 	background-image: url(./assets/images/message.png);
+}
+
+#button:hover .message .unread {
+	padding-left: 0;
+	padding-right: 0;
+	position: relative;
+	left: 20px;
+	background-color: red;
+	box-sizing: border-box;
+
+	width: 20px;
+	height: 20px;
+	border-radius: 100px;
+
+	color: white;
+	font-weight: bolder;
+	display: block;
+	text-align: center;
 }
 
 #button:hover .setting {
