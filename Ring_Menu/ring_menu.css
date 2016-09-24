@@ -1,24 +1,116 @@
+/*begin the truly css*/
 div[id="bottom-positioner"] {
 	position: absolute;
-	top: 70%;
+	top: 60%;
 	left: 50%;
 }
 
-div[id="info-bar"] {
-	position:inherit;
-	/*visibility: hidden;*/
-	visibility: visible;
-	background-color: gray;
-
+/*basical things */
+div[id="button"] div {
+	position: inherit;
+	visibility: hidden;
 	box-sizing: border-box;
-	width: 100px;
-	height: 100px;
-	border-radius: 100px;
-	/*opacity: 0;*/
+	width: 30px;
+	height: 30px;
 
-	transition: width 0.5s, height 0.5s, opacity 0.5s, visibility 0.01s;
+	transition: all 0.5s;
 }
 
-div[class="info"] li {
+div[id="button"] {
 	position: inherit;
+	box-sizing: border-box;
+	width: 30px;
+	height: 30px;
+	border-radius: 100px;
+
+	background-color: gray;
+}
+
+div[class="icon"] {
+	background-image: url(./assets/images/atplus_white.png);
+	background-repeat: no-repeat;
+	visibility: visible !important;
+  background-position: center;
+	transition: all 0.5s;
+}
+
+/*when the button is hovered*/
+
+/*basic thing behavior*/
+div[id="button"]:hover div {
+	visibility: visible;
+	box-sizing: border-box;
+	border-radius: 100px;
+}
+
+div[id="button"]:hover {
+	visibility: hidden;
+}
+
+/*the apb behaviour*/
+div[id="button"]:hover > div[class="apb"] {
+	background-color: rgba(48, 63, 159, 1);
+	width: 80px;
+	height: 80px;
+}
+
+div[id="button"]:hover div[class="icon"] {
+	background-image: url(./assets/images/atplus_green.png);
+	background-repeat: no-repeat;
+	background-position: center;
+	width: 80px;
+	height: 80px;
+}
+
+
+/*the info-bar behavior*/
+
+div[id="button"]:hover div[id="info-bar"] {
+	position: inherit;
+	transform: translate(-30px, -160px);
+	background-color: gray;
+	width: 150px;
+	height: 150px;
+}
+
+li {
+	list-style-type: none;
+	width: 50px;
+}
+
+div[id="button"]:hover .user {
+	position: absolute;
+	left: 50px;
+	top: 3px;
+}
+
+div[id="button"]:hover .comment {
+	position: absolute;
+	left: 50px;
+	top: 50px;
+}
+
+div[id="button"]:hover .posted {
+	position: absolute;
+	left: 30px;
+	top: 100px;
+}
+
+div[id="button"]:hover .like {
+	position: absolute;
+	left: 70px;
+	top: 100px;
+}
+
+
+
+
+
+
+
+div[id="button"]:hover > div[id="control-ring-container"] {
+	transform: translate(-100px, 0px);
+	background-color: gray;
+	width: 40px;
+	height: 40px;
 }
