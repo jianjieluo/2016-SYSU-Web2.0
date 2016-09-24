@@ -81,7 +81,17 @@ li {
 div[id="button"]:hover .user {
 	position: absolute;
 	left: 50px;
-	top: 3px;
+	top: 10px;
+}
+
+div[id="button"]:hover span {
+	padding-left: 5px;
+	vertical-align: 5px;
+}
+
+div[id="button"]:hover .user span {
+	font-weight: bold;
+	color: white;
 }
 
 div[id="button"]:hover .comment {
@@ -103,14 +113,43 @@ div[id="button"]:hover .like {
 }
 
 
+/*the left down circles*/
+.button {
+	opacity: 0;
+	transition: all 0.5s;
+}
 
-
-
-
-
-div[id="button"]:hover > div[id="control-ring-container"] {
-	transform: translate(-100px, 0px);
+div[id="button"]:hover .button {
 	background-color: gray;
-	width: 40px;
-	height: 40px;
+	background-position: center;
+	background-repeat: no-repeat;
+	width:35px;
+	height: 35px;
+	border-radius: 100px;
+	opacity: 1;
+}
+
+#button:hover .mask {
+	transform: translate(-90px, -45px);
+	background-image: url(./assets/images/mask.png);
+}
+
+#button:hover .history {
+	transform: translate(-103px, -35px);
+	background-image: url(./assets/images/history.png);
+}
+
+#button:hover .message {
+	transform: translate(-85px, -20px);
+	background-image: url(./assets/images/message.png);
+}
+
+#button:hover .setting {
+	transform: translate(-50px, -25px);
+	background-image: url(./assets/images/setting.png);
+}
+
+#button:hover .sign {
+	transform: translate(5px, -65px);
+	background-image: url(./assets/images/signin.png);
 }
