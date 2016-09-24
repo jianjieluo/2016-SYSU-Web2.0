@@ -5,13 +5,13 @@ ul {
 
 /*begin the truly css*/
 div[id="bottom-positioner"] {
-	position: absolute;
+	position: fixed;
 	top: 70%;
 	left: 50%;
 }
 
-/*basical things */
-div[id="button"] div {
+/*when the button not hovered */
+#button div {
 	position: inherit;
 	visibility: hidden;
 	box-sizing: border-box;
@@ -19,10 +19,9 @@ div[id="button"] div {
 	height: 30px;
 
 	transition: all 0.8s;
-	transition-delay: 0s;
 }
 
-div[id="button"] {
+#button {
 	position: inherit;
 	box-sizing: border-box;
 	width: 30px;
@@ -33,34 +32,34 @@ div[id="button"] {
 }
 
 div[class="icon"] {
+	visibility: visible !important;
 	background-image: url(./assets/images/atplus_white.png);
 	background-repeat: no-repeat;
-	visibility: visible !important;
   background-position: center;
 	transition: all 0.8s;
 }
+/*----------------------------------------------*/
 
 /*when the button is hovered*/
-
 /*basic thing behavior*/
-div[id="button"]:hover div {
+#button:hover div {
 	visibility: visible;
 	box-sizing: border-box;
 	border-radius: 100px;
 }
 
-div[id="button"]:hover {
+#button:hover {
 	visibility: hidden;
 }
 
 /*the apb behaviour*/
-div[id="button"]:hover > div[class="apb"] {
+#button:hover > div[class="apb"] {
 	background-color: rgba(48, 63, 159, 1);
 	width: 75px;
 	height: 75px;
 }
 
-div[id="button"]:hover div[class="icon"] {
+#button:hover div[class="icon"] {
 	background-image: url(./assets/images/atplus_green.png);
 	background-repeat: no-repeat;
 	background-position: center;
@@ -70,68 +69,80 @@ div[id="button"]:hover div[class="icon"] {
 
 
 /*the info-bar behavior*/
-
-div[id="button"]:hover div[id="info-bar"] {
+#button:hover div[id="info-bar"] {
 	position: inherit;
 	transform: translate(-40px, -160px);
 	background-color: #7E7E7E;
 	width: 140px;
 	height: 140px;
+	opacity: 1;
 }
 
+/*fixed the bug*/
+/*---------------------------------------*/
 li {
 	list-style-type: none;
 	width: 50px;
-	transition: all 0.0.8s;
+	position: absolute;
+	top:70%;
+	left: 50%;
+	opacity: 0;
+
+	transition: opacity 0.8s;
 }
+
+#button:hover li {
+	opacity: 1;
+}
+/*-------------------------------------*/
 
 .info img {
 	width: 25px;
 }
 
-div[id="button"]:hover span {
+#button:hover span {
 	padding-left: 10px;
 	vertical-align: 5px;
 }
 
 
-div[id="button"]:hover .user {
+#button:hover .user {
 	position: absolute;
 	left: 50px;
 	top: 10px;
 }
 
-div[id="button"]:hover .user span {
+#button:hover .user span {
 	font-weight: bold;
 	color: white;
 	font-size: 20px;
 }
 
-div[id="button"]:hover .comment {
+#button:hover .comment {
 	position: absolute;
 	left: 40px;
 	top: 40px;
 }
 
-div[id="button"]:hover .comment span {
+#button:hover .comment span {
 	font-weight: bolder;
 	color: white;
 	font-size: 30px;
 }
 
-div[id="button"]:hover .posted {
+#button:hover .posted {
 	position: absolute;
 	left: 25px;
 	top: 85px;
 }
 
-div[id="button"]:hover .like {
+#button:hover .like {
 	position: absolute;
 	left: 80px;
 	top: 85px;
 }
 
-div[id="button"]:hover .mine {
+#button:hover .mine {
 	font-weight: bolder;
 	font-size: 20px;
 	color: #22DA8F;
@@ -147,7 +158,7 @@ div[id="button"]:hover .mine {
 	transition: all 0.8s;
 }
 
-div[id="button"]:hover .button {
+#button:hover .button {
 	background-color: #686868;
 	background-position: center;
 	background-repeat: no-repeat;
@@ -174,12 +185,11 @@ div[id="button"]:hover .button {
 
 #button:hover .message .unread {
 	padding-left: 0;
-	padding-right: 0;
 	position: relative;
 	left: 20px;
 	background-color: red;
-	box-sizing: border-box;
 
+	box-sizing: border-box;
 	width: 20px;
 	height: 20px;
 	border-radius: 100px;
