@@ -1,3 +1,8 @@
+ul {
+	padding: 0;
+	margin: 0;
+}
+
 /*begin the truly css*/
 div[id="bottom-positioner"] {
 	position: absolute;
@@ -50,16 +55,16 @@ div[id="button"]:hover {
 /*the apb behaviour*/
 div[id="button"]:hover > div[class="apb"] {
 	background-color: rgba(48, 63, 159, 1);
-	width: 80px;
-	height: 80px;
+	width: 75px;
+	height: 75px;
 }
 
 div[id="button"]:hover div[class="icon"] {
 	background-image: url(./assets/images/atplus_green.png);
 	background-repeat: no-repeat;
 	background-position: center;
-	width: 80px;
-	height: 80px;
+	width: 75px;
+	height: 75px;
 }
 
 
@@ -67,7 +72,7 @@ div[id="button"]:hover div[class="icon"] {
 
 div[id="button"]:hover div[id="info-bar"] {
 	position: inherit;
-	transform: translate(-30px, -160px);
+	transform: translate(-40px, -160px);
 	background-color: gray;
 	width: 150px;
 	height: 150px;
@@ -115,6 +120,9 @@ div[id="button"]:hover .like {
 
 /*the left down circles*/
 .button {
+	position: absolute;
+	top:60%;
+	left: 50%;
 	opacity: 0;
 	transition: all 0.5s;
 }
@@ -130,26 +138,26 @@ div[id="button"]:hover .button {
 }
 
 #button:hover .mask {
-	transform: translate(-90px, -45px);
+	transform: translate(-75px, -40px);
 	background-image: url(./assets/images/mask.png);
 }
 
 #button:hover .history {
-	transform: translate(-103px, -35px);
+	transform: translate(-80px, 10px);
 	background-image: url(./assets/images/history.png);
 }
 
 #button:hover .message {
-	transform: translate(-85px, -20px);
+	transform: translate(-70px, 60px);
 	background-image: url(./assets/images/message.png);
 }
 
 #button:hover .setting {
-	transform: translate(-50px, -25px);
+	transform: translate(-23px, 83px);
 	background-image: url(./assets/images/setting.png);
 }
 
 #button:hover .sign {
-	transform: translate(5px, -65px);
+	transform: translate(25px, 80px);
 	background-image: url(./assets/images/signin.png);
 }
