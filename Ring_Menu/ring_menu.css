@@ -6,7 +6,7 @@ ul {
 /*begin the truly css*/
 div[id="bottom-positioner"] {
 	position: absolute;
-	top: 60%;
+	top: 70%;
 	left: 50%;
 }
 
@@ -18,7 +18,7 @@ div[id="button"] div {
 	width: 30px;
 	height: 30px;
 
-	transition: all 0.5s;
+	transition: all 0.8s;
 	transition-delay: 0s;
 }
 
@@ -37,7 +37,7 @@ div[class="icon"] {
 	background-repeat: no-repeat;
 	visibility: visible !important;
   background-position: center;
-	transition: all 0.5s;
+	transition: all 0.8s;
 }
 
 /*when the button is hovered*/
@@ -82,7 +82,7 @@ div[id="button"]:hover div[id="info-bar"] {
 li {
 	list-style-type: none;
 	width: 50px;
-	transition: all 0.1s;
+	transition: all 0.0.8s;
 }
 
 .info img {
@@ -144,7 +144,7 @@ div[id="button"]:hover .mine {
 	top:60%;
 	left: 50%;
 	opacity: 0;
-	transition: all 0.5s;
+	transition: all 0.8s;
 }
 
 div[id="button"]:hover .button {
