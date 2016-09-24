@@ -1,3 +1,5 @@
+/*请用chrome来运行，谢谢*/
+
 ul {
 	padding: 0;
 	margin: 0;
@@ -57,6 +59,7 @@ div[class="icon"] {
 	background-color: rgba(48, 63, 159, 1);
 	width: 75px;
 	height: 75px;
+	/*transform: scale(2);*/
 }
 
 #button:hover div[class="icon"] {
@@ -65,6 +68,7 @@ div[class="icon"] {
 	background-position: center;
 	width: 75px;
 	height: 75px;
+	/*transform: scale(2);*/
 }
 
 
