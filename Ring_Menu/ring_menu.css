@@ -41,12 +41,16 @@ div[id="bottom-positioner"] {
 	position: fixed;
 	box-sizing: border-box;
 
-	/*visibility: hidden;*/
 	width: 30px;
 	height: 30px;
+	border-radius: 100px;
+	/*visibility: hidden;*/
 	transition: all 0.7s;
 }
 
+div[class="apb"] {
+	background-color: #9A9CCC;
+}
 
 div[class="icon"] {
 	visibility: visible !important;
@@ -75,8 +79,6 @@ div[class="icon"] {
 /*when the button is hovered*/
 #button:hover div {
 	visibility: visible;
-	box-sizing: border-box;
-	border-radius: 100px;
 }
 
 #button:hover {
