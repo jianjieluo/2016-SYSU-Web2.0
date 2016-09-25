@@ -62,6 +62,8 @@ div[class="icon"] {
 
 div[class="info"] li {
 	position: fixed;
+	top: 70%;
+	left: 50%;
 }
 
 
@@ -93,7 +95,6 @@ div[class="info"] li {
 	display: block;
 	text-align: center;
 
-	/*opacity: 0;*/
 	transition: all 0.7s;
 	transition-delay: 0.1s;
 }
@@ -103,16 +104,6 @@ div[class="info"] li {
 
 
 /*----------------------------------------------*/
-
-/*when the button is hovered*/
-#button:hover div {
-	visibility: visible;
-}
-
-#button:hover {
-	/*visibility: hidden;*/
-}
-
 
 #button:hover > div[class="apb"] {
 	background-color: rgba(48, 63, 159, 1);
@@ -192,9 +183,8 @@ div[class="info"] li {
 	color: #22DA8F;
 }
 
+/*fixed*/
 /*----------------------------------------------------*/
-
-
 #button:hover .button {
 	background-color: #686868;
 	background-position: center;
@@ -233,6 +223,12 @@ div[class="info"] li {
 	transform: translate(25px, 78px);
 	background-image: url(./assets/images/signin.png);
 }
+
+/*-----------------------------------------------*/
+
+
+
+
 
 #button:hover div[id="info-bar"], div[id="control-ring-container"] {
 	transition-delay: 0.1s;
