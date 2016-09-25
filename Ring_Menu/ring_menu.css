@@ -222,18 +222,15 @@ div[class="info"] li {
 /*fixed*/
 #button:hover .message .unread {
 	padding-left: 0;
-	opacity: 1;
-	transition: all 0.7s;
-	transition-delay: 0.1s;
 }
 
 #button:hover .setting {
-	transform: translate(-23px, 83px);
+	transform: translate(-25px, 83px);
 	background-image: url(./assets/images/setting.png);
 }
 
 #button:hover .sign {
-	transform: translate(25px, 80px);
+	transform: translate(25px, 78px);
 	background-image: url(./assets/images/signin.png);
 }
 
