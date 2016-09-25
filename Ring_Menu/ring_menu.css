@@ -37,12 +37,13 @@ div[id="bottom-positioner"] {
 	width: 30px;
 	height: 30px;
 	border-radius: 100px;
-	/*visibility: hidden;*/
 	transition: all 0.7s;
+	transition-delay: 0.1s;
 }
 
 div[class="apb"] {
 	background-color: #9A9CCC;
+	/*transition-delay: 0s;*/
 }
 
 div[class="icon"] {
