@@ -4,7 +4,7 @@ li {
 	left: 50%;
 	list-style-type: none;
 	width: 50px;
-	/*opacity: 0;*/
+	opacity: 0;
 
 	transition: all 0.7s;
 	transition-delay: 0.1s;
