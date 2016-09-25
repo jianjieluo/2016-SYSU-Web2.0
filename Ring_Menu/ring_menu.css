@@ -69,8 +69,8 @@ div[class="info"] li {
 .button {
 	position: fixed;
 	box-sizing: border-box;
-	width: 32px;
-	height: 32px;
+	width: 36px;
+	height: 36px;
 	border-radius: 100px;
 
 	opacity: 0;
@@ -81,7 +81,8 @@ div[class="info"] li {
 .unread {
 	padding-left: 0;
 	position: relative;
-	left: 20px;
+	left: 24px;
+	bottom: 5px;
 	background-color: red;
 	box-sizing: border-box;
 	width: 20px;
@@ -143,66 +144,64 @@ div[class="info"] li {
 /*-------------------------------------*/
 
 
-
-#button:hover span {
+/*fixed*/
+#button:hover div[class="info"] span {
 	padding-left: 10px;
 	vertical-align: 5px;
 }
 
-
-#button:hover .user {
+#button:hover div[class="info"] .user {
 	position: absolute;
 	left: 50px;
 	top: 10px;
 }
 
-#button:hover .user span {
+#button:hover div[class="info"] .user span {
 	font-weight: bold;
 	color: white;
 	font-size: 20px;
 }
 
-#button:hover .comment {
+#button:hover div[class="info"] .comment {
 	position: absolute;
 	left: 40px;
 	top: 40px;
 }
 
-#button:hover .comment span {
+#button:hover div[class="info"] .comment span {
 	font-weight: bolder;
 	color: white;
 	font-size: 30px;
 }
 
-#button:hover .posted {
+#button:hover div[class="info"] .posted {
 	position: absolute;
 	left: 25px;
 	top: 85px;
 }
 
-#button:hover .like {
+#button:hover div[class="info"] .like {
 	position: absolute;
 	left: 80px;
 	top: 85px;
 }
 
-#button:hover .mine {
+#button:hover div[class="info"] .mine {
 	font-weight: bolder;
 	font-size: 20px;
 	color: #22DA8F;
 }
 
-
+/*----------------------------------------------------*/
 
 
 #button:hover .button {
 	background-color: #686868;
 	background-position: center;
 	background-repeat: no-repeat;
-	width:40px;
-	height: 40px;
-	border-radius: 100px;
 	opacity: 1;
+	transition: all 0.7s;
+	transition-delay: 0.1s;
 }
 
 #button:hover .mask {
