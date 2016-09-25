@@ -20,7 +20,11 @@ div[id="bottom-positioner"] {
 	width: 30px;
 	height: 30px;
 
-	transition: all 0.8s;
+	transition: all 0.7s;
+}
+
+#button:hover div[id="info-bar"], div[id="control-ring-container"] {
+	transition-delay: 0.1s;
 }
 
 #button {
@@ -38,7 +42,7 @@ div[class="icon"] {
 	background-image: url(./assets/images/atplus_white.png);
 	background-repeat: no-repeat;
   background-position: center;
-	transition: all 0.8s;
+	transition: all 0.7s;
 }
 /*----------------------------------------------*/
 
@@ -59,6 +63,10 @@ div[class="icon"] {
 	background-color: rgba(48, 63, 159, 1);
 	width: 75px;
 	height: 75px;
+
+	/*position: fixed;
+	top:68%;
+	left: 48%;*/
 	/*transform: scale(2);*/
 }
 
@@ -68,6 +76,10 @@ div[class="icon"] {
 	background-position: center;
 	width: 75px;
 	height: 75px;
+
+	/*position: fixed;
+	top: 68%;
+	left: 48%;*/
 	/*transform: scale(2);*/
 }
 
@@ -87,12 +99,13 @@ div[class="icon"] {
 li {
 	list-style-type: none;
 	width: 50px;
-	position: absolute;
+	position: fixed;
 	top:70%;
 	left: 50%;
 	opacity: 0;
 
-	transition: opacity 0.8s;
+	transition: opacity 0.7s;
+	transition-delay: 0.1s;
 }
 
 #button:hover li {
@@ -159,7 +172,8 @@ li {
 	top:60%;
 	left: 50%;
 	opacity: 0;
-	transition: all 0.8s;
+	transition: all 0.7s;
+	transition-delay: 0.1s;
 }
 
 #button:hover .button {
