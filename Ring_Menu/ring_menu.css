@@ -88,26 +88,12 @@ div[class="icon"] {
 /*the apb behaviour*/
 #button:hover > div[class="apb"] {
 	background-color: rgba(48, 63, 159, 1);
-	width: 75px;
-	height: 75px;
-
-	/*position: fixed;
-	top:68%;
-	left: 48%;*/
-	/*transform: scale(2);*/
+	transform: scale(2);
 }
 
 #button:hover div[class="icon"] {
 	background-image: url(./assets/images/atplus_green.png);
-	background-repeat: no-repeat;
-	background-position: center;
-	width: 75px;
-	height: 75px;
-
-	/*position: fixed;
-	top: 68%;
-	left: 48%;*/
-	/*transform: scale(2);*/
+	transform: scale(1.3);
 }
 
 
