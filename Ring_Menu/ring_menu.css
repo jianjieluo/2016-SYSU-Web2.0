@@ -1,18 +1,12 @@
-
-ul {
-	padding: 0;
-	margin: 0;
-}
-
 li {
-	list-style-type: none;
-	width: 50px;
 	position: fixed;
 	top:70%;
 	left: 50%;
+	list-style-type: none;
+	width: 50px;
 	/*opacity: 0;*/
 
-	transition: opacity 0.7s;
+	transition: all 0.7s;
 	transition-delay: 0.1s;
 }
 
@@ -60,11 +54,11 @@ div[class="icon"] {
 	transition: all 0.7s;
 }
 
-div[class="info"] li {
+/*div[class="info"] li {
 	position: fixed;
 	top: 70%;
 	left: 50%;
-}
+}*/
 
 
 /*the left down circles*/
@@ -129,13 +123,13 @@ div[class="info"] li {
 	transition: all 0.7s;
 }
 
-/*fixed the bug*/
-/*---------------------------------------*/
-
 #button:hover li {
+	position: fixed;
+	top: 70%;
+	left: 50%;
 	opacity: 1;
+	transition: all 0.7s;
 }
-/*-------------------------------------*/
 
 
 /*fixed*/
@@ -194,7 +188,6 @@ div[class="info"] li {
 	background-repeat: no-repeat;
 	opacity: 1;
 	transition: all 0.7s;
-	transition-delay: 0.1s;
 }
 
 #button:hover .mask {
@@ -228,11 +221,3 @@ div[class="info"] li {
 }
 
 /*-----------------------------------------------*/
-
-
-
-
-
-#button:hover div[id="info-bar"], div[id="control-ring-container"] {
-	transition-delay: 0.1s;
-}
