@@ -1,3 +1,6 @@
+
+
+
 li {
 	position: fixed;
 	top:70%;
@@ -46,7 +49,7 @@ div[class="apb"] {
 }
 
 div[class="icon"] {
-	background-image: url(./assets/images/atplus_white.png);
+	background-image: url(../assets/images/atplus_white.png);
 	background-repeat: no-repeat;
 	background-size: 20px, 20px;
   background-position: center;
@@ -96,7 +99,7 @@ div[class="icon"] {
 }
 
 #button:hover div[class="icon"] {
-	background-image: url(./assets/images/atplus_green.png);
+	background-image: url(../assets/images/atplus_green.png);
 	transform: scale(1.3);
 	transition: all 0.5s;
 }
@@ -181,17 +184,17 @@ div[class="icon"] {
 
 #button:hover .mask {
 	transform: translate(-75px, -40px);
-	background-image: url(./assets/images/mask.png);
+	background-image: url(../assets/images/mask.png);
 }
 
 #button:hover .history {
 	transform: translate(-80px, 10px);
-	background-image: url(./assets/images/history.png);
+	background-image: url(../assets/images/history.png);
 }
 
 #button:hover .message {
 	transform: translate(-70px, 60px);
-	background-image: url(./assets/images/message.png);
+	background-image: url(../assets/images/message.png);
 }
 
 /*fixed*/
@@ -201,12 +204,12 @@ div[class="icon"] {
 
 #button:hover .setting {
 	transform: translate(-25px, 83px);
-	background-image: url(./assets/images/setting.png);
+	background-image: url(../assets/images/setting.png);
 }
 
 #button:hover .sign {
 	transform: translate(25px, 78px);
-	background-image: url(./assets/images/signin.png);
+	background-image: url(../assets/images/signin.png);
 }
 
 /*-----------------------------------------------*/
