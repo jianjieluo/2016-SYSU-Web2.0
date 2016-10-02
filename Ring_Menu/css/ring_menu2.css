@@ -158,6 +158,13 @@ html body {
   background-image: url(../assets/images/signin.png);
 }
 
+#button:hover .apb {
+  transform: scale(0.4);
+  background-color: #989CD3;
+  background-image: url(../assets/images/atplus_white.png);
+  transition: all 0.5s;
+}
+
 .apb {
   position: absolute;
   width: 50px;
@@ -168,4 +175,5 @@ html body {
   background-repeat: no-repeat;
   background-size: 37px 27px;
   background-position: center;
+  transition: all 0.5s;
 }
