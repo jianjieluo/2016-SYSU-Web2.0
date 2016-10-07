@@ -26,15 +26,28 @@ function pressOperatorButton(content) {
   var result = document.getElementById("result");
   var t_value = result.value;
 
-  if (isCalculate) {
-    if(t_value == "0") {
+  // if (isCalculate) {
+  //   if(t_value == "0") {
+  //     result.value = t_value + document.getElementById(content).innerText;
+  //   }
+  //   isCalculate = false;
+  //   return;
+  // } else {
+  //   if (t_value == "0") return;
+  // }
+  // result.value = t_value + document.getElementById(content).innerText;
+
+  if (t_value == "0") {
+    if (isCalculate) {
       result.value = t_value + document.getElementById(content).innerText;
+      isCalculate = false;
+    } else {
+      return;
     }
-    isCalculate = false;
-  } else {
-    if (t_value == "0") return;
-    result.value = t_value + document.getElementById(content).innerText;
   }
+  result.value = t_value + document.getElementById(content).innerText;
+  // 为了保持运算一次后再按按键isCalculate都必须又变回false值
+  isCalculate = false;
 }
 
 function pressFucButton(content) {
@@ -43,12 +56,14 @@ function pressFucButton(content) {
   var str = result.value;
 
   if (content == "clean") result.value = "0";
-  if (content == "back") result.value = str.Substring(0, str.Length-1);
+  if (content == "back") result.value = str.substring(0, str.length - 1);
 
   try {
-    if (content == "=") result.value = eval(str);
-    isCalculate = true;
-  } catch(err) {
+    if (content == "=") {
+      result.value = eval(str);
+      isCalculate = true;
+    }
+  } catch (err) {
     alert("invalid formula input!")
   }
 
