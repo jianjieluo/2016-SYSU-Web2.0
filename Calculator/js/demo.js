@@ -31,6 +31,11 @@ function pressFucButton(content) {
 
   if (content == "clean") result.value = "0";
   if (content == "back") result.value = str.Substring(0, str.Length-1);
-  if (content == "=") result.value = eval(str);
+
+  try {
+    if (content == "=") result.value = eval(str);
+  } catch(err) {
+    alert("invalid formula input!")
+  }
 
 }
