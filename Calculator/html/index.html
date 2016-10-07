@@ -8,38 +8,39 @@
 </head>
 
 <body>
+    <script type="text/javascript" src="../js/demo.js"></script>
     <h1>Simple Calculator</h1>
     <div id="Calculator">
-        <input type="text" />
+        <input type="text" value="0" id="result" />
         <div class="row one">
-            <button class="7">7</button>
-            <button class="8">8</button>
-            <button class="9">9</button>
-            <button class="/">/</button>
+            <button id="7" onclick="pressBasicButton('7')">7</button>
+            <button id="8" onclick="pressBasicButton('8')">8</button>
+            <button id="9" onclick="pressBasicButton('9')">9</button>
+            <button id="/" onclick="pressOperatorButton('/')">/</button>
         </div>
         <div class="row two">
-            <button class="4">4</button>
-            <button class="5">5</button>
-            <button class="6">6</button>
-            <button class="*">*</button>
+            <button id="4" onclick="pressBasicButton('4')">4</button>
+            <button id="5" onclick="pressBasicButton('5')">5</button>
+            <button id="6" onclick="pressBasicButton('6')">6</button>
+            <button id="*" onclick="pressOperatorButton('*')">*</button>
         </div>
         <div class="row three">
-            <button class="1">1</button>
-            <button class="2">2</button>
-            <button class="3">3</button>
-            <button class="-">-</button>
+            <button id="1" onclick="pressBasicButton('1')">1</button>
+            <button id="2" onclick="pressBasicButton('2')">2</button>
+            <button id="3" onclick="pressBasicButton('3')">3</button>
+            <button id="-" onclick="pressOperatorButton('-')">-</button>
         </div>
         <div class="row four">
-            <button class="0">0</button>
-            <button class=".">.</button>
-            <button class="back">←</button>
-            <button class="+">+</button>
+            <button id="0" onclick="pressOperatorButton('0')">0</button>
+            <button id="." onclick="pressOperatorButton('.')">.</button>
+            <button id="back" onclick="pressFucButton('back')">←</button>
+            <button id="+" onclick="pressOperatorButton('+')">+</button>
         </div>
         <div class="row five">
-            <button class="(">(</button>
-            <button class=")">)</button>
-            <button class="clean">CE</button>
-            <button class="=">=</button>
+            <button id="(" onclick="pressBasicButton('(')">(</button>
+            <button id=")" onclick="pressBasicButton(')')">)</button>
+            <button id="clean" onclick="pressFucButton('clean')">CE</button>
+            <button id="=" onclick="pressFucButton('=')">=</button>
         </div>
     </div>
 </body>
