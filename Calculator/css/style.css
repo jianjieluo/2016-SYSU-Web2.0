@@ -1,0 +1,57 @@
+/*添加辅助线*/
+/*div, input, button {
+  border: 1px blue solid;
+}*/
+
+/*整体大布局*/
+head, body {
+  padding: 0;
+  margin: 0;
+}
+
+/*大标题*/
+h1 {
+  text-align: center;
+  color: #2D8A29;
+}
+
+/*主体位置*/
+#Calculator {
+  width: 325px;
+  height: 315px;
+
+  margin-left: auto;
+  margin-right: auto;
+
+  padding: 10px;
+  border: 3px black solid;
+}
+
+input {
+  display:block;
+  margin-left: auto;
+  margin-right: auto;
+  margin-bottom: 20px;
+
+  width: 295px;
+  height: 25px;
+  border: 2px #9C9C9C solid;
+}
+
+/*总体按键处理*/
+.row {
+  margin: 5px;
+  padding:0;
+}
+
+button {
+  display: inline-block;
+  width: 70px;
+  height: 47px;
+  margin-left: 5px;
+  background-color: #EFEFEF;
+
+  font-size: 18px;
+
+  border: 1px #D3D3D3 solid;
+}
