@@ -1,6 +1,12 @@
+var isCalculate = false;
+
 function pressBasicButton(content) {
   // alert('123');
   var result = document.getElementById("result");
+  if (isCalculate) {
+    result.value = 0;
+    isCalculate = false;
+  }
   var t_value = result.value;
 
   if (t_value == "0") {
@@ -20,8 +26,15 @@ function pressOperatorButton(content) {
   var result = document.getElementById("result");
   var t_value = result.value;
 
-  if (t_value == "0") return;
-  result.value = t_value + document.getElementById(content).innerText;
+  if (isCalculate) {
+    if(t_value == "0") {
+      result.value = t_value + document.getElementById(content).innerText;
+    }
+    isCalculate = false;
+  } else {
+    if (t_value == "0") return;
+    result.value = t_value + document.getElementById(content).innerText;
+  }
 }
 
 function pressFucButton(content) {
@@ -34,6 +47,7 @@ function pressFucButton(content) {
 
   try {
     if (content == "=") result.value = eval(str);
+    isCalculate = true;
   } catch(err) {
     alert("invalid formula input!")
   }
