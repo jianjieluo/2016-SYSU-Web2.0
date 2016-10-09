@@ -45,7 +45,13 @@ function pressFucButton(content) {
   var str = result.value;
 
   if (content == "clean") result.value = "0";
-  if (content == "back") result.value = str.substring(0, str.length - 1);
+  if (content == "back") {
+    if (str.length > 1) {
+      result.value = str.substring(0, str.length - 1);
+    } else if (str.length == 1) {
+      result.value = 0;
+    }
+  }
 
   try {
     if (content == "=") {
@@ -53,7 +59,7 @@ function pressFucButton(content) {
       isCalculate = true;
     }
   } catch (err) {
-    alert("invalid formula input!");
+    alert("Invalid formula input!");
     result.value = 0;
   }
 
