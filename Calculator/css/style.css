@@ -36,6 +36,7 @@ input {
     height: 25px;
     border: 2px #9C9C9C solid;
     text-align: right;
+    color: green;
     font-size: 23px;
     background-color: #EEEEEE;
 }
