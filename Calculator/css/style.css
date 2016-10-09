@@ -3,6 +3,7 @@
 head, body {
     padding: 0;
     margin: 0;
+    background-color: #FDF6E3;
 }
 
 
@@ -22,7 +23,8 @@ h1 {
     margin-left: auto;
     margin-right: auto;
     padding: 10px;
-    border: 1px lightblue solid;
+    border: 2px lightblue solid;
+    box-shadow: 0 10px 0 lightblue, 0 5px 3px rgba(0, 0, 0, 0.2);
     border-radius: 10%;
     background-color: #FDF6E3;
 }
