@@ -78,6 +78,10 @@ button {
     box-shadow: 0 2px 0 #0880D7, 0 3px 3px rgba(0, 0, 0, 0.2);
 }
 
+.basic:hover {
+    background-color: #4CB0F9;
+}
+
 .operator {
     background-color: #A5DE37;
     border: 1px #A5DE37 solid;
@@ -88,6 +92,10 @@ button {
     top: 5px;
     transition: all .15s;
     box-shadow: 0 2px 0 #8BC220, 0 3px 3px rgba(0, 0, 0, 0.2);
+}
+
+.operator:hover {
+    background-color: #B9E563;
 }
 
 .func {
@@ -102,5 +110,6 @@ button {
     box-shadow: 0 2px 0 #FF1022, 0 3px 3px rgba(0, 0, 0, 0.2);
 }
 
-
+.func:hover {
+    background-color: #FF7680;
 }
