@@ -1,64 +1,106 @@
-/*添加辅助线*/
-/*div, input, button {
-  border: 1px blue solid;
-}*/
-
 /*整体大布局*/
+
 head, body {
-  padding: 0;
-  margin: 0;
+    padding: 0;
+    margin: 0;
 }
+
 
 /*大标题*/
+
 h1 {
-  text-align: center;
-  color: #2D8A29;
+    text-align: center;
+    color: #2D8A29;
 }
 
+
 /*主体位置*/
+
 #Calculator {
-  width: 325px;
-  height: 315px;
-
-  margin-left: auto;
-  margin-right: auto;
-
-  padding: 10px;
-  border: 3px black solid;
+    width: 325px;
+    height: 315px;
+    margin-left: auto;
+    margin-right: auto;
+    padding: 10px;
+    border: 1px lightblue solid;
+    border-radius: 10%;
+    background-color: #FDF6E3;
 }
 
 input {
-  display:block;
-  margin-left: auto;
-  margin-right: auto;
-  margin-bottom: 20px;
-
-  width: 295px;
-  height: 25px;
-  border: 2px #9C9C9C solid;
-
-  text-align: right;
-  font-size: 23px;
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    margin-bottom: 20px;
+    width: 295px;
+    height: 25px;
+    border: 2px #9C9C9C solid;
+    text-align: right;
+    font-size: 23px;
+    background-color: #EEEEEE;
 }
 
+
 /*总体按键处理*/
+
 .row {
-  margin: 5px;
-  padding:0;
+    margin: 5px;
+    padding: 0;
 }
 
 button {
-  display: inline-block;
-  width: 70px;
-  height: 47px;
-  margin-left: 5px;
-  background-color: #EFEFEF;
-
-  font-size: 18px;
-
-  border: 1px #D3D3D3 solid;
+    position: relative;
+    top: 0;
+    display: inline-block;
+    width: 70px;
+    height: 47px;
+    margin-left: 5px;
+    font-size: 18px;
+    color: white;
+    border-radius: 20px;
 }
 
-button:hover {
-  color: red;
+
+/*分类button设置*/
+
+
+/*3D-button设置*/
+
+.basic {
+    background-color: #1B9AF7;
+    border: 1px #1B9AF7 solid;
+    box-shadow: 0 5px 0 #0880D7, 0 5px 3px rgba(0, 0, 0, 0.2);
+}
+
+.basic:active {
+    top: 5px;
+    transition: all .15s;
+    box-shadow: 0 2px 0 #0880D7, 0 3px 3px rgba(0, 0, 0, 0.2);
+}
+
+.operator {
+    background-color: #A5DE37;
+    border: 1px #A5DE37 solid;
+    box-shadow: 0 5px 0 #8BC220, 0 5px 3px rgba(0, 0, 0, 0.2);
+}
+
+.operator:active {
+    top: 5px;
+    transition: all .15s;
+    box-shadow: 0 2px 0 #8BC220, 0 3px 3px rgba(0, 0, 0, 0.2);
+}
+
+.func {
+    background-color: #FF4351;
+    border: 1px #FF4351 solid;
+    box-shadow: 0 5px 0 #FF1022, 0 5px 3px rgba(0, 0, 0, 0.2);
+}
+
+.func:active {
+    top: 5px;
+    transition: all .15s;
+    box-shadow: 0 2px 0 #FF1022, 0 3px 3px rgba(0, 0, 0, 0.2);
+}
+
+
 }

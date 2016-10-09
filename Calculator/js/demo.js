@@ -26,17 +26,6 @@ function pressOperatorButton(content) {
   var result = document.getElementById("result");
   var t_value = result.value;
 
-  // if (isCalculate) {
-  //   if(t_value == "0") {
-  //     result.value = t_value + document.getElementById(content).innerText;
-  //   }
-  //   isCalculate = false;
-  //   return;
-  // } else {
-  //   if (t_value == "0") return;
-  // }
-  // result.value = t_value + document.getElementById(content).innerText;
-
   if (t_value == "0") {
     if (isCalculate) {
       result.value = t_value + document.getElementById(content).innerText;
@@ -64,7 +53,8 @@ function pressFucButton(content) {
       isCalculate = true;
     }
   } catch (err) {
-    alert("invalid formula input!")
+    alert("invalid formula input!");
+    result.value = 0;
   }
 
 }
