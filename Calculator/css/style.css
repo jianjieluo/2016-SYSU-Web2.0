@@ -61,6 +61,7 @@ button {
     font-size: 18px;
     color: white;
     border-radius: 20px;
+    outline: none;
 }
 
 
@@ -78,6 +79,7 @@ button {
 .basic:active {
     top: 5px;
     transition: all .15s;
+    outline: none;
     box-shadow: 0 2px 0 #0880D7, 0 3px 3px rgba(0, 0, 0, 0.2);
 }
 
@@ -94,6 +96,7 @@ button {
 .operator:active {
     top: 5px;
     transition: all .15s;
+    outline: none;
     box-shadow: 0 2px 0 #8BC220, 0 3px 3px rgba(0, 0, 0, 0.2);
 }
 
@@ -110,9 +113,13 @@ button {
 .func:active {
     top: 5px;
     transition: all .15s;
+    outline: none;
     box-shadow: 0 2px 0 #FF1022, 0 3px 3px rgba(0, 0, 0, 0.2);
 }
 
 .func:hover {
     background-color: #FF7680;
 }
+
+
+/*when you clean the outline , use outline:none;*/
