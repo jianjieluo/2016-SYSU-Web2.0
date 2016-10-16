@@ -61,12 +61,15 @@ h1 {
 .w1 {
     width: 150px;
     height: 200px;
+    left: -2px;
+    top: -1px;
 }
 
 .w2 {
     width: 200px;
     height: 50px;
-    left: 150px;
+    left: 149px;
+    top: -1px;
     border-left: none;
     border-right: none;
 }
@@ -74,26 +77,30 @@ h1 {
 .w3 {
     width: 150px;
     height: 200px;
-    left: 349px;
+    left: 348px;
+    top: -1px;
 }
 
 .w4 {
     width: 100px;
     height: 150px;
-    left: 200px;
+    left: 199px;
     top: 100px;
+    border-bottom: none;
 }
 
 .w5 {
     width: 500px;
     height: 50px;
     top: 250px;
+    left: -2px;
 }
 
 
 /*node 总体布局*/
 
 .node {
+    position: absolute;
     height: 40px;
     width: 40px;
     font-weight: bold;
@@ -106,8 +113,12 @@ h1 {
 
 .start {
     background-color: #80FF80;
+    top: 204px;
+    left: -1px;
 }
 
 .end {
     background-color: #8784FD;
+    top: 204px;
+    left: 457px;
 }
