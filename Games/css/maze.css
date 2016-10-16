@@ -1,8 +1,7 @@
 /*辅助线*/
-
-body, div {
+/*body, div {
     border: 1px solid blue;
-}
+}*/
 
 p {
     text-align: center;
@@ -53,6 +52,7 @@ h1 {
 .wall {
     position: absolute;
     background-color: #EEEEEE;
+    border: 1px black solid;
 }
 
 
@@ -106,6 +106,8 @@ h1 {
     font-weight: bold;
     text-align: center;
     font-size: 33px;
+    top: 204px;
+    border: 1px solid black;
 }
 
 
@@ -113,12 +115,18 @@ h1 {
 
 .start {
     background-color: #80FF80;
-    top: 204px;
     left: -1px;
 }
 
 .end {
     background-color: #8784FD;
-    top: 204px;
     left: 457px;
+}
+
+
+/*下面辅助信息的设置*/
+
+.example {
+    width: 100px;
+    height: 25px;
 }
