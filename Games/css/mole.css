@@ -19,6 +19,10 @@ html, body {
 
 h1, p {
     text-align: center;
+    font-family: "Century Gothic", Futura, Verdana, sans-serif;
+}
+h1 {
+    font-weight: lighter;
 }
 
 /*record内部布局*/
@@ -74,4 +78,17 @@ h1, p {
     margin-left: auto;
     margin-right: auto;
     background-color: gray;
+}
+
+/*下面的介绍设置*/
+
+body:last-child {
+    box-sizing: border-box;
+    width: 600px;
+    margin-left: auto;
+    margin-right: auto;
+    font-size: 16px;
+}
+h2 {
+    letter-spacing: 0.1em;
 }
