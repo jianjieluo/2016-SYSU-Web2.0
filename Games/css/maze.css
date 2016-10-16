@@ -20,6 +20,11 @@ html, body {
 .instruction, #result {
     font-size: 25px;
 }
+#result {
+    width: 90%;
+    height: 70px;
+    margin: auto;
+}
 
 /*迷宫主体的设置*/
 
