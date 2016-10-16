@@ -1,10 +1,11 @@
-/*辅助线*/
-/*body, div {
-    border: 1px solid blue;
-}*/
 
 h1, .instruction, #result {
     text-align: center;
+    font-family: "Century Gothic", Futura, Verdana, sans-serif;
+}
+
+h1 {
+  font-weight: lighter;
 }
 
 
@@ -18,9 +19,8 @@ html, body {
 }
 
 /*指导*/
-
-.instruction {
-    font-size: 20px;
+.instruction, #result {
+  font-size: 25px;
 }
 
 
@@ -131,7 +131,9 @@ html, body {
 #info:first-child, #info:last-child {
   margin-left: auto;
   margin-right: auto;
+  padding-left: 10px;
   box-sizing: border-box;
-  width: 600px;
-  font-size: 20px;
+  width: 610px;
+  font-size:17px;
+  font-family: "Century Gothic", Futura, Verdana, sans-serif;
 }
