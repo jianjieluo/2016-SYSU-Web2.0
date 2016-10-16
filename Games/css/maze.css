@@ -4,11 +4,6 @@ body, div {
     border: 1px solid blue;
 }
 
-div {
-    /*background-color: gray;*/
-    display: inline-block;
-}
-
 p {
     text-align: center;
 }
@@ -35,19 +30,21 @@ h1 {
 
 .instruction {
     font-size: 20px;
-    text-align: center;
 }
 
 
 /*迷宫主体的设置*/
 
 #maze-body {
-    position: absolute;
     margin-left: auto;
     margin-right: auto;
     height: 300px;
     width: 500px;
     background-color: #FDF6E3;
+}
+
+#maze-position {
+    position: absolute;
 }
 
 
@@ -62,28 +59,35 @@ h1 {
 /*分布设置各个wall*/
 
 .w1 {
-    height: 200px;
     width: 150px;
+    height: 200px;
 }
 
 .w2 {
     width: 200px;
     height: 50px;
+    left: 150px;
+    border-left: none;
+    border-right: none;
 }
 
 .w3 {
     width: 150px;
     height: 200px;
+    left: 349px;
 }
 
 .w4 {
     width: 100px;
     height: 150px;
+    left: 200px;
+    top: 100px;
 }
 
 .w5 {
     width: 500px;
     height: 50px;
+    top: 250px;
 }
 
 
@@ -106,9 +110,4 @@ h1 {
 
 .end {
     background-color: #8784FD;
-}
-
-
-}
-
 }
