@@ -3,7 +3,7 @@
     border: 1px solid blue;
 }*/
 
-p {
+h1, .instruction, #result {
     text-align: center;
 }
 
@@ -16,14 +16,6 @@ html, body {
     margin: 0;
     padding: 0;
 }
-
-
-/*大标题*/
-
-h1 {
-    text-align: center;
-}
-
 
 /*指导*/
 
@@ -127,6 +119,19 @@ h1 {
 /*下面辅助信息的设置*/
 
 .example {
+    display: block;
     width: 100px;
     height: 25px;
+    margin-left: auto;
+    margin-right: auto;
+    border: 1px solid black;
+    background-color: #EEEEEE;
+}
+
+#info:first-child, #info:last-child {
+  margin-left: auto;
+  margin-right: auto;
+  box-sizing: border-box;
+  width: 600px;
+  font-size: 20px;
 }
