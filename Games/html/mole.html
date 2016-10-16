@@ -4,21 +4,27 @@
 <head>
     <meta charset="utf-8">
     <title>Whac-a-mole</title>
+    <link rel="stylesheet" href="../css/mole.css">
 </head>
 
 <body>
     <h1>Whac-a-mole</h1>
-    <p class="introduction">Test your skill.How many boxes(moles) can you check(hit) in 30 seconds?</p>
-    <div id="record">
-        <button>Start Game|Stop Game</button>
-        <div id="state">Game Over</div>
-        <div>
-            Time: <span id="time">0</span>
-        </div>
-        <div>
-            Score: <span id="score"></span>
+    <p id="general">Test your skill.How many boxes(moles) can you check(hit) in 30 seconds?</p>
+    <div id="record-positioner">
+        <div id="record">
+            <button>Start Game|Stop Game</button>
+            <div id="state">Game Over</div>
+            <div id="time-block">
+                Time:
+                <div id="time">0</div>
+            </div>
+            <div id="score-block">
+                Score:
+                <div id="score">0</div>
+            </div>
         </div>
     </div>
+    <div id="map"></div>
     <h2>Instruction:</h2>
     <ol id="instruction">
         <li>Click on the radio button(moles) as they are selected randomly by the computer</li>

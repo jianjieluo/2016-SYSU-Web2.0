@@ -1,0 +1,77 @@
+/*辅助线*/
+
+
+/*body, html, div {
+    border: 1px gray solid;
+}*/
+
+
+/*整体大布局*/
+
+html, body {
+    width: 100%;
+    height: 100%;
+    margin: 0;
+    padding: 0;
+}
+
+/*大标题和游戏介绍*/
+
+h1, p {
+    text-align: center;
+}
+
+/*record内部布局*/
+
+#record-positioner {
+    box-sizing: border-box;
+    width: 350px;
+    height: 65px;
+    /*background-color: red;*/
+    margin-left: auto;
+    margin-right: auto;
+}
+#record {
+    position: absolute;
+}
+#record>div, #record> button {
+    position: absolute;
+    box-sizing: border-box;
+    width: 175px;
+    height: 25px;
+}
+#state {
+    top: 30px;
+    width: 130px;
+    height: 20px;
+    border: 1px #E1E1E1 solid;
+}
+
+/*处理time和score的style*/
+
+#time-block {
+    left: 250px;
+}
+#score-block {
+    top: 30px;
+    left: 250px;
+}
+#time, #score {
+    display: inline-block;
+    box-sizing: border-box;
+    width: 35px;
+    height: 16px;
+    border: 1px #E1E1E1 solid;
+    vertical-align: bottom;
+}
+
+/*map布置*/
+
+#map {
+    box-sizing: border-box;
+    width: 250px;
+    height: 180px;
+    margin-left: auto;
+    margin-right: auto;
+    background-color: gray;
+}
