@@ -77,7 +77,14 @@ h1 {
     height: 180px;
     margin-left: auto;
     margin-right: auto;
-    background-color: gray;
+}
+#map> div {
+    display: inline-block;
+    box-sizing: border-box;
+    width: 25px;
+    height: 25px;
+    border-radius: 50%;
+    border: 1px gray solid;
 }
 
 /*下面的介绍设置*/
