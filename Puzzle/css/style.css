@@ -17,18 +17,21 @@ h1 {
     text-align: center;
 }
 ul {
+    position: relative;
     box-sizing: border-box;
     margin: auto;
     width: 370px;
     height: 370px;
 }
 li {
+    position: absolute;
     display: inline-block;
     width: 90px;
     height: 90px;
     border: 1px black solid;
     list-style-type: none;
     background-size: 370px 370px;
+    transition: 1s all;
 }
 button {
     position: relative;
@@ -50,49 +53,80 @@ li:hover {
 
 #img0 {
     background-position: 0 0;
+    left: 0;
+    top: 0;
 }
 #img1 {
     background-position: -90px 0;
+    left: 25%;
+    top: 0;
 }
 #img2 {
     background-position: -180px 0;
+    left: 50%;
+    top: 0;
 }
 #img3 {
     background-position: -270px 0;
+    left: 75%;
+    top: 0;
 }
 #img4 {
     background-position: 0 -90px;
+    left: 0;
+    top: 25%;
 }
 #img5 {
     background-position: -90px -90px;
+    left: 25%;
+    top: 25%;
 }
 #img6 {
     background-position: -180px -90px;
+    left: 50%;
+    top: 25%;
 }
 #img7 {
     background-position: -270px -90px;
+    left: 75%;
+    top: 25%;
 }
 #img8 {
     background-position: 0 -180px;
+    left: 0;
+    top: 50%;
 }
 #img9 {
     background-position: -90px -180px;
+    left: 25%;
+    top: 50%;
 }
 #img10 {
     background-position: -180px -180px;
+    left: 50%;
+    top: 50%;
 }
 #img11 {
     background-position: -270px -180px;
+    left: 75%;
+    top: 50%;
 }
 #img12 {
     background-position: 0 -270px;
+    left: 0;
+    top: 75%;
 }
 #img13 {
     background-position: -90px -270px;
+    left: 25%;
+    top: 75%;
 }
 #img14 {
     background-position: -180px -270px;
+    left: 50%;
+    top: 75%;
 }
-#img15 {
+
+/*#img15 {
     background-position: -270px -270px;
-}
+}*/
