@@ -126,3 +126,8 @@ li:hover {
     left: 50%;
     top: 75%;
 }
+#img15 {
+    left: 75%;
+    top: 75%;
+    background-image: none;
+}
