@@ -1,7 +1,4 @@
-/*辅助线*/
-
 ul, li {
-    /*border: 0.5px black solid;*/
     margin: 0;
     padding: 0;
 }
@@ -9,7 +6,7 @@ ul, li {
 /*整体大布局*/
 
 body {
-    position:  absolute;
+    position: absolute;
     width: 100%;
     height: 100%;
 }
@@ -19,39 +16,83 @@ body {
 h1 {
     text-align: center;
 }
-
 ul {
-    display: block;
     box-sizing: border-box;
-    width: 360px;
-    height: 360px;
     margin: auto;
+    width: 370px;
+    height: 370px;
 }
-
 li {
-    border: 1px black solid;
-    list-style-type: none;
     display: inline-block;
-    box-sizing: border-box;
     width: 90px;
     height: 90px;
+    border: 1px black solid;
+    list-style-type: none;
+    background-size: 370px 370px;
 }
-
 button {
-    text-align: center;
+    position: relative;
+    top: 50px;
+    left: 45%;
     box-sizing: border-box;
     width: 120px;
     height: 40px;
-    margin-left: 43%;
-    /*margin-right: auto;*/
-
-    position: relative;
-    top: 50px;
 }
 
-
 /*悬浮时候的效果*/
+
 li:hover {
-    transition: 0.2s all;
+    transition: .2s all;
     transform: translate(1px, -2px);
+}
+
+/*map设置*/
+
+#img0 {
+    background-position: 0 0;
+}
+#img1 {
+    background-position: -90px 0;
+}
+#img2 {
+    background-position: -180px 0;
+}
+#img3 {
+    background-position: -270px 0;
+}
+#img4 {
+    background-position: 0 -90px;
+}
+#img5 {
+    background-position: -90px -90px;
+}
+#img6 {
+    background-position: -180px -90px;
+}
+#img7 {
+    background-position: -270px -90px;
+}
+#img8 {
+    background-position: 0 -180px;
+}
+#img9 {
+    background-position: -90px -180px;
+}
+#img10 {
+    background-position: -180px -180px;
+}
+#img11 {
+    background-position: -270px -180px;
+}
+#img12 {
+    background-position: 0 -270px;
+}
+#img13 {
+    background-position: -90px -270px;
+}
+#img14 {
+    background-position: -180px -270px;
+}
+#img15 {
+    background-position: -270px -270px;
 }

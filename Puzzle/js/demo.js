@@ -1,14 +1,38 @@
+var images = ["../images/panda.jpg", "../images/totoro.png"];
+var count = 0;
+var mapURL = images[0];
+var isEmpty[16];
+
 window.onload = function() {
-    // create the child images
-    var map = document.getElementById('map');
+    document.getElementById("nextPage").addEventListener("click", function() {
+        mapURL = images[(++count) % images.length];
+        makeGame();
+    });
+    makeGame();
+    // document.getElementById('replay').addEventListener("click", reset);
+}
+
+function makeGame() {
     for (var i = 0; i < 15; ++i) {
-        var node = document.createElement("li");
-        map.appendChild(node);
+        isEmpty[i] = false;
     }
+    isEmpty[15] = true;
 
-    resetMap();
+    var map = document.getElementById("map");
+    while (map.firstChild) {
+        map.removeChild(map.firstChild);
+    }
+    for (var i = 0; i < 16; ++i) {
+        var puzzle = document.createElement("li");
+        puzzle.setAttribute("id", ("img" + i));
+        puzzle.style.backgroundImage = "url(" + mapURL + ")";
 
-    document.getElementById('replay').addEventListener('click', resetMap);
-    document.getElementsByTagName('li').addEventListener('click', move);
+        puzzle.onclick = function(i) {
+            return move() {
 
+            }
+        }
+
+        map.appendChild(puzzle);
+    }
 }
