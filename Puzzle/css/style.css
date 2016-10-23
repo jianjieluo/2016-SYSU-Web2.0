@@ -22,13 +22,13 @@ ul {
     margin: auto;
     width: 370px;
     height: 370px;
+    border: 1px black solid;
 }
 li {
     position: absolute;
     display: inline-block;
     width: 90px;
     height: 90px;
-    border: 1px black solid;
     list-style-type: none;
     background-size: 370px 370px;
     transition: 1s all;
@@ -49,7 +49,7 @@ li:hover {
     transform: translate(1px, -2px);
 }
 
-/*map设置*/
+/*puzzles设置*/
 
 #img0 {
     background-position: 0 0;
@@ -126,7 +126,3 @@ li:hover {
     left: 50%;
     top: 75%;
 }
-
-/*#img15 {
-    background-position: -270px -270px;
-}*/
