@@ -9,12 +9,14 @@ body {
     position: absolute;
     width: 100%;
     height: 100%;
+    background-color: #FDF6E3;
 }
 
 /*基本元素布局*/
 
 h1 {
     text-align: center;
+    color: #2D8A29;
 }
 ul {
     position: relative;
@@ -22,7 +24,7 @@ ul {
     margin: auto;
     width: 370px;
     height: 370px;
-    border: 1px black solid;
+    /*border: 1px black solid;*/
 }
 li {
     position: absolute;
@@ -31,15 +33,26 @@ li {
     height: 90px;
     list-style-type: none;
     background-size: 370px 370px;
-    transition: 1s all;
+    transition: 0.5s all;
 }
 button {
-    position: relative;
-    top: 50px;
-    left: 45%;
+    position: absolute;
+    top: 85%;
     box-sizing: border-box;
     width: 120px;
     height: 40px;
+}
+
+button[id="replay"] {
+    left : 35%;
+}
+
+button[id="nextPage"] {
+    right: 35%;
+}
+
+button[id="refresh"] {
+    left:45%;
 }
 
 /*悬浮时候的效果*/
@@ -130,4 +143,5 @@ li:hover {
     left: 75%;
     top: 75%;
     background-image: none;
+    /*border: 1px black solid;*/
 }
