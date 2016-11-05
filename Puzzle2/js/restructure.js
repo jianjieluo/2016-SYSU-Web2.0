@@ -54,8 +54,8 @@ var gameInfo = {
 
     p.addPuzzles = function() {
         var mapURL = gameInfo.maps[gameInfo.mapsIndex];
-        for (var i = 0; i < 15; ++i) {
-            // if (i == this.emptyPosIndex) continue;
+        for (var i = 0; i < 16; ++i) {
+            if (i == this.emptyPosIndex) continue;
             var dom = '<li id=\'' + this.puzzles[i].id + '\'></li>';
             $('#map').append(dom);
             $('#' + this.puzzles[i].id).css('background-image', "url(" + mapURL + ")");
@@ -66,7 +66,9 @@ var gameInfo = {
         // there has a question.....
         $('#map').click(function(event) {
             var puzzle = this.puzzles[parseInt(event.target.id.slice(3))];
-            if (puzzle.canMove(this.emptyPosIndex)) puzzle.move(this);
+            if (puzzle != undefined) {
+                if (puzzle.canMove(this.emptyPosIndex)) puzzle.move(this);
+            }
         }.bind(this));
     };
 
@@ -78,12 +80,18 @@ var gameInfo = {
         return canMoveHorizontal ^ canMoveVertical;
     }
 
-    puzzle_pro.move = function(map) {
-        var temp = map.emptyPosIndex;
-        map.emptyPosIndex = this.posIndex;
+    puzzle_pro.move = function(pane) {
+        var temp = pane.emptyPosIndex;
+        pane.emptyPosIndex = this.posIndex;
         this.posIndex = temp;
         this.pos = gameInfo.puzzlePos[this.posIndex];
+        // console.log(pane.emptyPosIndex);
+        this.updateLocation();
+    }
 
+    puzzle_pro.updateLocation = function() {
+        $('#' + this.id).css('left', this.pos[0]);
+        $('#' + this.id).css('top', this.pos[1]);
     }
 
     p.listenButtonsClick = function() {
