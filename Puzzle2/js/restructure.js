@@ -1,7 +1,6 @@
 var gameInfo = {
     maps: ['../images/panda.jpg', '../images/totoro.png', '../images/sen.png'],
     mapsIndex: 0,
-    isEmpty: new Array(15),
     isRunning: false,
     puzzlePos: [
         ['0', '0'],
@@ -31,61 +30,85 @@ var gameInfo = {
 
     var Pane = function() {
         this.createPuzzles();
-        this.listenThePuzzles();
-        this.listenTheButtons();
-        this.showMap();
+        this.addPuzzles();
+        this.listenPuzzlesClick();
+        this.listenButtonsClick();
     };
 
 
     var Puzzle = function(i) {
         this.id = 'img' + i;
-        this.pos = gameInfo.puzzlePos[i];
+        this.posIndex = i;
+        this.pos = gameInfo.puzzlePos[this.posIndex];
     };
 
     var p = Pane.prototype;
 
     p.createPuzzles = function() {
+        this.emptyPosIndex = 15;
         this.puzzles = [];
         for (var i = 0; i < 15; ++i) {
             this.puzzles.push(new Puzzle(i));
         }
     };
 
-    p.listenThePuzzles = function() {
-        $('#map').click(function(event) {
-            var puzzle = event.target;
-            if (puzzle.canMove()) puzzle.move();
-        }.bind(this));
-    };
-
-    p.listenTheButtons = function() {
-        $('#replay').click(function(event) {
-            p.shufflePos();
-        }.bind(this));
-
-        $('#nextPage').click(function(event) {
-            p.cleanMap();
-            gameInfo.mapURL = gameInfo.maps[++mapsIndex];
-            p.createPuzzles();
-        }.bind(this));
-
-        $('#refresh').click(function() {
-            p.cleanMap();
-            p.createPuzzles();
-        })
-    };
-
-    p.showMap = function() {
+    p.addPuzzles = function() {
         var mapURL = gameInfo.maps[gameInfo.mapsIndex];
         for (var i = 0; i < 15; ++i) {
+            // if (i == this.emptyPosIndex) continue;
             var dom = '<li id=\'' + this.puzzles[i].id + '\'></li>';
             $('#map').append(dom);
             $('#' + this.puzzles[i].id).css('background-image', "url(" + mapURL + ")");
         }
     };
 
+    p.listenPuzzlesClick = function() {
+        // there has a question.....
+        $('#map').click(function(event) {
+            var puzzle = this.puzzles[parseInt(event.target.id.slice(3))];
+            if (puzzle.canMove(this.emptyPosIndex)) puzzle.move(this);
+        }.bind(this));
+    };
 
-    // p.showMap();
+    var puzzle_pro = Puzzle.prototype;
+
+    puzzle_pro.canMove = function(emptyPosIndex) {
+        var canMoveHorizontal = (Math.abs(this.posIndex - emptyPosIndex) == 1);
+        var canMoveVertical = (Math.abs(this.posIndex - emptyPosIndex) == 4);
+        return canMoveHorizontal ^ canMoveVertical;
+    }
+
+    puzzle_pro.move = function(map) {
+        var temp = map.emptyPosIndex;
+        map.emptyPosIndex = this.posIndex;
+        this.posIndex = temp;
+        this.pos = gameInfo.puzzlePos[this.posIndex];
+
+    }
+
+    p.listenButtonsClick = function() {
+        var buttons = $('button');
+
+        // replay button
+        buttons[0].click(function(event) {
+            p.shufflePos();
+        }.bind(this));
+
+        // nextPage button
+        buttons[1].click(function(event) {
+            p.cleanMap();
+            gameInfo.mapURL = gameInfo.maps[++mapsIndex];
+            p.createPuzzles();
+        }.bind(this));
+
+        // refresh button
+        buttons[2].click(function() {
+            p.cleanMap();
+            p.createPuzzles();
+        })
+    };
+
+
 
 
 }())
