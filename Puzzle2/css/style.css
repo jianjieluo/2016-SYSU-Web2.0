@@ -1,0 +1,144 @@
+ul, li {
+    margin: 0;
+    padding: 0;
+}
+
+/*整体大布局*/
+
+body {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    background-color: #FDF6E3;
+}
+
+/*基本元素布局*/
+
+h1 {
+    text-align: center;
+    color: #2D8A29;
+}
+ul {
+    position: relative;
+    box-sizing: border-box;
+    margin: auto;
+    width: 370px;
+    height: 370px;
+    /*border: 1px black solid;*/
+}
+li {
+    position: absolute;
+    display: inline-block;
+    width: 90px;
+    height: 90px;
+    list-style-type: none;
+    background-size: 370px 370px;
+    transition: 0.5s all;
+}
+button {
+    position: absolute;
+    top: 85%;
+    box-sizing: border-box;
+    width: 120px;
+    height: 40px;
+}
+button[id="replay"] {
+    left: 35%;
+}
+button[id="nextPage"] {
+    right: 35%;
+}
+button[id="refresh"] {
+    left: 45%;
+}
+
+/*悬浮时候的效果*/
+
+li:hover {
+    transition: .2s all;
+    transform: translate(1px, -2px);
+}
+
+/*puzzles设置*/
+
+#img0 {
+    background-position: 0 0;
+    left: 0;
+    top: 0;
+}
+#img1 {
+    background-position: -90px 0;
+    left: 25%;
+    top: 0;
+}
+#img2 {
+    background-position: -180px 0;
+    left: 50%;
+    top: 0;
+}
+#img3 {
+    background-position: -270px 0;
+    left: 75%;
+    top: 0;
+}
+#img4 {
+    background-position: 0 -90px;
+    left: 0;
+    top: 25%;
+}
+#img5 {
+    background-position: -90px -90px;
+    left: 25%;
+    top: 25%;
+}
+#img6 {
+    background-position: -180px -90px;
+    left: 50%;
+    top: 25%;
+}
+#img7 {
+    background-position: -270px -90px;
+    left: 75%;
+    top: 25%;
+}
+#img8 {
+    background-position: 0 -180px;
+    left: 0;
+    top: 50%;
+}
+#img9 {
+    background-position: -90px -180px;
+    left: 25%;
+    top: 50%;
+}
+#img10 {
+    background-position: -180px -180px;
+    left: 50%;
+    top: 50%;
+}
+#img11 {
+    background-position: -270px -180px;
+    left: 75%;
+    top: 50%;
+}
+#img12 {
+    background-position: 0 -270px;
+    left: 0;
+    top: 75%;
+}
+#img13 {
+    background-position: -90px -270px;
+    left: 25%;
+    top: 75%;
+}
+#img14 {
+    background-position: -180px -270px;
+    left: 50%;
+    top: 75%;
+}
+
+/*#img15 {
+    left: 75%;
+    top: 75%;
+    background-image: none;
+    /*border: 1px black solid;*/
