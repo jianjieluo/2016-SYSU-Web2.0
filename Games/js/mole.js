@@ -69,7 +69,7 @@ function doLoop() {
         document.getElementById('time').innerHTML = time;
     } else {
         clearInterval(x);
-        alert("Game Over: Your socore is:" + document.getElementById('score').innerHTML)
+        alert("Game Over: Your score is:" + document.getElementById('score').innerHTML)
         isGaming = false;
         haveMole = false;
     }

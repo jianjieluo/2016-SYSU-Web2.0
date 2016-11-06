@@ -1,80 +1,113 @@
-var isGaming = false;
-var haveMole = false;
-var time = 0;
-var x = '';
-var s = 0;
-window.onload = function() {
-    var map = document.getElementById('map');
-    for (var i = 0; i < 60; ++i) {
-        var node = document.createElement("DIV");
-        map.appendChild(node);
+var gameInfo = {
+    isGaming: false,
+    countDown: '',
+};
+
+
+
+(function() {
+
+    window.onload = function() {
+        new gamePane();
+    };
+    // $(function() {
+    //     new gamePane();
+    // });
+
+    var gamePane = function() {
+        this.createMoles();
+        this.addMoles();
+        this.resetTime();
+        this.resetScore();
+        this.listenHolesClick();
+        this.listenButtonClick();
     }
-    document.getElementById('button').addEventListener('click', changeState)
-    nodes = document.getElementById('map').childNodes;
-}
 
+    var mole = function(i) {
+        this.index = i;
+        this.canBeat = false;
+    }
 
-function changeState() {
-    var state = document.getElementById('state');
-    isGaming = !isGaming;
-    if (isGaming) {
-        state.innerHTML = 'Playing';
-        if (time == 0) {
-            time = 30;
+    var p = gamePane.prototype;
+
+    p.createMoles = function() {
+        this.moles = [];
+        for (var i = 0; i < 60; ++i) {
+            this.moles.push(new mole(i));
         }
-        running();
-    } else {
-        state.innerHTML = 'Stop';
-        stop();
-    }
-    // if (isGaming) {
-    //     running();
-    // } else {
-    //     stop();
-    // }
-}
-
-function running() {
-    x = setInterval(doLoop, 1000);
-    if (!haveMole) {
-        randomB = Math.floor(Math.random() * 60);
-        nodes[randomB].style.backgroundColor = "lightblue";
-        haveMole = true;
     }
 
-    for (var index = 0; index < nodes.length; index++) {
-        nodes[index].setAttribute('index', index);
-        nodes[index].addEventListener("click", function() {
-            if (isGaming) {
-                if (this.getAttribute('index') == randomB) {
-                    document.getElementById('score').innerHTML = ++s;
-                    nodes[randomB].style.backgroundColor = "white";
-                    randomB = Math.floor(Math.random() * 60);
-                    nodes[randomB].style.backgroundColor = "lightblue";
-                    // break;
+    p.addMoles = function() {
+        var map = $("#map");
+        for (var i = 0; i < 60; ++i) {
+            map.append("<div id=\"" + i + "\"></div>");
+        }
+    }
+
+    p.resetTime = function() {
+        this.time = 30;
+    }
+    p.resetScore = function() {
+        this.score = 0;
+    }
+
+    p.listenButtonClick = function() {
+        $("#button").click(function() {
+            gameInfo.isGaming = !gameInfo.isGaming;
+            if (gameInfo.isGaming) {
+                $("#state").html("Playing");
+                this.running();
+            } else {
+                $("#state").html("Pause");
+                this.pausing();
+            }
+        }.bind(this));
+    }
+
+    p.running = function() {
+        gameInfo.countDown = setInterval(function() {
+            if (this.time > 0) {
+                --this.time;
+                $("#time").html(this.time + '');
+            } else {
+                clearInterval(gameInfo.countDown);
+                alert("Game Over: Your score is:" + this.score);
+                gameInfo.isGaming = false;
+            }
+        }.bind(this), 1000);
+        this.appearMouse();
+    }
+
+    p.pausing = function() {
+        clearInterval(gameInfo.countDown);
+    }
+
+    p.listenHolesClick = function() {
+        $("#map").click(function(event) {
+            if (gameInfo.isGaming) {
+                var clickedMole = this.moles[event.target.id];
+                if (clickedMole.canBeat) {
+                    $("#score").html(++this.score);
+                    clickedMole.canBeat = false;
+                    $("#map > div[id=\"" + clickedMole.index + "\"]").css("background-color", "white");
+                    this.appearMouse();
                 } else {
-                    document.getElementById('score').innerHTML = --s;
+                    $("#score").html(--this.score);
                 }
             }
+        }.bind(this));
+    };
+
+    p.appearMouse = function() {
+        var findIfHaveMouse = _.find(this.moles, function(item) {
+            return item.canBeat == true;
         });
+
+        if (findIfHaveMouse == undefined) {
+            var randomIndex = _.random(0, 59);
+            this.moles[randomIndex].canBeat = true;
+            $("#map > div:eq(" + randomIndex + ")").css("background-color", "lightblue");
+        }
     }
 
-}
-
-
-
-function doLoop() {
-    if (time > 0) {
-        --time;
-        document.getElementById('time').innerHTML = time;
-    } else {
-        clearInterval(x);
-        alert("Game Over: Your socore is:" + document.getElementById('score').innerHTML)
-        isGaming = false;
-        haveMole = false;
-    }
-}
-
-function stop() {
-    clearInterval(x);
-}
+}())
