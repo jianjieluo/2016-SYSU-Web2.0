@@ -35,21 +35,20 @@ li {
     background-size: 370px 370px;
     transition: 0.5s all;
 }
+#buttons {
+    position: relative;
+    left: 10%;
+    box-sizing: border-box;
+    width: 500px;
+    height: 45px;
+    margin-left: auto;
+    margin-right: auto;
+}
 button {
-    position: absolute;
-    top: 85%;
+    display: inline-block;
     box-sizing: border-box;
     width: 120px;
     height: 40px;
-}
-button[id="replay"] {
-    left: 35%;
-}
-button[id="nextPage"] {
-    right: 35%;
-}
-button[id="refresh"] {
-    left: 45%;
 }
 
 /*悬浮时候的效果*/
