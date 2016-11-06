@@ -1,6 +1,6 @@
 var gameInfo = {
     maps: ['../images/panda.jpg', '../images/totoro.png', '../images/sen.png'],
-    mapsIndex: 0,
+    mapsIndex: 1,
     isRunning: false,
     puzzlePos: [
         ['0', '0'],
@@ -29,10 +29,7 @@ var gameInfo = {
     });
 
     var Pane = function() {
-        this.createPuzzles();
-        this.addPuzzles();
-        this.listenPuzzlesClick();
-        this.listenButtonsClick();
+        this.init();
     };
 
 
@@ -43,6 +40,14 @@ var gameInfo = {
     };
 
     var p = Pane.prototype;
+
+    p.init = function() {
+        // this.cleanMap();
+        this.createPuzzles();
+        this.addPuzzles();
+        this.listenPuzzlesClick();
+        this.listenButtonsClick();
+    };
 
     p.createPuzzles = function() {
         this.emptyPosIndex = 15;
@@ -108,21 +113,19 @@ var gameInfo = {
         $('#' + this.id).css('top', this.pos[1]);
     }
 
-    ////////////////////////////////
     p.listenButtonsClick = function() {
         $("#buttons").click(function(event) {
             var button = event.target;
             if (button.id == "replay") {
                 this.shufflePos();
             }
-            if (button.id == "nextPage") {
-                this.cleanMap();
-                ++gameInfo.mapsIndex;
-                this.addPuzzles();
-            }
-            if (button.id == "refresh") {
-                this.refreshPos();
-            }
+            // if (button.id == "nextPage") {
+            //     gameInfo.mapsIndex = (gameInfo.mapsIndex + 1) % gameInfo.maps.length;
+            //     this.init();
+            // }
+            // if (button.id == "refresh") {
+            //     this.init();
+            // }
         }.bind(this));
     };
 
@@ -142,13 +145,4 @@ var gameInfo = {
             }
         }
     }
-    p.cleanMap = function() {
-        // remove diao na xie 原来的puzzle
-    }
-    p.refreshPos = function() {
-        // an zhao zheng chan di pai lie pos he posIndex, ran hou update
-    }
-
-
-
 }())
