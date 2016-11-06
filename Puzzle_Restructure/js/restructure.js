@@ -1,7 +1,6 @@
-var gameInfo = {
+gameInfo = {
     maps: ['../images/panda.jpg', '../images/totoro.png', '../images/sen.png'],
     mapsIndex: 1,
-    isRunning: false,
     puzzlePos: [
         ['0', '0'],
         ['25%', '0'],
@@ -31,7 +30,6 @@ var gameInfo = {
     var Pane = function() {
         this.init();
     };
-
 
     var Puzzle = function(i) {
         this.id = 'img' + i;
