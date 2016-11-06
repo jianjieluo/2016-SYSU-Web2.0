@@ -87,6 +87,20 @@ var gameInfo = {
         this.pos = gameInfo.puzzlePos[this.posIndex];
         // console.log(pane.emptyPosIndex);
         this.updateLocation();
+        pane.isWin();
+    }
+
+    p.isWin = function() {
+        var iswin = true;
+        for (var i = 0; i < 15; ++i) {
+            if (this.puzzles[i].posIndex != i) {
+                iswin = false;
+                break;
+            }
+        }
+        if (iswin) {
+            alert("Congratulation!");
+        }
     }
 
     puzzle_pro.updateLocation = function() {
@@ -94,28 +108,46 @@ var gameInfo = {
         $('#' + this.id).css('top', this.pos[1]);
     }
 
+    ////////////////////////////////
     p.listenButtonsClick = function() {
-        var buttons = $('button');
-
-        // replay button
-        buttons[0].click(function(event) {
-            p.shufflePos();
+        $("#buttons").click(function(event) {
+            var button = event.target;
+            if (button.id == "replay") {
+                this.shufflePos();
+            }
+            if (button.id == "nextPage") {
+                this.cleanMap();
+                ++gameInfo.mapsIndex;
+                this.addPuzzles();
+            }
+            if (button.id == "refresh") {
+                this.refreshPos();
+            }
         }.bind(this));
-
-        // nextPage button
-        buttons[1].click(function(event) {
-            p.cleanMap();
-            gameInfo.mapURL = gameInfo.maps[++mapsIndex];
-            p.createPuzzles();
-        }.bind(this));
-
-        // refresh button
-        buttons[2].click(function() {
-            p.cleanMap();
-            p.createPuzzles();
-        })
     };
 
+    p.shufflePos = function() {
+        // 改变一下每一个puzzle的pos，和puzzleindex， 然后update
+        for (var i = 0; i < 80; ++i) {
+            var puzzle1 = this.puzzles[_.random(0, 14)];
+            var puzzle2 = this.puzzles[_.random(0, 14)];
+            if (puzzle1.posIndex != puzzle2.posIndex) {
+                var temp = puzzle1.posIndex;
+                puzzle1.posIndex = puzzle2.posIndex;
+                puzzle2.posIndex = temp;
+                puzzle1.pos = gameInfo.puzzlePos[puzzle1.posIndex];
+                puzzle2.pos = gameInfo.puzzlePos[puzzle2.posIndex];
+                puzzle1.updateLocation();
+                puzzle2.updateLocation();
+            }
+        }
+    }
+    p.cleanMap = function() {
+        // remove diao na xie 原来的puzzle
+    }
+    p.refreshPos = function() {
+        // an zhao zheng chan di pai lie pos he posIndex, ran hou update
+    }
 
 
 
