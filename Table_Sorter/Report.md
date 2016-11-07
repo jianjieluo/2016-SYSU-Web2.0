@@ -35,4 +35,13 @@
         4. 最大的收获是，**以需求来定数据结构的设计和编程的方式**，比如拼图的重构，对象很多很细，所以面向对象，table sorter对象事件只有一个，实在是没有必要写一个宏大的构造子= =
 
 ##3. 神秘代码
-    这周时间不太够，所以在周日前23：00没来得及写，接下来补作业后有时间就在来把这个给补上，如果有幸能够在ta批改作业时看到这篇readme之前我把这个部分完善了，希望ta大大可以放过：）
+    测试成功网站：
+    1. 中山大学选课平台，请进入我的选课结果：http://uems.sysu.edu.cn/elect
+
+
+以下代码使用atom-minify插件压缩，在我原来的sorter上做了微调
+```js
+var jquery=document.createElement("script");jquery.src="https://cdnjs.cloudflare.com/ajax/libs/jquery/2.1.0/jquery.js";document.getElementsByTagName("head")[0].appendChild(jquery);
+var mysort=function(){var a=$(this);changeState(a);var d=a.parent().parent().parent().find("tbody"),b=d.find("tr"),e=b.index();b.sort(function(b,c){var d=b.children,f=c.children;if("up"==a.attr("class"))return $(d[e]).text()>$(f[e]).text();if("down"==a.attr("class"))return $(d[e]).text()<$(f[e]).text()});d.empty();for(var c=0;c<b.length;++c)b[c].className=c%2?"alternate":"",d.append(b[c])},changeState=function(a){"unclicked"==a.attr("class")||"down"==a.attr("class")?($(".down").attr("class","unclicked"),
+$(".up").attr("class","unclicked"),a.attr("class","up")):($(".down").attr("class","unclicked"),$(".up").attr("class","unclicked"),a.attr("class","down"))};$("th").addClass("unclicked");$("table th").click(mysort);
+```
