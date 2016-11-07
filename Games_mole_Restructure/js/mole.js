@@ -3,16 +3,11 @@ var gameInfo = {
     countDown: '',
 };
 
-
-
 (function() {
 
     window.onload = function() {
         new gamePane();
     };
-    // $(function() {
-    //     new gamePane();
-    // });
 
     var gamePane = function() {
         this.createMoles();
@@ -109,5 +104,4 @@ var gameInfo = {
             $("#map > div:eq(" + randomIndex + ")").css("background-color", "lightblue");
         }
     }
-
 }())
