@@ -15,5 +15,14 @@ Catalog
 3. homework3 : **Ring_Menu**
   + You need to finish a Ring_Menu with some transition using css3. Try to understand the structure in index.html and think about how to write css in a good order
 
-4. homework4 : **Calculator**
+4. homework5 : **Calculator**
   + Learn the basic JavaScript and then use them to implement a Simple Calculator.
+
+5. homework6 : **Games**
+
+6. homework7 : **Fifteen Puzzle**
+
+7. homework8 : **Table Sorter**
+
+
+> 给TA， 11.06 上周的作业table sorter 的作业报告readme请进入table sorter这个dir里面看～谢谢
