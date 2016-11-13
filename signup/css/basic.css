@@ -1,0 +1,40 @@
+html, body {
+    margin: 0;
+    padding: 0;
+    width: 100%;
+    height: 100%;
+    background-color: #FDF6E3;
+}
+h1, h2 {
+    text-align: center;
+    color: #2D8A29;
+}
+h1 {
+    font-size: 50px;
+}
+h2 {
+    font-size: 40px;
+}
+
+/*user info总体位置*/
+
+.userInfo-boxer {
+    box-sizing: border-box;
+    width: 500px;
+    height: 400px;
+    margin-left: auto;
+    margin-right: auto;
+    border: 2px solid grey;
+    border-radius: 30px;
+}
+
+/*information key值*/
+
+.attr {
+    color: #3BB2DD;
+    font-size: 30px;
+}
+.info {
+    color: #737373;
+    font-size: 25px;
+}

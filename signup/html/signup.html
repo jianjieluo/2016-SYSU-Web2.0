@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <title>Sign Up</title>
+    <link rel="stylesheet" href="../css/basic.css">
+    <link rel="stylesheet" href="../css/signup.css">
+    <script src="../js/jquery-3.1.1.min.js" charset="utf-8"></script>
+</head>
+
+<body>
+    <h1>User Sign Up</h1>
+    <div class="userInfo-boxer">
+
+        <form class="signin" action="http://localhost:8000/" method="post">
+            <h2>Sign Up</h2>
+            <div class="userInfo">
+
+                <div class="userName">
+                    <span class="attr">用户名:</span><input type="text" name="userName" value="" class="inputbox">
+                </div>
+                <div class="userId">
+                    <span class="attr">学号:</span><input type="text" name="userId" value="" class="inputbox">
+                </div>
+                <div class="phoneNum">
+                    <span class="attr">电话:</span><input type="text" name="phoneNum" value="" class="inputbox">
+                </div>
+                <div class="email">
+                    <span class="attr">邮箱:</span><input type="text" name="email" value="" class="inputbox">
+                </div>
+                <div class="buttons">
+                    <input type="submit" name="submit" value="提交">
+                    <input type="reset" name="reset" value="重置">
+                </div>
+            </div>
+        </form>
+    </div>
+</body>
+
+</html>
