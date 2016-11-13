@@ -20,5 +20,6 @@ var mysort = function() {
         "unclicked" == a.attr("class") || "down" == a.attr("class") ? ($(".down").attr("class", "unclicked"),
             $(".up").attr("class", "unclicked"), a.attr("class", "up")) : ($(".down").attr("class", "unclicked"), $(".up").attr("class", "unclicked"), a.attr("class", "down"))
     };
+console.log($("th"));
 $("th").addClass("unclicked");
 $("table th").click(mysort);
