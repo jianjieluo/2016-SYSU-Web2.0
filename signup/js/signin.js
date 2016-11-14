@@ -1,9 +1,10 @@
 var http = require('http')
-    // var user_data = require('../data/data/test_data.json')
+var qs = require('querystring')
 
 var server = http.createServer(function(request, response) {
-    // console.log(user_data["members"][0]["userName"])
-    console.log(request)
+
+
+    console.log(request.url)
 })
 
 
