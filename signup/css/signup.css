@@ -4,9 +4,10 @@
     font-size: 25px;
     background-color: #FDF6E3;
     border-radius: 10px;
+    font-family: Tahoma, sans-serif;
 }
 .inputbox:focus {
-    background-color: grey;
+    background-color: #DED5D5;
 }
 .buttons {
     /*box-sizing: border-box;*/
@@ -18,4 +19,9 @@
     background-color: #0C789F;
     color: white;
     height: 30px;
+}
+.error {
+    color: red;
+    font-size: 10px;
+    font-family: Tahoma, sans-serif;
 }
