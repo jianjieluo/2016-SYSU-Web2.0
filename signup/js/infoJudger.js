@@ -1,23 +1,3 @@
-$(function() {
-    $("form").submit(function() {
-        var t_data = $(".userInfo > div > input").slice(0, 4)
-        $("p").html('');
-        if (!userNameJudger($(t_data[0]).val())) {
-            return false;
-        }
-        if (!userIdJudger($(t_data[1]).val())) {
-            return false;
-        }
-        if (!phoneNumJudger($(t_data[2]).val())) {
-            return false;
-        }
-        if (!emailJudger($(t_data[3]).val())) {
-            return false;
-        }
-        return true
-    })
-})
-
 function userNameJudger(data) {
     var error = $(".userName").find(".invalid")
     if (data.length < 6 || data.length > 18) {
@@ -63,3 +43,8 @@ function emailJudger(data) {
     }
     return true
 }
+
+exports.userNameJudger = userNameJudger;
+exports.userIdJudger = userIdJudger;
+exports.phoneNumJudger = phoneNumJudger;
+exports.emailJudger = emailJudger;
