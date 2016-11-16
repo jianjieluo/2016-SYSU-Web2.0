@@ -10,9 +10,9 @@
     background-color: #DED5D5;
 }
 .buttons {
-    /*box-sizing: border-box;*/
-    width: 100px;
-    height: 50px;
+    box-sizing: border-box;
+    width: 110px;
+    height: 30px;
     float: right;
 }
 .buttons>input {

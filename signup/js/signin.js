@@ -10,30 +10,36 @@ var signup_html_path = '../html/signup.html'
 var register_fail_html_path = '../html/registerFail.html'
 var basic_css_path = '../css/basic.css'
 var signup_css_path = '../css/signup.css'
+var client_js_path = './client.js';
 var lis_port = 8000;
 
 
 http.createServer(function(req, res) {
     var url_parts = url.parse(req.url);
-    // console.log("url_parts type is " + typeof url_parts);
-    // console.log(typeof url_parts.pathname)
-    console.log("url_parts.pathname is " + url_parts.pathname)
+    console.log("url_parts.pathname is :" + url_parts.pathname)
+    console.log('the request Method is :' + req.method)
 
-    var register_info = getRegisterInfo(req);
-    console.log("register_info type is " + typeof register_info)
+    if (req.method == "POST") {
+        var register_info = JSON.parse(getRegisterInfo(req));
+        console.log("register_info type is :" + typeof register_info)
+    }
 
     switch (url_parts.pathname) {
         case '/':
-            // if (res.method == "POST") {
-            //     display_register_feedback(req, res, register_info);
-            // } else {
             display_signup(signup_html_path, req, res);
-            // }
             break;
-
-        case '/username=abc':
+        case '/?username=abc':
             var search_username = qs.parse(url_parts.query).username;
             display_info(req, res, search_username);
+            break;
+        case '/css/basic.css':
+            sendCssFile(basic_css_path);
+            break;
+        case '/css/signup.css':
+            sendCssFile(signup_css_path);
+            break;
+        case '/js/client.js':
+            sendJsFile(client_js_path);
             break;
         default:
             display_404(url_parts.pathname, req, res);
@@ -48,12 +54,16 @@ http.createServer(function(req, res) {
             'Content-Type': 'text/html'
         });
         // var members_info = dataHelper.readUserData(data_path);
-        var members_info = require(data_path);
-        console.log("the type of members info " + typeof members_info);
+        // var members_info = require(data_path);
+        // console.log("the type of members info " + typeof members_info);
+        // console.log(JSON.stringify(members_info))
 
         var html = dataHelper.readHtml(url);
-        console.log('leave the current funcions')
+        // the html is right here
+        // console.log(html.toString());
         res.end(html);
+        console.log('leave the current funcions');
+        console.log('----------------------------')
     }
 
     function display_register_feedback(req, res, user_info) {
@@ -144,6 +154,22 @@ http.createServer(function(req, res) {
         });
         res.write("<h1 > 404 Not Found < /h1>");
         res.end("The page you were looking for: " + url + " an not be found ");
+    }
+
+    function sendCssFile(url) {
+        var css = dataHelper.readCode(url);
+        res.writeHead(200, {
+            'Content-Type': 'text/css'
+        });
+        res.end(css);
+    }
+
+    function sendJsFile(url) {
+        var js = dataHelper.readCode(url);
+        res.writeHead(200, {
+            'Content-Type': 'text/javascript'
+        });
+        res.end(js);
     }
 }).listen(lis_port);
 console.log("server is listening on " + lis_port);
