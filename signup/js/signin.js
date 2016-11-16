@@ -19,14 +19,21 @@ http.createServer(function(req, res) {
     console.log("url_parts.pathname is :" + url_parts.pathname)
     console.log('the request Method is :' + req.method)
 
-    if (req.method == "POST") {
-        var register_info = JSON.parse(getRegisterInfo(req));
-        console.log("register_info type is :" + typeof register_info)
-    }
+    // if (req.method == "POST") {
+    //     var register_info = JSON.parse(getRegisterInfo(req));
+    //     console.log("register_info type is :" + typeof register_info)
+    // }
+    //
+    var search_username = qs.parse(url_parts.query).username;
+    console.log("search_username is:" + search_username);
 
     switch (url_parts.pathname) {
         case '/':
-            display_signup(signup_html_path, req, res);
+            if (search_username) {
+                display_info(res, req, search_username);
+            } else {
+                display_signup(signup_html_path, req, res);
+            }
             break;
         case '/?username=abc':
             var search_username = qs.parse(url_parts.query).username;
@@ -48,22 +55,18 @@ http.createServer(function(req, res) {
     return;
 
     // begin to implement the functions above
+    //
+    // correct
     function display_signup(url, req, res) {
         console.log('enter the display_signup function')
         res.writeHead(200, {
             'Content-Type': 'text/html'
         });
-        // var members_info = dataHelper.readUserData(data_path);
-        // var members_info = require(data_path);
-        // console.log("the type of members info " + typeof members_info);
-        // console.log(JSON.stringify(members_info))
 
         var html = dataHelper.readHtml(url);
-        // the html is right here
-        // console.log(html.toString());
+
         res.end(html);
-        console.log('leave the current funcions');
-        console.log('----------------------------')
+        console.log('-----------------end display_signup()--------------------')
     }
 
     function display_register_feedback(req, res, user_info) {
@@ -115,24 +118,35 @@ http.createServer(function(req, res) {
         res.end(html);
     }
 
+
+    // correct run
     function display_info(res, req, search_username) {
         var members_info = require(data_path);
-        for (var i = 0, len = members_info.length; i < len; ++i) {
+        var len = members_info["members"].length;
+
+        for (var i = 0; i < len; ++i) {
             if (search_username == members_info['members'][i]['userName']) {
-                var html = dataHelper.readHtml(info_html_path);
-                html.replace("{\$(userName)}", members_info['members'][i]['userName'])
-                html.replace("{\$(userId)}", members_info['members'][i]['userId'])
-                html.replace("{\$(phoneNum)}", members_info['members'][i]['phoneNum'])
-                html.replace("{\$(email)}", members_info['members'][i]['email'])
+                console.log(members_info['members'][i])
 
                 res.writeHead(200, {
                     'Content-Type': 'text/html'
                 });
+                var data = dataHelper.readHtml(info_html_path);
+                var html = data.toString();
+
+                html = html.replace("{\$(userName)}", members_info['members'][i]['userName'])
+                html = html.replace("{\$(userId)}", members_info['members'][i]['userId'])
+                html = html.replace("{\$(phoneNum)}", members_info['members'][i]['phoneNum'])
+                html = html.replace("{\$(email)}", members_info['members'][i]['email'])
+
+                // console.log(html)
                 res.end(html);
-                console.log('leave the current funcions')
-                break;
+                console.log('------------leave info() with successful request---------------')
+                return;
             }
         }
+        console.log("'------------leave info(), no such a user, response with the sign up page---------------'")
+        display_signup(signup_html_path, req, res);
     }
 
     function getRegisterInfo(req) {
