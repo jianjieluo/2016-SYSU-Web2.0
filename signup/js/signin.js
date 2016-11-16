@@ -37,6 +37,7 @@ http.createServer(function(req, res) {
 
     switch (url_parts.pathname) {
         case '/':
+            // post 请求时，就应该是开始注册了
             if (req.method == 'POST') {
                 console.log("begin to register....")
                 var fullbody = '';
@@ -50,8 +51,10 @@ http.createServer(function(req, res) {
                 });
             } else {
                 if (search_username) {
+                    // 查询用户详情
                     display_info(req, res, search_username);
                 } else {
+                    // 显示默认的signup界面
                     display_signup(signup_html_path, req, res);
                 }
             }

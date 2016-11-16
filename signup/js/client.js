@@ -56,7 +56,7 @@ function phoneNumJudger(data) {
 
 function emailJudger(data) {
     var error = $(".email").find(".invalid")
-    var regex = /^(\w)+(\.\w+)*@(\w)+((\.\w{2,3}){1,3})$/
+    var regex = /^([\w-_]+(?:\.[\w-_]+)*)@((?:[a-z0-9]+(?:-[a-zA-Z0-9]+)*)+\.[a-z]{2,6})$/
     if (!regex.test(data)) {
         error.html("邮箱格式不合法")
         return false

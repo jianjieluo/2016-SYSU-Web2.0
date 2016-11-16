@@ -9,6 +9,9 @@
 .inputbox:focus {
     background-color: #DED5D5;
 }
+
+/*按钮设置*/
+
 .buttons {
     box-sizing: border-box;
     width: 110px;
@@ -16,15 +19,23 @@
     float: right;
 }
 .buttons>input {
-    background-color: #0C789F;
+    background-color: #47AEF9;
+    border-radius: 10px;
+    border-style: none;
     color: white;
     height: 30px;
 }
+
+/*输入格式错误报错css*/
+
 .invalid {
     color: red;
     font-size: 10px;
     font-family: Tahoma, sans-serif;
 }
+
+/*用户数据重复的报错css*/
+
 .conflictInfo {
     color: red;
     font-size: 30px;
