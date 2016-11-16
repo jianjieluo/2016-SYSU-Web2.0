@@ -3,12 +3,10 @@ var url = require('url');
 var qs = require('querystring')
 var fs = require('fs')
 var dataHelper = require('./dataHelper.js');
-var infoJudger = require('./infoJudger.js');
 
 var data_path = '../data/test_data.json'
 var info_html_path = '../html/info.html'
 var signup_html_path = '../html/signup.html'
-var register_fail_html_path = '../html/registerFail.html'
 var basic_css_path = '../css/basic.css'
 var signup_css_path = '../css/signup.css'
 var client_js_path = './client.js';
@@ -58,10 +56,6 @@ http.createServer(function(req, res) {
                 }
             }
             break;
-            // case '/?username=abc':
-            //     var search_username = qs.parse(url_parts.query).username;
-            //     display_info(req, res, search_username);
-            //     break;
         case '/css/basic.css':
             sendCssFile(basic_css_path);
             break;
@@ -94,9 +88,10 @@ http.createServer(function(req, res) {
 
     function display_register_feedback(req, res, user_info) {
         console.log('enter the display_register_feedback function')
-            // read the members
         var members_info = require(data_path);
         var len = members_info["members"].length;
+
+        console.log(members_info)
 
         for (var i = 0; i < len; ++i) {
             if (user_info.userName == members_info['members'][i]['userName']) {

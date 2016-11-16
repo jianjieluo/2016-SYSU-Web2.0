@@ -21,14 +21,12 @@ $(function() {
 function userNameJudger(data) {
     var error = $(".userName").find(".invalid")
     if (data.length < 6 || data.length > 18) {
-        // userNameDiv.prepend('<p class=\"invalid\">用户名需要6~18位</p>')
         error.html('用户名需要6~18位')
         return false;
     }
-    var regex = /[a-zA-Z]/
-    if (!regex.test(data[0])) {
-        // userNameDiv.prepend('<p class=\"invalid\">用户名开头需要是英文字母</p>')
-        error.html('用户名开头需要是英文字母')
+    var regex = /^[a-z]{1}[0-9_a-z]{2,11}$/
+    if (!regex.test(data)) {
+        error.html('用户名6~18位英文字母、数字或下划线，必须以英文字母开头')
         return false;
     }
     return true;
@@ -56,7 +54,7 @@ function phoneNumJudger(data) {
 
 function emailJudger(data) {
     var error = $(".email").find(".invalid")
-    var regex = /^[a-zA-Z_\-]+@(([a-zA-Z_\-])+\.)+[a-zA-Z]{2,4}$/
+    var regex = /^(\w)+(\.\w+)*@(\w)+((\.\w{2,3}){1,3})$/
     if (!regex.test(data)) {
         error.html("邮箱格式不合法")
         return false
