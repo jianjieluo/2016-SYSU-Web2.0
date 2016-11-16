@@ -52,7 +52,7 @@ http.createServer(function(req, res) {
                 });
             } else {
                 if (search_username) {
-                    display_info(res, req, search_username);
+                    display_info(req, res, search_username);
                 } else {
                     display_signup(signup_html_path, req, res);
                 }
@@ -131,8 +131,7 @@ http.createServer(function(req, res) {
         // console.log(typeof register_info)
         // console.log(register_info)
         //
-        // members_info.members.push(register_info);
-        // console.log(members_info.members);
+        members_info.members.push(register_info);
 
         fs.writeFileSync(data_path, JSON.stringify(members_info), 'utf8');
         console.log('add the new user info successfully')
@@ -158,7 +157,7 @@ http.createServer(function(req, res) {
 
 
     // correct run
-    function display_info(res, req, search_username) {
+    function display_info(req, res, search_username) {
         var members_info = require(data_path);
         var len = members_info["members"].length;
 
