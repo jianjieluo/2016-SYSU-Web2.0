@@ -19,35 +19,48 @@ http.createServer(function(req, res) {
     console.log("url_parts.pathname is :" + url_parts.pathname)
     console.log('the request Method is :' + req.method)
 
-    // if (req.method == "POST") {
-    //     console.log("begin to get the post body --- register info");
-    //     var fullbody = '';
-    //
-    //     req.on('data', function(chunk) {
-    //         fullbody += chunk;
-    //     });
-    //
-    //     req.on('end', function() {
-    //         var regitser_info = qs.parse(fullbody);
-    //         display_register_feedback(req, res, regitser_info);
-    //     });
-    //     return;
-    // }
+    if (req.method == "POST") {
+        console.log("begin to get the post body --- register info");
+        var fullbody = '';
+
+        req.on('data', function(chunk) {
+            fullbody += chunk;
+        });
+
+        req.on('end', function() {
+            var regitser_info = qs.parse(fullbody);
+            display_register_feedback(req, res, regitser_info);
+        });
+        return;
+    }
 
     var search_username = qs.parse(url_parts.query).username;
 
     switch (url_parts.pathname) {
         case '/':
-            if (search_username) {
-                display_info(res, req, search_username);
+            if (req.method == 'POST') {
+                console.log("begin to register....")
+                var fullbody = '';
+                req.on('data', function(chunk) {
+                    fullbody += chunk;
+                });
+
+                req.on('end', function() {
+                    var regitser_info = qs.parse(fullbody);
+                    display_register_feedback(req, res, regitser_info);
+                });
             } else {
-                display_signup(signup_html_path, req, res);
+                if (search_username) {
+                    display_info(res, req, search_username);
+                } else {
+                    display_signup(signup_html_path, req, res);
+                }
             }
             break;
-        case '/?username=abc':
-            var search_username = qs.parse(url_parts.query).username;
-            display_info(req, res, search_username);
-            break;
+            // case '/?username=abc':
+            //     var search_username = qs.parse(url_parts.query).username;
+            //     display_info(req, res, search_username);
+            //     break;
         case '/css/basic.css':
             sendCssFile(basic_css_path);
             break;
@@ -82,42 +95,47 @@ http.createServer(function(req, res) {
         console.log('enter the display_register_feedback function')
             // read the members
         var members_info = require(data_path);
-        var isconflict = false;
+        var len = members_info["members"].length;
 
-        for (var i = 0, len = members_info.length; i < len; ++i) {
+        for (var i = 0; i < len; ++i) {
             if (user_info.userName == members_info['members'][i]['userName']) {
                 conflict_info = 'userName';
-                isconflict = true;
+                display_conflict(req, res, conflict_info);
+                return;
             }
             if (user_info.userId == members_info['members'][i]['userId']) {
                 conflict_info = 'userId';
-                isconflict = true;
+                display_conflict(req, res, conflict_info);
+                return;
             }
             if (user_info.phoneNum == members_info['members'][i]['phoneNum']) {
                 conflict_info = 'phoneNum';
-                isconflict = true;
+                display_conflict(req, res, conflict_info);
+                return;
             }
             if (user_info.email == members_info['members'][i]['email']) {
                 conflict_info = 'email';
-                isconflict = true;
+                display_conflict(req, res, conflict_info);
+                return;
             }
         }
 
-        if (isconflict) {
-            console.log('register failed with conflict')
-            display_conflict(req, res, conflict_info);
-        } else {
-            console.log('register successfully')
-            members_info['members'].push(user_info);
-            dataHelper.writeUserData(members_info);
-            display_info(req, res, user_info['userName']);
-        }
+        console.log('register successfully');
+        var register_info = {};
+        register_info["userName"] = user_info.userName;
+        register_info["userId"] = user_info.userId;
+        register_info['phoneNum'] = user_info.phoneNum;
+        register_info['email'] = user_info.email;
+
+        dataHelper.addUserData(data_path, members_info);
+        display_info(req, res, user_info.userName);
     }
 
     function display_conflict(req, res, conflict_info) {
         console.log('enter the display_conflict function')
-        var html = dataHelper.readHtml(register_fail_html_path);
-        html.replace("{\$(conflict_info)}", "information conflict with database on " + conflict_info);
+        var data = dataHelper.readHtml(register_fail_html_path);
+        var html = data.toString();
+        html = html.replace("{\$(conflict_info)}", "information conflict with database on " + conflict_info);
 
         res.writeHead(200, {
             'Content-Type': 'text/html'

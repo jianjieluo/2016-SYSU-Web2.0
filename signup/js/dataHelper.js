@@ -5,10 +5,10 @@ function readCode(code_path) {
     return code;
 }
 
-function writeUserData(data_path, user_info) {
+function addUserData(data_path, user_info) {
     var membersInfo = require(data_path)
     membersInfo["members"].push(user_info)
-    fs.writeFile(data_path, JSON.stringify(membersInfo), 'utf8')
+    fs.writeFileSync(data_path, JSON.stringify(membersInfo), 'utf8');
 }
 
 function readHtml(html_path) {
@@ -18,5 +18,5 @@ function readHtml(html_path) {
 
 
 exports.readCode = readCode;
-exports.writeUserData = writeUserData;
+exports.addUserData = addUserData;
 exports.readHtml = readHtml;
