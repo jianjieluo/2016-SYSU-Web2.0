@@ -72,8 +72,9 @@ http.createServer(function(req, res) {
     return;
 
     // begin to implement the functions above
-    //
-    // correct
+    /**
+     * response with the default signup html
+     */
     function display_signup(url, req, res) {
         console.log('enter the display_signup function');
         res.writeHead(200, {
@@ -86,12 +87,13 @@ http.createServer(function(req, res) {
         console.log('-----------------end display_signup()--------------------')
     }
 
+    /**
+     * 返回注册反馈，在里面进行数据重复检测，然后分有两种可能
+     */
     function display_register_feedback(req, res, user_info) {
         console.log('enter the display_register_feedback function')
         var members_info = require(data_path);
         var len = members_info["members"].length;
-
-        // console.log(members_info)
 
         for (var i = 0; i < len; ++i) {
             if (user_info.userName == members_info['members'][i]['userName']) {
@@ -116,6 +118,7 @@ http.createServer(function(req, res) {
             }
         }
 
+        // 如果可以进入到这一步，说明前面的重复检查通过了
         console.log('register successfully');
         var register_info = {};
         register_info["userName"] = user_info.userName;
@@ -131,23 +134,22 @@ http.createServer(function(req, res) {
     }
 
 
-    // correct run
+    // 从模板 signin.html 里面填充冲突信息然后返回
     function display_conflict(req, res, conflict_info) {
         console.log('enter the display_conflict function')
         var data = dataHelper.readHtml(signup_html_path);
         var html = data.toString();
-        // html = html.replace("{\$(conflict_info)}", "information conflict with database on " + conflict_info);
         html = html.replace("<p class=\"conflictInfo\"></p>", "<p class=\"conflictInfo\">information conflict with database on :" + conflict_info + "</p>");
 
         res.writeHead(200, {
             'Content-Type': 'text/html'
         });
-        console.log('leave the current funcions')
         res.end(html);
+        console.log('-----------------------leave the display_conflict()---------------------------')
     }
 
 
-    // correct run
+    //在这里展示用户信息，如果数据库中没有这个用户名，则返回default的signup.html
     function display_info(req, res, search_username) {
         var members_info = require(data_path);
         var len = members_info["members"].length;
@@ -178,25 +180,13 @@ http.createServer(function(req, res) {
         return;
     }
 
-    // function getRegisterInfo(req) {
-    //     console.log("begin to get the post body --- register info");
-    //     var fullbody = '';
-    //
-    //     req.on('data', function(chunk) {
-    //         fullbody += chunk.toString();
-    //     });
-    //
-    //     console.log(typeof fullbody);
-    //     console.log('leave the current funcions')
-    //     return JSON.stringify(fullbody);
-    // }
-
     function display_404(url, req, res) {
         res.writeHead(404, {
             'Content-Type': 'text/html'
         });
         res.write("<h1 > 404 Not Found < /h1>");
         res.end("The page you were looking for: " + url + " an not be found ");
+        console.log("-----------------404 error occurs--------------------")
     }
 
     function sendCssFile(url) {
@@ -217,4 +207,5 @@ http.createServer(function(req, res) {
         console.log("-----------------send the js file successfully------------------")
     }
 }).listen(lis_port);
+
 console.log("server is listening on " + lis_port);
