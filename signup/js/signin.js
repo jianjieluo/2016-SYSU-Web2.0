@@ -20,12 +20,21 @@ http.createServer(function(req, res) {
     console.log('the request Method is :' + req.method)
 
     // if (req.method == "POST") {
-    //     var register_info = JSON.parse(getRegisterInfo(req));
-    //     console.log("register_info type is :" + typeof register_info)
-    // }
+    //     console.log("begin to get the post body --- register info");
+    //     var fullbody = '';
     //
+    //     req.on('data', function(chunk) {
+    //         fullbody += chunk;
+    //     });
+    //
+    //     req.on('end', function() {
+    //         var regitser_info = qs.parse(fullbody);
+    //         display_register_feedback(req, res, regitser_info);
+    //     });
+    //     return;
+    // }
+
     var search_username = qs.parse(url_parts.query).username;
-    console.log("search_username is:" + search_username);
 
     switch (url_parts.pathname) {
         case '/':
@@ -73,23 +82,22 @@ http.createServer(function(req, res) {
         console.log('enter the display_register_feedback function')
             // read the members
         var members_info = require(data_path);
-        var conflict_info;
         var isconflict = false;
 
         for (var i = 0, len = members_info.length; i < len; ++i) {
-            if (user_info['userName'] == members_info['members'][i]['userName']) {
+            if (user_info.userName == members_info['members'][i]['userName']) {
                 conflict_info = 'userName';
                 isconflict = true;
             }
-            if (user_info['userId'] == members_info['members'][i]['userId']) {
+            if (user_info.userId == members_info['members'][i]['userId']) {
                 conflict_info = 'userId';
                 isconflict = true;
             }
-            if (user_info['phoneNum'] == members_info['members'][i]['phoneNum']) {
+            if (user_info.phoneNum == members_info['members'][i]['phoneNum']) {
                 conflict_info = 'phoneNum';
                 isconflict = true;
             }
-            if (user_info['email'] == members_info['members'][i]['email']) {
+            if (user_info.email == members_info['members'][i]['email']) {
                 conflict_info = 'email';
                 isconflict = true;
             }
@@ -176,6 +184,7 @@ http.createServer(function(req, res) {
             'Content-Type': 'text/css'
         });
         res.end(css);
+        console.log("-----------------send the css file successfully------------------")
     }
 
     function sendJsFile(url) {
@@ -184,6 +193,7 @@ http.createServer(function(req, res) {
             'Content-Type': 'text/javascript'
         });
         res.end(js);
+        console.log("-----------------send the js file successfully------------------")
     }
 }).listen(lis_port);
 console.log("server is listening on " + lis_port);
