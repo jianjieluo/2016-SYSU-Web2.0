@@ -91,7 +91,7 @@ http.createServer(function(req, res) {
         var members_info = require(data_path);
         var len = members_info["members"].length;
 
-        console.log(members_info)
+        // console.log(members_info)
 
         for (var i = 0; i < len; ++i) {
             if (user_info.userName == members_info['members'][i]['userName']) {
@@ -123,14 +123,10 @@ http.createServer(function(req, res) {
         register_info['phoneNum'] = user_info.phoneNum;
         register_info['email'] = user_info.email;
 
-        // console.log(typeof register_info)
-        // console.log(register_info)
-        //
         members_info.members.push(register_info);
 
         fs.writeFileSync(data_path, JSON.stringify(members_info), 'utf8');
         console.log('add the new user info successfully')
-            // dataHelper.addUserData(data_path, register_info);
         display_info(req, res, user_info.userName);
     }
 

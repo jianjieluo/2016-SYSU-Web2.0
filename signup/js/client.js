@@ -1,3 +1,5 @@
+// 这个js是发送给客户端然后在客户端进行一次信息格式输入检测的
+
 $(function() {
     $("form").submit(function() {
         var t_data = $(".userInfo > div > input").slice(0, 4)
