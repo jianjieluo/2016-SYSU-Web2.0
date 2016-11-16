@@ -133,9 +133,10 @@ http.createServer(function(req, res) {
 
     function display_conflict(req, res, conflict_info) {
         console.log('enter the display_conflict function')
-        var data = dataHelper.readHtml(register_fail_html_path);
+        var data = dataHelper.readHtml(signup_html_path);
         var html = data.toString();
-        html = html.replace("{\$(conflict_info)}", "information conflict with database on " + conflict_info);
+        // html = html.replace("{\$(conflict_info)}", "information conflict with database on " + conflict_info);
+        html = html.replace("<p class=\"conflictInfo\"></p>", "<p class=\"conflictInfo\">information conflict with database on :" + conflict_info + "</p>");
 
         res.writeHead(200, {
             'Content-Type': 'text/html'

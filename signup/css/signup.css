@@ -25,3 +25,9 @@
     font-size: 10px;
     font-family: Tahoma, sans-serif;
 }
+.conflictInfo {
+    color: red;
+    font-size: 30px;
+    font-family: Tahoma, sans-serif;
+    text-align: center;
+}
