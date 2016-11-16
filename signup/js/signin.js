@@ -100,22 +100,22 @@ http.createServer(function(req, res) {
 
         for (var i = 0; i < len; ++i) {
             if (user_info.userName == members_info['members'][i]['userName']) {
-                conflict_info = 'userName';
+                conflict_info = 'userName:' + user_info.userName;
                 display_conflict(req, res, conflict_info);
                 return;
             }
             if (user_info.userId == members_info['members'][i]['userId']) {
-                conflict_info = 'userId';
+                conflict_info = 'userId: ' + user_info.userId;
                 display_conflict(req, res, conflict_info);
                 return;
             }
             if (user_info.phoneNum == members_info['members'][i]['phoneNum']) {
-                conflict_info = 'phoneNum';
+                conflict_info = 'phoneNum: ' + user_info.phoneNum;
                 display_conflict(req, res, conflict_info);
                 return;
             }
             if (user_info.email == members_info['members'][i]['email']) {
-                conflict_info = 'email';
+                conflict_info = 'email: ' + user_info.email;
                 display_conflict(req, res, conflict_info);
                 return;
             }
