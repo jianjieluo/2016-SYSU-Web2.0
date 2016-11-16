@@ -1,6 +1,7 @@
 var http = require('http');
 var url = require('url');
 var qs = require('querystring')
+var fs = require('fs')
 var dataHelper = require('./dataHelper.js');
 var infoJudger = require('./infoJudger.js');
 
@@ -80,7 +81,7 @@ http.createServer(function(req, res) {
     //
     // correct
     function display_signup(url, req, res) {
-        console.log('enter the display_signup function')
+        console.log('enter the display_signup function');
         res.writeHead(200, {
             'Content-Type': 'text/html'
         });
@@ -127,10 +128,20 @@ http.createServer(function(req, res) {
         register_info['phoneNum'] = user_info.phoneNum;
         register_info['email'] = user_info.email;
 
-        dataHelper.addUserData(data_path, members_info);
+        // console.log(typeof register_info)
+        // console.log(register_info)
+        //
+        // members_info.members.push(register_info);
+        // console.log(members_info.members);
+
+        fs.writeFileSync(data_path, JSON.stringify(members_info), 'utf8');
+        console.log('add the new user info successfully')
+            // dataHelper.addUserData(data_path, register_info);
         display_info(req, res, user_info.userName);
     }
 
+
+    // correct run
     function display_conflict(req, res, conflict_info) {
         console.log('enter the display_conflict function')
         var data = dataHelper.readHtml(signup_html_path);
@@ -174,20 +185,21 @@ http.createServer(function(req, res) {
         }
         console.log("'------------leave info(), no such a user, response with the sign up page---------------'")
         display_signup(signup_html_path, req, res);
+        return;
     }
 
-    function getRegisterInfo(req) {
-        console.log("begin to get the post body --- register info");
-        var fullbody = '';
-
-        req.on('data', function(chunk) {
-            fullbody += chunk.toString();
-        });
-
-        console.log(typeof fullbody);
-        console.log('leave the current funcions')
-        return JSON.stringify(fullbody);
-    }
+    // function getRegisterInfo(req) {
+    //     console.log("begin to get the post body --- register info");
+    //     var fullbody = '';
+    //
+    //     req.on('data', function(chunk) {
+    //         fullbody += chunk.toString();
+    //     });
+    //
+    //     console.log(typeof fullbody);
+    //     console.log('leave the current funcions')
+    //     return JSON.stringify(fullbody);
+    // }
 
     function display_404(url, req, res) {
         res.writeHead(404, {
