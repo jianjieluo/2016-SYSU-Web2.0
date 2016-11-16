@@ -4,7 +4,7 @@ var qs = require('querystring')
 var fs = require('fs')
 var dataHelper = require('./dataHelper.js');
 
-var data_path = '../data/test_data.json'
+var data_path = '../data/data.json'
 var info_html_path = '../html/info.html'
 var signup_html_path = '../html/signup.html'
 var basic_css_path = '../css/basic.css'
