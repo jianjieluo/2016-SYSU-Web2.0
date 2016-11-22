@@ -8,6 +8,7 @@ html body {
     margin: 0;
     padding: 0;
     overflow: hidden;
+    border: 1px black solid;
 }
 #at-plus-container {
     position: relative;
@@ -29,20 +30,39 @@ html body {
     margin-right: auto;
     margin-bottom: 50px;
 }
-#info-bar {
-    position: absolute;
+#button:hover #info-bar {
+    position: relative;
     width: 130px;
     height: 130px;
     border-radius: 50%;
-    left: 10%;
-    bottom: 120px;
+    left: -75%;
+    bottom: 145px;
     background-color: #7E7E7E;
+    opacity: 1;
+    transition: all 0.5s;
 }
-.info li {
+#info-bar {
+    position: absolute;
+    width: 20px;
+    height: 20px;
+    left: 66px;
+    bottom: 60px;
+    opacity: 0;
+}
+#button:hover .info li {
+    position: relative;
     list-style: none;
     font-size: 20px;
     width: 100px;
     height: 40px;
+    transition: all 0.5s;
+}
+.info li {
+    position: absolute;
+    width: 20px;
+    height: 20px;
+    left: 0px;
+    bottom: 3px;
 }
 .info span {
     padding-left: 10%;
@@ -52,13 +72,13 @@ html body {
 }
 .user {
     position: relative;
-    left: 6px;
-    bottom: 10px;
+    left: 5px;
+    bottom: -10px;
 }
 .comment {
     position: relative;
-    left: -5px;
-    bottom: 20px;
+    left: 5px;
+    bottom: 10px;
 }
 .comment span {
     font-size: 30px;
@@ -66,28 +86,31 @@ html body {
     vertical-align: 5px;
 }
 .mine {
-    position: absolute;
-    bottom: 7px;
+    position: relative;
 }
 .mine span {
     color: #20DA91;
 }
 .posted {
-    left: 20px;
+    left: -20px;
+    bottom: 7px;
 }
 .like {
-    left: 72px;
+    left: 30px;
+    bottom: 46px;
 }
-#button:hover #control-ring-container {
+#control-ring-container {
     position: absolute;
+    display: block;
     left: -3px;
     bottom: 0px;
     width: 100%;
     height: 155px;
-    border-radius: 50%;
+    border-radius: 100px;
+    border: 1px black solid;
 }
 .button {
-    position: absolute;
+    position: relative;
     list-style: none;
     display: block;
     width: 35px;
@@ -96,23 +119,47 @@ html body {
     background-color: #686868;
     background-repeat: no-repeat;
     background-position: center;
+    transition: all 0.5s;
 }
-#button:hover .mask {
-    left: 11px;
-    bottom: 96px;
+#button:hover #button .mask {
+    position: relative;
+    left: -31px;
+    bottom: -12px;
     background-image: url(../assets/images/nomask.png);
+    transition: all 0.5s;
 }
-#button:hover .history {
-    left: 0px;
+.mask {
+    position: absolute;
+    width: 20px;
+    height: 20px;
+    left: 66px;
     bottom: 60px;
+}
+#button:hover #button .history {
+    left: -40px;
+    bottom: -15px;
     background-image: url(../assets/images/history.png);
 }
-#button:hover .message {
-    left: 11px;
-    bottom: 22px;
+.history {
+    position: absolute;
+    width: 20px;
+    height: 20px;
+    left: 66px;
+    bottom: 60px;
+}
+#button:hover #button .message {
+    left: -21px;
+    bottom: -18px;
     background-image: url(../assets/images/message.png);
 }
-#button:hover .message .unread {
+.message {
+    position: absolute;
+    width: 20px;
+    height: 20px;
+    left: 66px;
+    bottom: 60px;
+}
+#button .message .unread {
     position: relative;
     left: 20px;
     bottom: 5px;
@@ -125,15 +172,29 @@ html body {
     color: white;
     text-align: center;
 }
-#button:hover .setting {
-    left: 45px;
+#button:hover #button .setting {
+    left: 18px;
     bottom: 0px;
     background-image: url(../assets/images/setting.png);
 }
-#button:hover .sign {
-    left: 87px;
-    bottom: 7px;
+.setting {
+    position: absolute;
+    width: 20px;
+    height: 20px;
+    left: 66px;
+    bottom: 60px;
+}
+#button:hover #button .sign {
+    left: 57px;
+    bottom: 49px;
     background-image: url(../assets/images/signin.png);
+}
+.sign {
+    position: absolute;
+    width: 20px;
+    height: 20px;
+    left: 66px;
+    bottom: 60px;
 }
 .apb {
     position: absolute;
@@ -154,4 +215,6 @@ html body {
     background-image: url(../assets/images/atplus_green.png);
     background-color: rgba(48, 63, 159, 1);
     transition: all 0.5s;
+}
+
 }
