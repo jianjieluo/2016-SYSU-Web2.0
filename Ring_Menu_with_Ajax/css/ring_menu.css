@@ -26,7 +26,6 @@ div[id="bottom-positioner"] {
     background-color: white;
 }
 #button:hover>#blank {
-    /*background-color: grey;*/
     position: fixed;
     left: 287px;
     bottom: 67px;
@@ -99,7 +98,7 @@ div[class="icon"] {
 
 /*the info-bar behavior*/
 
-#button:hover div[id="info-bar"] {
+#button:hover #info-bar {
     transform: translate(-50px, -165px);
     background-color: #7E7E7E;
     width: 140px;
@@ -143,7 +142,7 @@ div[class="icon"] {
     transition: all 0.2s;
     transition-delay: 0.4s;
 }
-#button:hover .button>span {
+#button:hover .num {
     font-size: 15px;
     position: relative;
     bottom: 40px;
@@ -157,9 +156,6 @@ div[class="icon"] {
 #button:hover .message {
     transform: translate(-65px, 50px);
 }
-
-/*fixed*/
-
 #button:hover .setting {
     transform: translate(-27px, 75px);
 }
