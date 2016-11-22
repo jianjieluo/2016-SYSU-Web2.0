@@ -6,7 +6,11 @@ var port = 3000;
 
 http.createServer(function(req, res) {
     var pathname = url.parse(req.url).pathname;
+    console.log("url_parts.pathname is :" + pathname)
+    console.log('the request Method is :' + req.method)
+
     var mimeType = getMimeType(pathname);
+    console.log(!!mimeType)
     if (!!mimeType) {
         handlePage(req, res, pathname);
     } else {
@@ -27,10 +31,13 @@ function getMimeType(pathname) {
     };
     var ext = path.extname(pathname);
     var type = validExtensions[ext];
+    // console.log("path.extname:" + ext);
+    // console.log(type)
     return type;
 }
 
 function handlePage(req, res, pathname) {
+    // console.log("the __dirname is :" + __dirname)
     var filePath = __dirname + pathname;
     var mimeType = getMimeType(pathname);
     if (fs.existsSync(filePath)) {
@@ -47,6 +54,7 @@ function handlePage(req, res, pathname) {
         });
     } else {
         res.writeHead(500);
+        console.log("can not fount such a resource")
         res.end();
     }
 }
@@ -54,6 +62,7 @@ function handlePage(req, res, pathname) {
 function handleAjax(req, res) {
     var random_time = 1000 + getRandomNumber(2000);
     var random_num = 1 + getRandomNumber(9);
+    console.log("random_num is :" + random_num)
     setTimeout(function() {
         res.writeHead(200, {
             'Content-Type': 'text/plain'
@@ -62,6 +71,9 @@ function handleAjax(req, res) {
     }, random_time);
 }
 
+var count = 0;
+
 function getRandomNumber(limit) {
+    console.log("get a random number" + ++count + "times")
     return Math.round(Math.random() * limit);
 }

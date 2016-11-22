@@ -23,8 +23,16 @@ div[id="bottom-positioner"] {
     box-sizing: border-box;
     width: 30px;
     height: 30px;
-    border-radius: 100px;
     background-color: white;
+}
+#button:hover>#blank {
+    /*background-color: grey;*/
+    position: fixed;
+    left: 287px;
+    bottom: 67px;
+    width: 200px;
+    height: 200px;
+    transition: all 0.2s;
 }
 #button div, div[class="icon"] {
     position: fixed;
@@ -166,11 +174,11 @@ div[class="icon"] {
     background-image: url(../assets/images/mask.png);
 }
 #button:hover .history {
-    transform: translate(-80px, 10px);
+    transform: translate(-82px, 8px);
     background-image: url(../assets/images/history.png);
 }
 #button:hover .message {
-    transform: translate(-70px, 60px);
+    transform: translate(-65px, 50px);
     background-image: url(../assets/images/message.png);
 }
 
@@ -180,12 +188,14 @@ div[class="icon"] {
     padding-left: 0;
 }
 #button:hover .setting {
-    transform: translate(-25px, 83px);
+    transform: translate(-27px, 75px);
     background-image: url(../assets/images/setting.png);
 }
 #button:hover .sign {
-    transform: translate(25px, 78px);
+    transform: translate(23px, 75px);
     background-image: url(../assets/images/signin.png);
 }
 
 /*-----------------------------------------------*/
+
+/
