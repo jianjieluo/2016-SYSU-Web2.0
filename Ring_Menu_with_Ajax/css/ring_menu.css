@@ -66,7 +66,7 @@ div[class="icon"] {
     opacity: 0;
     transition: all 0.2s;
 }
-.num {
+.requested {
     padding-left: 0;
     position: relative;
     left: 24px;
@@ -80,6 +80,12 @@ div[class="icon"] {
     font-weight: bolder;
     display: block;
     text-align: center;
+    transition: all 0.2s;
+}
+#button:hover .requested {
+    font-size: 15px;
+    position: relative;
+    bottom: 40px;
     transition: all 0.2s;
 }
 
@@ -141,11 +147,6 @@ div[class="icon"] {
     opacity: 1;
     transition: all 0.2s;
     transition-delay: 0.4s;
-}
-#button:hover .num {
-    font-size: 15px;
-    position: relative;
-    bottom: 40px;
 }
 #button:hover .mask {
     transform: translate(-75px, -40px);
