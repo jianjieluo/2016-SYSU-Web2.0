@@ -1,0 +1,14 @@
+{
+  "name": "ring_menu_with_ajax",
+  "version": "1.0.0",
+  "description": "use ajax to practise the asynchronous js",
+  "main": "server.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [
+    "ring_menu"
+  ],
+  "author": "longj",
+  "license": "ISC"
+}
