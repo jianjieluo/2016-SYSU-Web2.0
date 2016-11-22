@@ -67,7 +67,7 @@ div[class="icon"] {
     opacity: 0;
     transition: all 0.2s;
 }
-.unread {
+.num {
     padding-left: 0;
     position: relative;
     left: 24px;
@@ -116,44 +116,15 @@ div[class="icon"] {
 
 /*fixed*/
 
-#button:hover div[class="info"] span {
-    padding-left: 10px;
-    vertical-align: 5px;
-}
-#button:hover div[class="info"] .user {
-    position: absolute;
-    left: 50px;
-    top: 10px;
-}
-#button:hover div[class="info"] .user span {
+#info-bar li {
+    position: relative;
+    display: block;
+    left: 10px;
+    top: 33px;
+    font-size: 35px;
+    color: #56B99D;
     font-weight: bold;
-    color: white;
-    font-size: 20px;
-}
-#button:hover div[class="info"] .comment {
-    position: absolute;
-    left: 40px;
-    top: 40px;
-}
-#button:hover div[class="info"] .comment span {
-    font-weight: bolder;
-    color: white;
-    font-size: 30px;
-}
-#button:hover div[class="info"] .posted {
-    position: absolute;
-    left: 25px;
-    top: 85px;
-}
-#button:hover div[class="info"] .like {
-    position: absolute;
-    left: 80px;
-    top: 85px;
-}
-#button:hover div[class="info"] .mine {
-    font-weight: bolder;
-    font-size: 20px;
-    color: #22DA8F;
+    font-family: Helvetica, sans-serif;
 }
 
 /*fixed*/
@@ -162,40 +133,38 @@ div[class="icon"] {
 /*----------------------------------------------------*/
 
 #button:hover .button {
-    background-color: #686868;
-    background-position: center;
-    background-repeat: no-repeat;
+    text-align: center;
+    font-size: 30px;
+    font-family: Helvetica, sans-serif;
+    font-weight: bold;
+    color: #56B99D;
+    background-color: rgba(48, 63, 159, 1);
     opacity: 1;
     transition: all 0.2s;
     transition-delay: 0.4s;
 }
+#button:hover .button>span {
+    font-size: 15px;
+    position: relative;
+    bottom: 40px;
+}
 #button:hover .mask {
     transform: translate(-75px, -40px);
-    background-image: url(../assets/images/mask.png);
 }
 #button:hover .history {
     transform: translate(-82px, 8px);
-    background-image: url(../assets/images/history.png);
 }
 #button:hover .message {
     transform: translate(-65px, 50px);
-    background-image: url(../assets/images/message.png);
 }
 
 /*fixed*/
 
-#button:hover .message .unread {
-    padding-left: 0;
-}
 #button:hover .setting {
     transform: translate(-27px, 75px);
-    background-image: url(../assets/images/setting.png);
 }
 #button:hover .sign {
     transform: translate(23px, 75px);
-    background-image: url(../assets/images/signin.png);
 }
 
 /*-----------------------------------------------*/
-
-/
