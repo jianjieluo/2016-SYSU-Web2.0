@@ -1,176 +1,157 @@
-
 /*大布局*/
+
 html body {
-  position: absolute;
-  bottom:0;
-  width: 100%;
-  height: 100%;
-  margin: 0;
-  padding: 0;
-  overflow: hidden;
+    position: absolute;
+    bottom: 0;
+    width: 100%;
+    height: 100%;
+    margin: 0;
+    padding: 0;
+    overflow: hidden;
 }
-
 #at-plus-container {
-  position: relative;
-  height: 100%;
-  width: 155px;
-  margin-left: auto;
-  margin-right: auto;
-  background-color: lightgray;
+    position: relative;
+    height: 100%;
+    width: 155px;
+    margin-left: auto;
+    margin-right: auto;
+    background-color: lightgray;
 }
-
 #bottom-positioner {
-  position: absolute;
-  bottom: 0;
-  width: 100%;
+    position: absolute;
+    bottom: 0;
+    width: 100%;
 }
-
 #button {
-  width: 50px;
-  height: 50px;
-  margin-left: auto;
-  margin-right: auto;
-  margin-bottom: 50px;
+    width: 50px;
+    height: 50px;
+    margin-left: auto;
+    margin-right: auto;
+    margin-bottom: 50px;
 }
-
 #info-bar {
-  position: absolute;
-  width: 130px;
-  height: 130px;
-  border-radius: 50%;
-  left: 10%;
-  bottom: 120px;
-  background-color: #7E7E7E;
+    position: absolute;
+    width: 130px;
+    height: 130px;
+    border-radius: 50%;
+    left: 10%;
+    bottom: 120px;
+    background-color: #7E7E7E;
 }
-
 .info li {
-  list-style: none;
-  font-size: 20px;
-  width: 100px;
-  height: 40px;
+    list-style: none;
+    font-size: 20px;
+    width: 100px;
+    height: 40px;
 }
-
 .info span {
-  padding-left: 10%;
-  font-weight: bold;
-  color: white;
-  vertical-align: top;
+    padding-left: 10%;
+    font-weight: bold;
+    color: white;
+    vertical-align: top;
 }
-
 .user {
-  position: relative;
-  left: 6px;
-  bottom: 10px;
+    position: relative;
+    left: 6px;
+    bottom: 10px;
 }
-
 .comment {
-  position: relative;
-  left: -5px;
-  bottom: 20px;
+    position: relative;
+    left: -5px;
+    bottom: 20px;
 }
 .comment span {
-  font-size: 30px;
-  font-weight: bolder;
-  vertical-align: 5px;
+    font-size: 30px;
+    font-weight: bolder;
+    vertical-align: 5px;
 }
-
 .mine {
-  position: absolute;
-  bottom: 7px;
+    position: absolute;
+    bottom: 7px;
 }
 .mine span {
-  color: #20DA91;
+    color: #20DA91;
 }
 .posted {
-  left: 20px;
+    left: 20px;
 }
 .like {
-  left: 72px;
+    left: 72px;
 }
-
 #button:hover #control-ring-container {
-  position: absolute;
-  left: -3px;
-  bottom: 0px;
-  width:100%;
-  height: 155px;
-  border-radius: 50%;
+    position: absolute;
+    left: -3px;
+    bottom: 0px;
+    width: 100%;
+    height: 155px;
+    border-radius: 50%;
 }
-
 .button {
-  position: absolute;
-  list-style: none;
-  display: block;
-  width: 35px;
-  height: 35px;
-  border-radius: 50%;
-  background-color: #686868;
-  background-repeat: no-repeat;
-  background-position: center;
+    position: absolute;
+    list-style: none;
+    display: block;
+    width: 35px;
+    height: 35px;
+    border-radius: 50%;
+    background-color: #686868;
+    background-repeat: no-repeat;
+    background-position: center;
 }
-
 #button:hover .mask {
-  left: 11px;
-  bottom: 96px;
-  background-image: url(../assets/images/nomask.png);
+    left: 11px;
+    bottom: 96px;
+    background-image: url(../assets/images/nomask.png);
 }
-
 #button:hover .history {
-  left: 0px;
-  bottom: 60px;
-  background-image: url(../assets/images/history.png);
+    left: 0px;
+    bottom: 60px;
+    background-image: url(../assets/images/history.png);
 }
-
 #button:hover .message {
-  left: 11px;
-  bottom: 22px;
-  background-image: url(../assets/images/message.png);
+    left: 11px;
+    bottom: 22px;
+    background-image: url(../assets/images/message.png);
 }
-
 #button:hover .message .unread {
-  position: relative;
-  left: 20px;
-  bottom: 5px;
-  display: block;
-  width: 20px;
-  height: 20px;
-  border-radius: 50%;
-  background-color: red;
-  font-weight: bolder;
-  color: white;
-  text-align: center;
+    position: relative;
+    left: 20px;
+    bottom: 5px;
+    display: block;
+    width: 20px;
+    height: 20px;
+    border-radius: 50%;
+    background-color: red;
+    font-weight: bolder;
+    color: white;
+    text-align: center;
 }
-
 #button:hover .setting {
-  left: 45px;
-  bottom: 0px;
-  background-image: url(../assets/images/setting.png);
+    left: 45px;
+    bottom: 0px;
+    background-image: url(../assets/images/setting.png);
 }
-
 #button:hover .sign {
-  left: 87px;
-  bottom: 7px;
-  background-image: url(../assets/images/signin.png);
+    left: 87px;
+    bottom: 7px;
+    background-image: url(../assets/images/signin.png);
 }
-
 .apb {
-  position: absolute;
-  width: 20px;
-  height: 20px;
-  left: 65px;
-  bottom: 65px;
-  border-radius: 50%;
-  background-color: #989CD3;
-  background-image: url(../assets/images/atplus_white.png);
-  background-repeat: no-repeat;
-  background-position: center;
-  background-size: 17px 13px;
-  transition: all 0.5s;
+    position: absolute;
+    width: 20px;
+    height: 20px;
+    left: 65px;
+    bottom: 65px;
+    border-radius: 50%;
+    background-color: #989CD3;
+    background-image: url(../assets/images/atplus_white.png);
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: 17px 13px;
+    transition: all 0.5s;
 }
-
 #button:hover .apb {
-  transform: scale(2.5);
-  background-image: url(../assets/images/atplus_green.png);
-  background-color: rgba(48, 63, 159, 1);
-  transition: all 0.5s;
+    transform: scale(2.5);
+    background-image: url(../assets/images/atplus_green.png);
+    background-color: rgba(48, 63, 159, 1);
+    transition: all 0.5s;
 }
