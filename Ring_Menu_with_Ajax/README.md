@@ -15,10 +15,8 @@ http://localhost:3000/S4/index.html
 1. 这次的运用上了老师之前直播打码的一些分治的思想，觉得思路的确是清晰了很多了。
 2. 主要运用jquery的ajax请求
 3. 在S2~S4里面主要运用一个数组来存储click的顺序，在S4里为了方便打乱数组使用了lodash
-4. 请不要在正在请求数据的时候将鼠标取消hover图标，可能会出现一些小bug，原因大概是初始化的问题，因为我的初始化是在hover的有无来进行改变的，如果出现了小bug，请将鼠标移开一小会，再次hover即可
+4. 请不要在正在请求数据的时候将鼠标取消hover图标，可能会出现一些小bug，原因是初始化的问题,已经初步fix，如果不幸真的出现了，请取消hover一小会后再hover即可回复正常
 5. 注释只有一点，感觉写得函数名都比较有语义，所以相信ta可以看懂
-6. 关于环形菜单，初次打开hover时可能会出现抽搐的情况，请在chrome里面打开，然后打开develop tool后，再进行测试即可，我将尽力在周三23：00前fix这个bug。Ta在批改的时候可以看一下我的github，可能会已经fixed
-
 ----
 ## github 地址
 https://github.com/longjj/Web2.0_Course_Homework

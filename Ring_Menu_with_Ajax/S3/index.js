@@ -77,17 +77,21 @@ function sendAjaxRequestNum(that) {
     var t_url = "/" + (index++);
     console.log(t_url);
     jq.load(t_url, function(responseTxt, statusTxt, xhr) {
-        console.log("responseTxt")
-        jq.text(responseTxt);
-        activeOtherButtons(id);
-        unactiveButtons(jq.parent());
+        if (!(clickedButtons.length == 0)) {
+            jq.text(responseTxt);
+            activeOtherButtons(id);
+            unactiveButtons(jq.parent());
 
-        haveGettedNum.push(id);
+            haveGettedNum.push(id);
 
-        // judge if need to active the info bar
-        if (haveGettedNum.length == 5) {
-            activeButtons($("#info-bar"));
-            $("#info-bar").trigger("click");
+            // judge if need to active the info bar
+            if (haveGettedNum.length == 5) {
+                activeButtons($("#info-bar"));
+                $("#info-bar").trigger("click");
+            }
+        } else {
+            console.log("clear the dispate num")
+            jq.text('');
         }
     });
     jq.attr("class", "requested");
