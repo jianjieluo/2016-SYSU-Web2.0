@@ -1,5 +1,7 @@
 var clickedButtons = [];
 var islock = false;
+var index = 0;
+var order = [];
 
 $(function() {
     $("#button").hover(initMenu, clearMenu);
@@ -7,14 +9,29 @@ $(function() {
 
 function initMenu() {
     // reset the button statement from the previous calculate;
+    randomClickOrder();
     activeButtons($(".button"));
     // add listener
     $('.button').click(function() {
         listenButtonClick(this);
-    })
+    });
     $('#info-bar').click(function() {
         listenInfoClick(this);
-    })
+    });
+    $(".apb").click(function() {
+        listenApbClick();
+    });
+}
+
+function randomClickOrder() {
+    order = ["#A", "#B", "#C", "#D", "#E"];
+    order = _.shuffle(order);
+    order.push("#info-bar");
+    console.log("the click order is " + order);
+}
+
+function listenApbClick() {
+    $(order[index]).trigger("click");
 }
 
 function clearMenu() {
@@ -29,6 +46,7 @@ function resetButtons() {
     $("#info-bar").off("click");
     clickedButtons = [];
     islock = false;
+    index = 0;
 }
 
 function resetInfoBar() {
@@ -70,6 +88,9 @@ function sendAjaxRequestNum(that) {
         // judge if need to active the info bar
         if (isAllRequested()) {
             activeButtons($("#info-bar"));
+        }
+        if (index < 6) {
+            $(order[++index]).trigger("click");
         }
     });
     jq.attr("class", "requested");
