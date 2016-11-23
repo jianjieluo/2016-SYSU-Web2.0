@@ -1,5 +1,7 @@
 var clickedButtons = [];
 var islock = false;
+var index = 0;
+var order = ["#A", "#B", "#C", "#D", "#E", "#info-bar"];
 
 $(function() {
     $("#button").hover(initMenu, clearMenu);
@@ -7,16 +9,21 @@ $(function() {
 
 function initMenu() {
     // reset the button statement from the previous calculate;
-    $(".button").css("background-color", "rgba(48, 63, 159, 1)");
-    $(".button").css("color", "#56B99D");
     activeButtons($(".button"));
     // add listener
     $('.button').click(function() {
         listenButtonClick(this);
-    })
+    });
     $('#info-bar').click(function() {
         listenInfoClick(this);
-    })
+    });
+    $(".apb").click(function() {
+        listenApbClick();
+    });
+}
+
+function listenApbClick() {
+    $("#A").trigger("click");
 }
 
 function clearMenu() {
@@ -31,6 +38,7 @@ function resetButtons() {
     $("#info-bar").off("click");
     clickedButtons = [];
     islock = false;
+    index = 0;
 }
 
 function resetInfoBar() {
@@ -72,6 +80,9 @@ function sendAjaxRequestNum(that) {
         // judge if need to active the info bar
         if (isAllRequested()) {
             activeButtons($("#info-bar"));
+        }
+        if (index < 6) {
+            $(order[++index]).trigger("click");
         }
     });
     jq.attr("class", "requested");
@@ -137,6 +148,3 @@ function calculateResult(that) {
     })
     $("#result").html(sum);
 }
-
-module.exports.activeButtons = activeButtons;
-module.exports.unactiveButtons = unactiveButtons;

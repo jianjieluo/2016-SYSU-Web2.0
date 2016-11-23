@@ -138,5 +138,5 @@ function calculateResult(that) {
     $("#result").html(sum);
 }
 
-module.exports.activeButtons = activeButtons;
-module.exports.unactiveButtons = unactiveButtons;
+exports.activeButtons = activeButtons;
+exports.unactiveButtons = unactiveButtons;
