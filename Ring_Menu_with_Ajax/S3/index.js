@@ -1,7 +1,5 @@
 var clickedButtons = [];
-var islock = false;
-var index = 0;
-var order = ["#A", "#B", "#C", "#D", "#E", "#info-bar"];
+var haveGettedNum = [];
 
 $(function() {
     $("#button").hover(initMenu, clearMenu);
@@ -18,12 +16,12 @@ function initMenu() {
         listenInfoClick(this);
     });
     $(".apb").click(function() {
-        listenApbClick();
+        listenApbClick(this);
     });
 }
 
-function listenApbClick() {
-    $("#A").trigger("click");
+function listenApbClick(that) {
+    $(".button").trigger("click");
 }
 
 function clearMenu() {
@@ -37,7 +35,7 @@ function resetButtons() {
     $(".button").off("click");
     $("#info-bar").off("click");
     clickedButtons = [];
-    islock = false;
+    haveGettedNum = [];
     index = 0;
 }
 
@@ -49,17 +47,13 @@ function resetInfoBar() {
 function listenButtonClick(that) {
     var id = $(that).attr('id')
     console.log("hello " + id);
-    if (islock) {
-        return;
-    } else {
-        if (!isAllRequested()) {
-            if (isRequested(id)) {
-                return;
-            } else {
-                clickedButtons.push(id);
-                unactiveOtherButtons(id);
-                sendAjaxRequestNum(that);
-            }
+    if (!isAllRequested()) {
+        if (isRequested(id)) {
+            return;
+        } else {
+            clickedButtons.push(id);
+            unactiveOtherButtons(id);
+            sendAjaxRequestNum(that);
         }
     }
 }
@@ -68,21 +62,25 @@ function isRequested(id) {
     return (clickedButtons.indexOf(id) != -1);
 }
 
+var index = 0;
+
 function sendAjaxRequestNum(that) {
     var id = that.id;
     var jq = $(that).find("span");
-    jq.load("/", function(responseTxt, statusTxt, xhr) {
+    var t_url = "/" + (index++);
+    console.log(t_url);
+    jq.load(t_url, function(responseTxt, statusTxt, xhr) {
         console.log("responseTxt")
         jq.text(responseTxt);
         activeOtherButtons(id);
         unactiveButtons(jq.parent());
 
+        haveGettedNum.push(id);
+
         // judge if need to active the info bar
-        if (isAllRequested()) {
+        if (haveGettedNum.length == 5) {
             activeButtons($("#info-bar"));
-        }
-        if (index < 6) {
-            $(order[++index]).trigger("click");
+            $("#info-bar").trigger("click");
         }
     });
     jq.attr("class", "requested");
@@ -90,7 +88,6 @@ function sendAjaxRequestNum(that) {
 }
 
 function unactiveOtherButtons(id) {
-    islock = true;
     $(".button").each(function() {
         if (this.id != id) {
             unactiveButtons($(this));
@@ -99,7 +96,6 @@ function unactiveOtherButtons(id) {
 }
 
 function activeOtherButtons(id) {
-    islock = false;
     // changeOtherButtonState(id, "rgba(48, 63, 159, 1)", "#56B99D");
     $(".button").each(function() {
         if (!isRequested(this.id)) {
