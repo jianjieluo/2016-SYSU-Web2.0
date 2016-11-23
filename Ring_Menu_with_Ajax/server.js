@@ -10,10 +10,11 @@ http.createServer(function(req, res) {
     console.log('the request Method is :' + req.method)
 
     var mimeType = getMimeType(pathname);
-    console.log(!!mimeType)
     if (!!mimeType) {
+        console.log("go to the handle page");
         handlePage(req, res, pathname);
     } else {
+        console.log("go to the handle ajax");
         handleAjax(req, res);
     }
 }).listen(port, function() {
@@ -54,7 +55,7 @@ function handlePage(req, res, pathname) {
         });
     } else {
         res.writeHead(500);
-        console.log("can not fount such a resource")
+        console.log("can not fount such a resource");
         res.end();
     }
 }

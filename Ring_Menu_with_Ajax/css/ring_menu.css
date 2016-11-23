@@ -121,7 +121,7 @@ div[class="icon"] {
 
 /*fixed*/
 
-#info-bar li {
+#result {
     position: relative;
     display: block;
     left: 10px;
@@ -148,19 +148,19 @@ div[class="icon"] {
     transition: all 0.2s;
     transition-delay: 0.4s;
 }
-#button:hover .mask {
+#button:hover #A {
     transform: translate(-75px, -40px);
 }
-#button:hover .history {
+#button:hover #B {
     transform: translate(-82px, 8px);
 }
-#button:hover .message {
+#button:hover #C {
     transform: translate(-65px, 50px);
 }
-#button:hover .setting {
+#button:hover #D {
     transform: translate(-27px, 75px);
 }
-#button:hover .sign {
+#button:hover #E {
     transform: translate(23px, 75px);
 }
 
