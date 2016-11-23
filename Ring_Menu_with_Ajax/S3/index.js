@@ -1,5 +1,6 @@
 var clickedButtons = [];
 var haveGettedNum = [];
+var isApbClicked = false;
 
 $(function() {
     $("#button").hover(initMenu, clearMenu);
@@ -21,6 +22,7 @@ function initMenu() {
 }
 
 function listenApbClick(that) {
+    isApbClicked = true;
     $(".button").trigger("click");
 }
 
@@ -37,6 +39,7 @@ function resetButtons() {
     clickedButtons = [];
     haveGettedNum = [];
     index = 0;
+    isApbClicked = false;
 }
 
 function resetInfoBar() {
@@ -47,14 +50,18 @@ function resetInfoBar() {
 function listenButtonClick(that) {
     var id = $(that).attr('id')
     console.log("hello " + id);
-    if (!isAllRequested()) {
-        if (isRequested(id)) {
-            return;
-        } else {
-            clickedButtons.push(id);
-            unactiveOtherButtons(id);
-            sendAjaxRequestNum(that);
+    if (isApbClicked) {
+        if (!isAllRequested()) {
+            if (isRequested(id)) {
+                return;
+            } else {
+                clickedButtons.push(id);
+                unactiveOtherButtons(id);
+                sendAjaxRequestNum(that);
+            }
         }
+    } else {
+        alert("Please click the apb first!");
     }
 }
 

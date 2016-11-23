@@ -2,6 +2,7 @@ var clickedButtons = [];
 var islock = false;
 var index = 0;
 var order = [];
+var isApbClicked = false;
 
 $(function() {
     $("#button").hover(initMenu, clearMenu);
@@ -31,6 +32,7 @@ function randomClickOrder() {
 }
 
 function listenApbClick() {
+    isApbClicked = true;
     $(order[index]).trigger("click");
 }
 
@@ -47,6 +49,7 @@ function resetButtons() {
     clickedButtons = [];
     islock = false;
     index = 0;
+    isApbClicked = false;
 }
 
 function resetInfoBar() {
@@ -57,18 +60,22 @@ function resetInfoBar() {
 function listenButtonClick(that) {
     var id = $(that).attr('id')
     console.log("hello " + id);
-    if (islock) {
-        return;
-    } else {
-        if (!isAllRequested()) {
-            if (isRequested(id)) {
-                return;
-            } else {
-                clickedButtons.push(id);
-                unactiveOtherButtons(id);
-                sendAjaxRequestNum(that);
+    if (isApbClicked) {
+        if (islock) {
+            return;
+        } else {
+            if (!isAllRequested()) {
+                if (isRequested(id)) {
+                    return;
+                } else {
+                    clickedButtons.push(id);
+                    unactiveOtherButtons(id);
+                    sendAjaxRequestNum(that);
+                }
             }
         }
+    } else {
+        alert("Please click the apb first!")
     }
 }
 
