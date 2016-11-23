@@ -1,22 +1,57 @@
 var clickedButtons = [];
+var islock = false;
 
 $(function() {
+    $("#button").hover(initMenu, clearMenu);
+})
+
+function initMenu() {
+    // reset the button statement from the previous calculate;
+    $(".button").css("background-color", "rgba(48, 63, 159, 1)");
+    $(".button").css("color", "#56B99D");
+    // add listener
     $('.button').click(function() {
         listenButtonClick(this);
     })
     $('#info-bar').click(function() {
         listenInfoClick(this);
     })
-})
+}
+
+function clearMenu() {
+    resetButtons();
+    resetInfoBar();
+}
+
+function resetButtons() {
+    $(".button").find("span").removeClass("requested");
+    $(".button").find("span").text("");
+    $(".button").off("click");
+    $("#info-bar").off("click");
+    clickedButtons = [];
+    islock = false;
+}
+
+function resetInfoBar() {
+    $("#info-bar").css("background-color", "#7E7E7E")
+    $("#result").text('');
+}
 
 function listenButtonClick(that) {
     var id = $(that).attr('id')
     console.log("hello " + id);
-    if (isRequested(id)) {
+    if (islock) {
         return;
     } else {
-        clickedButtons.push(id);
-        sendAjaxRequestNum(that);
+        if (!isAllRequested()) {
+            if (isRequested(id)) {
+                return;
+            } else {
+                clickedButtons.push(id);
+                unactiveOtherButtons(id);
+                sendAjaxRequestNum(that);
+            }
+        }
     }
 }
 
@@ -25,18 +60,49 @@ function isRequested(id) {
 }
 
 function sendAjaxRequestNum(that) {
+    var id = that.id;
     var jq = $(that).find("span");
     jq.load("/", function(responseTxt, statusTxt, xhr) {
         console.log("responseTxt")
-        jq.find(".requested").text(responseTxt);
+        jq.text(responseTxt);
+        activeOtherButtons(id);
+        jq.parent().css("background-color", "#676767");
+        jq.parent().css("color", "white");
+
+        // judge if need to active the info bar
+        if (isAllRequested()) {
+            $("#info-bar").css("background-color", "rgba(48, 63, 159, 1)");
+        }
     });
     jq.attr("class", "requested");
     jq.text("...");
 }
 
+function unactiveOtherButtons(id) {
+    islock = true;
+    $(".button").each(function() {
+        if (this.id != id) {
+            $(this).css("background-color", "#676767");
+            $(this).css("color", "white");
+        }
+    });
+}
+
+function activeOtherButtons(id) {
+    islock = false;
+    // changeOtherButtonState(id, "rgba(48, 63, 159, 1)", "#56B99D");
+    $(".button").each(function() {
+        if (!isRequested(this.id)) {
+            $(this).css("background-color", "rgba(48, 63, 159, 1)");
+            $(this).css("color", "#56B99D");
+        }
+    })
+}
+
 function listenInfoClick(that) {
     if (isAllRequested()) {
         calculateResult(that);
+        $("#info-bar").css("background-color", "#7E7E7E");
     } else {
         return;
     }
