@@ -25,13 +25,12 @@ div[id="bottom-positioner"] {
     height: 30px;
     background-color: white;
 }
-#button:hover>#blank {
+#button:hover #blank {
     position: fixed;
-    left: 287px;
-    bottom: 67px;
-    width: 200px;
-    height: 200px;
-    transition: all 0.2s;
+    left: 275px;
+    bottom: 60px;
+    width: 220px;
+    height: 300px;
 }
 #button div, div[class="icon"] {
     position: fixed;
