@@ -9,6 +9,7 @@ function initMenu() {
     // reset the button statement from the previous calculate;
     $(".button").css("background-color", "rgba(48, 63, 159, 1)");
     $(".button").css("color", "#56B99D");
+    activeButtons($(".button"));
     // add listener
     $('.button').click(function() {
         listenButtonClick(this);
@@ -66,12 +67,11 @@ function sendAjaxRequestNum(that) {
         console.log("responseTxt")
         jq.text(responseTxt);
         activeOtherButtons(id);
-        jq.parent().css("background-color", "#676767");
-        jq.parent().css("color", "white");
+        unactiveButtons(jq.parent());
 
         // judge if need to active the info bar
         if (isAllRequested()) {
-            $("#info-bar").css("background-color", "rgba(48, 63, 159, 1)");
+            activeButtons($("#info-bar"));
         }
     });
     jq.attr("class", "requested");
@@ -82,8 +82,7 @@ function unactiveOtherButtons(id) {
     islock = true;
     $(".button").each(function() {
         if (this.id != id) {
-            $(this).css("background-color", "#676767");
-            $(this).css("color", "white");
+            unactiveButtons($(this));
         }
     });
 }
@@ -93,10 +92,19 @@ function activeOtherButtons(id) {
     // changeOtherButtonState(id, "rgba(48, 63, 159, 1)", "#56B99D");
     $(".button").each(function() {
         if (!isRequested(this.id)) {
-            $(this).css("background-color", "rgba(48, 63, 159, 1)");
-            $(this).css("color", "#56B99D");
+            activeButtons($(this));
         }
     })
+}
+
+function activeButtons(jq) {
+    jq.css("background-color", "rgba(48, 63, 159, 1)");
+    jq.css("color", "#56B99D");
+}
+
+function unactiveButtons(jq) {
+    jq.css("background-color", "#676767");
+    jq.css("color", "white");
 }
 
 function listenInfoClick(that) {
@@ -129,3 +137,6 @@ function calculateResult(that) {
     })
     $("#result").html(sum);
 }
+
+module.exports.activeButtons = activeButtons;
+module.exports.unactiveButtons = unactiveButtons;
