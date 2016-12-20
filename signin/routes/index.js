@@ -13,10 +13,6 @@ router.get('/', function(req, res, next) {
     }
 });
 
-router.post('/', function(req, res, next) {
-    // begin to regist
-});
-
 function isQueryUserInfo(req) {
     var query = req.query;
     if (query.username) {
@@ -25,5 +21,13 @@ function isQueryUserInfo(req) {
         return false;
     }
 }
+
+router.get("/detail", function(req, res) {
+    res.render("detail");
+});
+
+router.get("/forget", function(req, res) {
+    res.render("forget");
+});
 
 module.exports = router;

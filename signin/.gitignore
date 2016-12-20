@@ -1,2 +1,4 @@
 node_modules/
 static/
+data/
+npm-debug.log
