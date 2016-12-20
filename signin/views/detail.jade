@@ -1,0 +1,27 @@
+doctype html
+html
+    head
+        meta(charset='utf-8')
+        title 用户详情
+        link(rel='stylesheet', href='stylesheets/style.css')
+        link(rel='stylesheet', href='stylesheets/detail.css')
+    body
+        img#homeimg(src='images/sw_wind.png')
+        #logout
+            span.greet Hello, #{userName}!
+            button Log out
+        h1 Welcome ! #{userName}
+        #userInfo
+            h2 Information
+            .userName
+                span.attr 用户名:
+                span.info #{userName}
+            .userId
+                span.attr 学号:
+                span.info #{userId}
+            .phoneNum
+                span.attr 电话:
+                span.info #{phoneNum}
+            .email
+                span.attr 邮箱:
+                span.info #{email}

@@ -1,0 +1,39 @@
+/*全局整体框架设置*/
+
+body {
+    background-color: #1488C6;
+}
+
+/*主要字体是白色*/
+
+div, h1, p, button, lable {
+    color: white;
+    font-family: sans-serif;
+}
+
+/*home img 设置居中*/
+
+#homeimg {
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+/*重要内容加粗*/
+
+.important {
+    font-weight: bolder;
+}
+
+/*全局处理chrome input 补全的时候出现的自动样式问题*/
+
+input:-webkit-autofill {
+    -webkit-box-shadow: 0 0 0px 1000px #1488C6 inset !important;
+    -webkit-text-fill-color: #FFFFFF;
+}
+
+/*消除focus的时候出现的恶心的方框*/
+
+input:focus {
+    outline: none;
+}

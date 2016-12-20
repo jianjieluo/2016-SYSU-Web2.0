@@ -1,0 +1,98 @@
+/*头部设置*/
+
+#homeimg {
+    margin-top: 7%;
+}
+.welcome {
+    font-size: 20px;
+    font-weight: bolder;
+    text-align: center;
+    word-spacing: 5px;
+    letter-spacing: 1px;
+}
+h1 {
+    font-size: 15px;
+    text-align: center;
+    font-weight: lighter;
+}
+
+/*表单css设置*/
+
+form {
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    margin-top: 3%;
+    box-sizing: border-box;
+    width: 50%;
+    height: 30%;
+}
+lable {
+    display: inline-block;
+    width: 18%;
+    height: 5%;
+    padding-left: 7%;
+}
+
+/*信息输入框样式*/
+
+input {
+    /*相对位置*/
+    margin: 5px;
+    height: 20%;
+    width: 50%;
+    /*边界*/
+    border: none;
+    border-bottom: 2px solid white;
+    background-color: inherit;
+    /*字体*/
+    color: white;
+    font-size: 18px;
+    transition: border-bottom 0.5s;
+}
+input:focus {
+    border-bottom: 2px solid grey;
+    transition: border-bottom 0.5s;
+}
+
+/*登录按钮样式*/
+
+#submit {
+    margin-top: 5%;
+    float: right;
+    border: none;
+    border-radius: 5px;
+    box-sizing: border-box;
+    width: 115px;
+    height: 40px;
+    background-color: white;
+    color: #1488C6;
+    font-size: 15px;
+    font-weight: bolder;
+    transition: background-color 0.5s, cursor 0.2s;
+}
+#submit:hover {
+    background-color: #DCEDF7;
+    cursor: pointer;
+    transition: backgroud-color 0.5s, cursor 0, 2s;
+}
+
+/*下面的buttons设置*/
+
+#buttons {
+    float: right;
+    color: white;
+    margin-top: 2%;
+    overflow: hidden;
+}
+button {
+    background-color: inherit;
+    border: none;
+    font-weight: lighter;
+    transition: all 0.2s;
+}
+button:hover {
+    cursor: pointer;
+    font-weight: bolder;
+    transition: all 0.2s;
+}

@@ -1,0 +1,29 @@
+doctype html
+html
+    head
+        meta(charset='utf-8')
+        title 注册
+        link(rel='stylesheet', href='stylesheets/style.css')
+        link(rel='stylesheet', href='stylesheets/regist.css')
+        script(src='https://cdnjs.cloudflare.com/ajax/libs/jquery/2.1.0/jquery.js ', charset='utf-8')
+        script(src='javascripts/registClient.js', charset='utf-8')
+    body
+        img#homeimg(src='images/sw_wind.png')
+        h1 Regist a New Account
+        p.important 请按照相应的要求填写信息
+        form#registForm(action='http://localhost:8000/', method='post')
+            lable(for='userName')  用户名:
+            input(type='text', name='userName', placeholder='用户名6~18位英文字母、数字或下划线，必须以英文字母开头')
+            lable(for='userId')  学号:
+            input(type='text', name='userId', placeholder='学号8位数字，不能以0开头')
+            lable(for='passwd')  密码:
+            input(type='password', name='passwd', placeholder='密码为6~12位数字、大小写字母、中划线、下划线')
+            lable(for='repasswd')  重复密码:
+            input(type='password', name='repasswd', placeholder='请再次输入密码')
+            lable(for='phoneNum')  电话:
+            input(type='text', name='phoneNum', placeholder='电话11位数字，不能以0开头')
+            lable(for='email')  邮箱:
+            input(type='text', name='email', placeholder='邮箱必须符合常用邮箱的规范')
+            #buttons
+                input(type='reset', name='reset', value='重置')
+                input(type='submit', name='submit', value='提交')
