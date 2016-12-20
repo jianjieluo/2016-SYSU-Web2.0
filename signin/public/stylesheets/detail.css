@@ -20,7 +20,7 @@
 
 /*退出按钮设置*/
 
-#logout>button {
+#logout button {
     /*边界及大小*/
     border: none;
     border-radius: 5px;
@@ -33,7 +33,7 @@
     font-style: italic;
     transition: background-color 0.5s, cursor 0.2s;
 }
-#logout>button:hover {
+#logout button:hover {
     background-color: #DCEDF7;
     cursor: pointer;
     transition: backgroud-color 0.5s, cursor 0, 2s;

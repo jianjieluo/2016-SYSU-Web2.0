@@ -3,7 +3,7 @@
   "version": "0.0.0",
   "private": true,
   "scripts": {
-    "start": "export PORT=8000 && node-dev --debug ./bin/www"
+    "start": "export PORT=8000 && DEBUG=signin:* node --debug ./bin/www"
   },
   "dependencies": {
     "body-parser": "~1.15.2",

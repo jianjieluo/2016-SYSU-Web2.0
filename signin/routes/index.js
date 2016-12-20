@@ -1,18 +1,22 @@
 var express = require('express');
 var router = express.Router();
 
-var user = {};
+var users = {};
 
 /* GET basic page. */
 router.get('/', function(req, res, next) {
     if (!isQueryUserInfo(req)) {
-        res.render('signin');
+        res.redirect('signin');
     } else {
         var q_username = req.query.username;
-        res.render('detail', {
+        res.redirect('detail', {
             userName: q_username
         });
     }
+});
+
+router.get("/signin", function(req, res) {
+    res.render("signin");
 });
 
 router.get("/regist", function(req, res) {
@@ -20,7 +24,7 @@ router.get("/regist", function(req, res) {
 });
 
 router.get("/detail", function(req, res) {
-    res.render("detail", user);
+    res.render("detail", req.session.user);
 });
 
 router.get("/forget", function(req, res) {
@@ -30,24 +34,23 @@ router.get("/forget", function(req, res) {
 // 注册
 router.post('/regist', function(req, res, next) {
     // begin to regist
-    user = req.body;
-    // console.log(user);
+    var user = req.body;
     var formatFlag = userFormatJudger(user);
-    console.log("format judge result: " + formatFlag);
     if (userFormatJudger(user)) {
+        req.session.user = users[user.userName] = user;
         res.redirect("/detail");
     }
+});
+
+router.all('*', function(req, res, next) {
+    req.session.user ? next() : res.redirect('/signin');
 });
 
 module.exports = router;
 
 function isQueryUserInfo(req) {
     var query = req.query;
-    if (query.username) {
-        return true;
-    } else {
-        return false;
-    }
+    return query.username;
 }
 
 function userFormatJudger(user) {
