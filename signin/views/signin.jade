@@ -9,13 +9,14 @@ html
         script(src='javascripts/signinClient.js', charset='utf-8')
     body
         img#homeimg(src='images/sw_wind.png')
-        p.welcome Welcome to SW Blog 
+        p.welcome Welcome to SW Blog
         h1
             | Log in with your 
             span.important
                 | SW Name
                 span
-        form(action='http://localhost:8000/', method='post')
+        p #{error}
+        form(action='http://localhost:8000/signin', method='post')
             lable(for='username')
             input#username(type='text', name='username', placeholder='Username')
             br

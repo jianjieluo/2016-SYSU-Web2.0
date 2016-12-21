@@ -11,6 +11,7 @@ html
         img#homeimg(src='images/sw_wind.png')
         h1 Regist a New Account
         p.important 请按照相应的要求填写信息
+        p #{error}
         form#registForm(action='http://localhost:8000/regist', method='post')
             lable(for='userName')  用户名:
             input(type='text', name='userName', placeholder='用户名6~18位英文字母、数字或下划线，必须以英文字母开头')
