@@ -1,17 +1,48 @@
+var bcrypt = require('bcrypt-as-promised');
 var debug = require('debug')('signin:dataHelper');
-var MongoClient = require('mongodb').MongoClient
-var dburl = 'mongodb://localhost:27017/signin';
 
-MongoClient.connect(dburl, function(err, db) {
-    console.log("Connected successfully to server");
-    debug("user db connect as :", db.collection('users'));
-    db.close();
-});
 
-dataHelper = {
-    findUser: function(username, passwd) {
+module.exports = function(db) {
+    var users = db.collection('users');
+    dataHelper = {
+        findUser: function(username, passwd) {
+            return users.findOne({
+                username: username
+            }).then(function(user) {
+                return user ? bcrypt.compare(passwd, user.passwd).then(function() {
+                    return user;
+                }) : Promise.reject("user doesn't exitst");
+            });
+        },
 
+        createUser: function(user) {
+            var iteration = 15;
+            return bcrypt.hash(user.passwd, iteration).then(function(hash) {
+                user.passwd = hash;
+                return users.insert(user);
+            });
+        },
+
+        checkConflict: function(user) {
+            return new Promise(function(resolve, reject) {
+                return users.findOne(getQueryForUniqueInAttributes(user)).then(function(existedUser) {
+                    debug("existed user: ", existedUser);
+                    return existedUser ? Promise.reject("user isn't unique") : Promise.resolve(user);
+                });
+            });
+        }
+    }
+    return dataHelper;
+}
+
+function getQueryForUniqueInAttributes(user) {
+    return {
+        $or: _(user).omit('passwd').paris().map(pairToObject).value();
     }
 }
 
-module.exports = dataHelper;
+function pairToObject(pair) {
+    obj = {};
+    obj[pair[0]] = pair[1];
+    return obj;
+}
