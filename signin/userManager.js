@@ -2,21 +2,26 @@ var dataHelper = require("./dataHelper");
 
 var userManager = {
     findUser: function(username, passwd) {
-        return dbHelper.findUser(username, passwd);
+        return dataHelper.findUser(username, passwd);
+        // 保证dataHelper.findUser()返回的是一个promise就好
     },
 
     registUser: function(user) {
-        if (!this.userFormatJudger(user)) return "Infomation Format failed";
-        else return this.createUser(user);
+        if (!this.userFormatJudger(user)) {
+            return Promise.reject("Infomation Format failed");
+        } else {
+            // 也要保证createUser()这个函数返回的是promise才行
+            return this.createUser(user);
+        }
     },
 
     createUser: function(user) {
-        var conflict_error = dataHelper.checkConflict(user);
-        if (!conflict_error) {
-            return "success";
-        } else {
-            return "Conflict: " + conflict_error;
-        }
+        dataHelper.checkConflict(user).then(function() {
+            // 同样要保证dataHelper.createUser() 返回的是一个promise
+            return dataHelper.createUser(user);
+        }, function(err) {
+            return Promise.reject(err);
+        })
     },
 
     userFormatJudger: function(user) {

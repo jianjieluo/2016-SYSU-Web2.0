@@ -7,9 +7,8 @@ var bodyParser = require('body-parser');
 var session = require('express-session');
 var FileStore = require('session-file-store')(session);
 
-var index = require("./routes/index");
-
 var app = express();
+var index = require("./routes/index");
 
 // view engine setup
 app.set('views', path.join(__dirname, 'views'));
@@ -51,6 +50,5 @@ app.use(function(err, req, res, next) {
     res.status(err.status || 500);
     res.render('error');
 });
-
 
 module.exports = app;

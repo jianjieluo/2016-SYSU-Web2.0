@@ -1,27 +1,30 @@
 var express = require('express');
 var router = express.Router();
 var userManger = require("../userManager");
+var debug = require('debug')('signin:index');
 
 /* GET basic page. */
-
 router.get("/signin", function(req, res) {
-    var error = req.query.error;
-    if (!error) {
+    var errorMessage = req.query.errorMessage;
+    if (!errorMessage) {
         res.render("signin");
     } else {
-        res.render("signin", error);
+        res.render("signin", {
+            error: errorMessage
+        });
     }
 });
 
 // log in logic
 router.post("./signin", function(req, res) {
     var user = req.body;
-    if (userManager.findUser(user.userName, user.passwd)) {
-        req.session.user = user;
-        res.redirect("/detail");
-    } else {
-        res.redirect("/signin?error=No such an account of incorrect password!");
-    }
+    userManager.findUser(user.userName, user.passwd)
+        .then(function(user) {
+            req.session.user = user;
+            res.redirect("/detail");
+        }, function() {
+            res.redirect("/signin?errorMessage=No such an account of incorrect password!");
+        });
 })
 
 // 注册
@@ -38,13 +41,12 @@ router.get("/regist", function(req, res) {
 
 router.post('/regist', function(req, res) {
     var user = req.body;
-    var errorMessage = userManager.registUser(user);
-    if (errorMessage == "success") {
+    userManager.registUser(user).then(function(user) {
         req.session.user = user;
         res.redirect("/detail");
-    } else {
-        res.redirect("/regist?errorMessage=" + errorMessage);
-    }
+    }).catch(function(err) {
+        res.redirect("/regist?errorMessage=" + err);
+    })
 });
 
 router.get("/signout", function(req, res) {
