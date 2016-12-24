@@ -7,15 +7,19 @@ module.exports = function(db) {
     var userManager = require("../userManager")(db);
     /* GET basic page. */
     router.get("/", function(req, res) {
-        var queryname = req.body.username;
+        var queryname = req.query.username;
         if (!queryname) {
+            if (req.session.user) {
+                res.redirect("/detail");
+            } else {
+                res.redirect('/signin');
+            }
+        } else {
             if (queryname == req.session.user.userName) {
                 res.redirect("/detail");
             } else {
                 res.redirect("/detail?errorMessage=" + "只能够访问自己的数据");
             }
-        } else {
-            res.redirect('/signin');
         }
     });
 
@@ -56,10 +60,13 @@ module.exports = function(db) {
 
     router.post('/regist', function(req, res) {
         var user = req.body;
-        userManager.registUser(user).then(function() {
+        userManager.registUser(user).then(function(message) {
+            // 为什么这里会pass通过了？。。
+            console.log(message);
             req.session.user = user;
             res.redirect("/detail");
         }).catch(function(err) {
+            debug("createUser failed reason :", err);
             res.redirect("/regist?errorMessage=" + err);
         })
     });
@@ -74,6 +81,7 @@ module.exports = function(db) {
     });
 
     router.all('*', function(req, res, next) {
+        // req.session.user ? res.redirect('/detail') : res.redirect('/signin');
         req.session.user ? next() : res.redirect('/signin');
     });
 

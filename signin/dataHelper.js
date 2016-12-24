@@ -28,26 +28,29 @@ module.exports = function(db) {
         },
 
         checkConflict: function(user) {
-            // users.findOne({
-            //     userName: user.userName
-            // })
-            return Promise.resolve("pass user checkConflict");
+            var queryCondition = {
+                $or: [{
+                    userName: user.userName
+                }, {
+                    userId: user.userId
+                }, {
+                    phoneNum: user.phoneNum
+                }, {
+                    email: user.email
+                }]
+            };
+            return users.findOne(queryCondition).then(function(user) {
+                debug("检查信息重复的信息输出：", user);
+                if (user != null) {
+                    return Promise.reject("填写的基本信息和数据库中的原有的信息有冲突")
+                } else {
+                    return Promise.resolve("pass user checkConflict");
+                }
+            });
         }
     }
     return dataHelper;
 }
-
-// function getQueryForUniqueInAttributes(user) {
-//     return {
-//         $or: _(user).omit('passwd').paris().map(pairToObject).value()
-//     };
-// }
-//
-// function pairToObject(pair) {
-//     obj = {};
-//     obj[pair[0]] = pair[1];
-//     return obj;
-// }
 
 function md5(text) {
     return crypto.createHash('md5').update(text).digest('hex');

@@ -69,7 +69,7 @@ function userNameJudger(input) {
     if (data.length < 6 || data.length > 18) {
         return false;
     }
-    var regex = /^[a-z]{1}[0-9_a-z]{2,11}$/
+    var regex = /^[a-zA-Z]{1}[0-9_a-zA-Z]{2,11}$/
     if (!regex.test(data)) {
         return false;
     }

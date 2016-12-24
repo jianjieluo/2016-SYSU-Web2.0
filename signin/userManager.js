@@ -24,65 +24,66 @@ module.exports = function(db) {
         return dataHelper.checkConflict(user).then(function() {
             // 同样要保证dataHelper.createUser() 返回的是一个promise
             return dataHelper.createUser(user);
-        }, function(err) {
-             console.log(err);
-            return Promise.reject(err);
+        }).catch(function(message) {
+            debug("createUser failed reason :", message);
+            return Promise.reject(message);
         });
     }
-}
 
-function userFormatJudger(user) {
-    return userNameJudger(user.userName) && userIdJudger(user.userId) &&
-        passwdJudger(user.passwd) && repasswdJudger(user.passwd, user.repasswd) &&
-        phoneNumJudger(user.phoneNum) && emailJudger(user.email);
-}
 
-function userNameJudger(data) {
-    if (data.length < 6 || data.length > 18) {
-        return false;
+    function userFormatJudger(user) {
+        return userNameJudger(user.userName) && userIdJudger(user.userId) &&
+            passwdJudger(user.passwd) && repasswdJudger(user.passwd, user.repasswd) &&
+            phoneNumJudger(user.phoneNum) && emailJudger(user.email);
     }
-    var regex = /^[a-z]{1}[0-9_a-z]{2,11}$/;
-    if (!regex.test(data)) {
-        return false;
-    }
-    return true;
-}
 
-function userIdJudger(data) {
-    var regex = /[1-9]\d{7}/;
-    if (!regex.test(data)) {
-        return false;
+    function userNameJudger(data) {
+        if (data.length < 6 || data.length > 18) {
+            return false;
+        }
+        var regex = /^[a-zA-Z]{1}[0-9_a-zA-Z]{2,11}$/;
+        if (!regex.test(data)) {
+            return false;
+        }
+        return true;
     }
-    return true;
-}
 
-function passwdJudger(data) {
-    if (data.length > 12) {
-        return false;
+    function userIdJudger(data) {
+        var regex = /[1-9]\d{7}/;
+        if (!regex.test(data)) {
+            return false;
+        }
+        return true;
     }
-    var regex = /[0-9_a-zA-Z\-]{6,}/;
-    if (!regex.test(data)) {
-        return false;
-    }
-    return true;
-}
 
-function repasswdJudger(passwd, data) {
-    return passwd === data;
-}
-
-function phoneNumJudger(data) {
-    var regex = /[1-9]\d{10}/;
-    if (!regex.test(data)) {
-        return false
+    function passwdJudger(data) {
+        if (data.length > 12) {
+            return false;
+        }
+        var regex = /[0-9_a-zA-Z\-]{6,}/;
+        if (!regex.test(data)) {
+            return false;
+        }
+        return true;
     }
-    return true
-}
 
-function emailJudger(data) {
-    var regex = /^([\w-_]+(?:\.[\w-_]+)*)@((?:[a-z0-9]+(?:-[a-zA-Z0-9]+)*)+\.[a-z]{2,6})$/;
-    if (!regex.test(data)) {
-        return false
+    function repasswdJudger(passwd, data) {
+        return passwd === data;
     }
-    return true
+
+    function phoneNumJudger(data) {
+        var regex = /[1-9]\d{10}/;
+        if (!regex.test(data)) {
+            return false
+        }
+        return true
+    }
+
+    function emailJudger(data) {
+        var regex = /^([\w-_]+(?:\.[\w-_]+)*)@((?:[a-z0-9]+(?:-[a-zA-Z0-9]+)*)+\.[a-z]{2,6})$/;
+        if (!regex.test(data)) {
+            return false
+        }
+        return true
+    }
 }
