@@ -95,4 +95,6 @@ mongoClient.connect(mongoUrl).catch(function(err) {
             'port ' + addr.port;
         debug('Listening on ' + bind);
     }
+}).catch(err => {
+    console.log(err);
 });

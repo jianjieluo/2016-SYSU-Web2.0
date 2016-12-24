@@ -6,7 +6,6 @@
     "start": "export PORT=8000 && DEBUG=signin:* node --debug ./bin/www"
   },
   "dependencies": {
-    "bcrypt-as-promised": "^1.1.0",
     "body-parser": "~1.15.2",
     "cookie-parser": "~1.4.3",
     "debug": "~2.2.0",

@@ -16,7 +16,6 @@ module.exports = function(db) {
             });
         }
     });
-    ``
     // log in logic
     router.post("./signin", function(req, res) {
         var user = req.body;
