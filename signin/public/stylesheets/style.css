@@ -37,3 +37,12 @@ input:-webkit-autofill {
 input:focus {
     outline: none;
 }
+
+/*错误信息的样式*/
+
+.error {
+    text-align: center;
+    font-size: 15px;
+    color: red;
+    font-weight: bold;
+}

@@ -7,7 +7,16 @@ module.exports = function(db) {
     var userManager = require("../userManager")(db);
     /* GET basic page. */
     router.get("/", function(req, res) {
-        res.redirect('/signin');
+        var queryname = req.body.username;
+        if (!queryname) {
+            if (queryname == req.session.user.userName) {
+                res.redirect("/detail");
+            } else {
+                res.redirect("/detail?errorMessage=" + "只能够访问自己的数据");
+            }
+        } else {
+            res.redirect('/signin');
+        }
     });
 
     router.get("/signin", function(req, res) {
@@ -24,13 +33,14 @@ module.exports = function(db) {
     router.post("/signin", function(req, res) {
         var user = req.body;
         userManager.findUser(user.userName, user.passwd)
-            .then(function(user) {
-                req.session.user = user;
+            .then(function(login_user) {
+                req.session.user = login_user;
                 res.redirect("/detail");
-            }, function() {
-                res.redirect("/signin?errorMessage=No such an account of incorrect password!");
+            }, function(message) {
+                debug("log in reject :", message)
+                res.redirect("/signin?errorMessage=" + message);
             });
-    })
+    });
 
     // 注册
     router.get("/regist", function(req, res) {
@@ -46,7 +56,7 @@ module.exports = function(db) {
 
     router.post('/regist', function(req, res) {
         var user = req.body;
-        userManager.registUser(user).then(function(user) {
+        userManager.registUser(user).then(function() {
             req.session.user = user;
             res.redirect("/detail");
         }).catch(function(err) {
@@ -59,16 +69,20 @@ module.exports = function(db) {
         res.redirect("/signin");
     });
 
-    router.get("/detail", function(req, res) {
-        res.render("detail", req.session.user);
-    });
-
     router.get("/forget", function(req, res) {
         res.render("forget");
     });
 
     router.all('*', function(req, res, next) {
         req.session.user ? next() : res.redirect('/signin');
+    });
+
+    router.get("/detail", function(req, res) {
+        var errorMessage = req.query.errorMessage;
+        res.render("detail", {
+            user: req.session.user,
+            error: errorMessage
+        });
     });
     return router;
 }

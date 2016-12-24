@@ -15,7 +15,7 @@ html
             span.important
                 | SW Name
                 span
-        p #{error}
+        p.error #{error}
         form(action='http://localhost:8000/signin', method='post')
             lable(for='username')
             input#username(type='text', name='userName', placeholder='Username')

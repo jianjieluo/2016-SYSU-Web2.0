@@ -10,15 +10,15 @@ module.exports = function(db) {
             return users.findOne({
                 userName: username
             }).then(function(user) {
-                if (md5(user.passwd) == user.passwd) {
-                    return Promise.resolve("Log in successfully").then(function() {
-                        debug("Log in successfully");
-                    });
+                if (user != null) {
+                    debug("passwd ", md5(passwd), "user.passwd, ", user.passwd);
+                    return md5(passwd) == user.passwd ? Promise.resolve(user) :
+                        Promise.reject("错误的密码");
+                    // 要知道这里面写的信息会在最上层传给拒绝和解决函数的第一个参数的！
+                    // 所以想要传什么回去，就把他扔进入Promis.resolve() 里面就好了！！！
                 } else {
-                    return Promise.reject("No such a user");
+                    return Promise.reject("没有此用户名");
                 }
-            }).catch(function(err) {
-                debug("find one operation err message :", err);
             });
         },
 
@@ -28,6 +28,9 @@ module.exports = function(db) {
         },
 
         checkConflict: function(user) {
+            // users.findOne({
+            //     userName: user.userName
+            // })
             return Promise.resolve("pass user checkConflict");
         }
     }

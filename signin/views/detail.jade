@@ -8,21 +8,22 @@ html
     body
         img#homeimg(src='images/sw_wind.png')
         #logout
-            span.greet Hello, #{userName}!
+            span.greet Hello, #{user.userName}!
             a(href='/signout')
                 button Log out
-        h1 Welcome ! #{userName}
+        h1 Welcome ! #{user.userName}
+        p.error #{error}
         #userInfo
             h2 Information
             .userName
                 span.attr 用户名:
-                span.info #{userName}
+                span.info #{user.userName}
             .userId
                 span.attr 学号:
-                span.info #{userId}
+                span.info #{user.userId}
             .phoneNum
                 span.attr 电话:
-                span.info #{phoneNum}
+                span.info #{user.phoneNum}
             .email
                 span.attr 邮箱:
-                span.info #{email}
+                span.info #{user.email}
