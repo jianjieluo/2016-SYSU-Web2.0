@@ -11,10 +11,7 @@ html
         img#homeimg(src='images/sw_wind.png')
         p.welcome Welcome to SW Blog
         h1
-            | Log in with your
-            span.important
-                | SW Name
-                span
+            | Log in with your SW Name
         p.error #{error}
         form(action='http://localhost:8000/signin', method='post')
             lable(for='username')
