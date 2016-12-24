@@ -4,13 +4,12 @@ var debug = require('debug')('signin:dataHelper');
 
 module.exports = function(db) {
     var users = db.collection('users');
-    debug("users collection: ", users);
+    // debug("users collection: ", users);
     dataHelper = {
         findUser: function(username, passwd) {
             return users.findOne({
-                username: username
+                userName: username
             }).then(function(user) {
-                // return user ? Promise.resolve() : Promise.reject("user doesn't exitst");
                 if (md5(user.passwd) == user.passwd) {
                     return Promise.resolve("Log in successfully").then(function() {
                         debug("Log in successfully");

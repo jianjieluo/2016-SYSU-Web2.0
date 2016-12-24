@@ -11,14 +11,14 @@ html
         img#homeimg(src='images/sw_wind.png')
         p.welcome Welcome to SW Blog
         h1
-            | Log in with your 
+            | Log in with your
             span.important
                 | SW Name
                 span
         p #{error}
         form(action='http://localhost:8000/signin', method='post')
             lable(for='username')
-            input#username(type='text', name='username', placeholder='Username')
+            input#username(type='text', name='userName', placeholder='Username')
             br
             lable(for='passwd')
             input#passwd(type='password', name='passwd', placeholder='Password')

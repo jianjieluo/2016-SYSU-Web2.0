@@ -6,6 +6,10 @@ module.exports = function(db) {
     // debug("user db connect as :", db.collection('users'));
     var userManager = require("../userManager")(db);
     /* GET basic page. */
+    router.get("/", function(req, res) {
+        res.redirect('/signin');
+    });
+
     router.get("/signin", function(req, res) {
         var errorMessage = req.query.errorMessage;
         if (!errorMessage) {
@@ -17,7 +21,7 @@ module.exports = function(db) {
         }
     });
     // log in logic
-    router.post("./signin", function(req, res) {
+    router.post("/signin", function(req, res) {
         var user = req.body;
         userManager.findUser(user.userName, user.passwd)
             .then(function(user) {
